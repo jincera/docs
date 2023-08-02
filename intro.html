@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 1 Introducción | Redes de Computadoras</title>
+  <meta name="description" content="Notas del curso Redes de Computadoras en HTML." />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 1 Introducción | Redes de Computadoras" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Notas del curso Redes de Computadoras en HTML." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 1 Introducción | Redes de Computadoras" />
+  
+  <meta name="twitter:description" content="Notas del curso Redes de Computadoras en HTML." />
+  
+
+<meta name="author" content="José Incera" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="redes-locales.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Redes de Computadoras. Notas de Curso</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#resumen"><i class="fa fa-check"></i>Resumen</a></li>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#requisitos"><i class="fa fa-check"></i><b>1.1</b> Conceptos básicos</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#sistemas-de-comunicaciones"><i class="fa fa-check"></i><b>1.1.1</b> Sistemas de comunicaciones</a></li>
+<li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#redes-de-telecomunicaciones"><i class="fa fa-check"></i><b>1.1.2</b> Redes de telecomunicaciones</a></li>
+<li class="chapter" data-level="1.1.3" data-path="intro.html"><a href="intro.html#señal"><i class="fa fa-check"></i><b>1.1.3</b> Señal</a></li>
+<li class="chapter" data-level="1.1.4" data-path="intro.html"><a href="intro.html#conversión-analógica-a-digital-ad"><i class="fa fa-check"></i><b>1.1.4</b> Conversión analógica a digital (A/D)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#conmutación"><i class="fa fa-check"></i><b>1.2</b> Conmutación</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#conmutación-de-mensajes"><i class="fa fa-check"></i><b>1.2.1</b> Conmutación de mensajes</a></li>
+<li class="chapter" data-level="1.2.2" data-path="intro.html"><a href="intro.html#conmutación-de-circuitos"><i class="fa fa-check"></i><b>1.2.2</b> Conmutación de circuitos</a></li>
+<li class="chapter" data-level="1.2.3" data-path="intro.html"><a href="intro.html#conmutación-de-paquetes"><i class="fa fa-check"></i><b>1.2.3</b> Conmutación de paquetes</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#multiplexaje"><i class="fa fa-check"></i><b>1.3</b> Multiplexaje</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#multiplexaje-en-el-tiempo"><i class="fa fa-check"></i><b>1.3.1</b> Multiplexaje en el tiempo</a></li>
+<li class="chapter" data-level="1.3.2" data-path="intro.html"><a href="intro.html#multiplexaje-en-frecuencia"><i class="fa fa-check"></i><b>1.3.2</b> Multiplexaje en frecuencia</a></li>
+<li class="chapter" data-level="1.3.3" data-path="intro.html"><a href="intro.html#cdm"><i class="fa fa-check"></i><b>1.3.3</b> Multiplexaje por división de código</a></li>
+<li class="chapter" data-level="1.3.4" data-path="intro.html"><a href="intro.html#multiplexaje-espacial"><i class="fa fa-check"></i><b>1.3.4</b> Multiplexaje espacial</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#arquitecturas-de-red"><i class="fa fa-check"></i><b>1.4</b> Arquitecturas de red</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#modelo-isoosi"><i class="fa fa-check"></i><b>1.4.1</b> Modelo ISO/OSI</a></li>
+<li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#modelo-tcpip"><i class="fa fa-check"></i><b>1.4.2</b> Modelo TCP/IP</a></li>
+<li class="chapter" data-level="1.4.3" data-path="intro.html"><a href="intro.html#encapsulamiento"><i class="fa fa-check"></i><b>1.4.3</b> Encapsulamiento</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#taxonomía"><i class="fa fa-check"></i><b>1.5</b> Taxonomía</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#problemas"><i class="fa fa-check"></i><b>1.6</b> Problemas</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="redes-locales.html"><a href="redes-locales.html"><i class="fa fa-check"></i><b>2</b> Redes locales</a>
+<ul>
+<li class="chapter" data-level="" data-path="redes-locales.html"><a href="redes-locales.html#resumen-1"><i class="fa fa-check"></i>Resumen</a></li>
+<li class="chapter" data-level="2.1" data-path="redes-locales.html"><a href="redes-locales.html#introducción"><i class="fa fa-check"></i><b>2.1</b> Introducción</a></li>
+<li class="chapter" data-level="2.2" data-path="redes-locales.html"><a href="redes-locales.html#ethernetieee-802.3"><i class="fa fa-check"></i><b>2.2</b> Ethernet/IEEE 802.3</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="redes-locales.html"><a href="redes-locales.html#csmacd"><i class="fa fa-check"></i><b>2.2.1</b> CSMA/CD</a></li>
+<li class="chapter" data-level="2.2.2" data-path="redes-locales.html"><a href="redes-locales.html#formato-de-la-trama"><i class="fa fa-check"></i><b>2.2.2</b> Formato de la trama</a></li>
+<li class="chapter" data-level="2.2.3" data-path="redes-locales.html"><a href="redes-locales.html#implementaciones"><i class="fa fa-check"></i><b>2.2.3</b> Implementaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="redes-locales.html"><a href="redes-locales.html#redes-locales-inalámbricas"><i class="fa fa-check"></i><b>2.3</b> Redes locales inalámbricas</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="redes-locales.html"><a href="redes-locales.html#protocolo-de-acceso"><i class="fa fa-check"></i><b>2.3.1</b> Protocolo de Acceso</a></li>
+<li class="chapter" data-level="2.3.2" data-path="redes-locales.html"><a href="redes-locales.html#implementaciones-1"><i class="fa fa-check"></i><b>2.3.2</b> Implementaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="redes-locales.html"><a href="redes-locales.html#conmutacion"><i class="fa fa-check"></i><b>2.4</b> Conmutacion</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="redes-locales.html"><a href="redes-locales.html#principio-de-operación"><i class="fa fa-check"></i><b>2.4.1</b> Principio de operación</a></li>
+<li class="chapter" data-level="2.4.2" data-path="redes-locales.html"><a href="redes-locales.html#conmutadores-transparentes---operación"><i class="fa fa-check"></i><b>2.4.2</b> Conmutadores transparentes - operación</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="redes-locales.html"><a href="redes-locales.html#protocolo-spanning-tree"><i class="fa fa-check"></i><b>2.5</b> Protocolo Spanning Tree</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="redes-locales.html"><a href="redes-locales.html#protocolo-spanning-tree-1"><i class="fa fa-check"></i><b>2.5.1</b> Protocolo Spanning Tree</a></li>
+<li class="chapter" data-level="" data-path="redes-locales.html"><a href="redes-locales.html#asignación-del-puente-raíz"><i class="fa fa-check"></i>Asignación del Puente Raíz</a></li>
+<li class="chapter" data-level="" data-path="redes-locales.html"><a href="redes-locales.html#temporizadores-y-reconfiguración-de-la-topología"><i class="fa fa-check"></i>Temporizadores y reconfiguración de la topología</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="redes-locales.html"><a href="redes-locales.html#rapid-stp"><i class="fa fa-check"></i><b>2.6</b> Rapid STP</a></li>
+<li class="chapter" data-level="2.7" data-path="redes-locales.html"><a href="redes-locales.html#agregación-de-enlaces"><i class="fa fa-check"></i><b>2.7</b> Agregación de enlaces</a></li>
+<li class="chapter" data-level="2.8" data-path="redes-locales.html"><a href="redes-locales.html#redes-locales-virtuales"><i class="fa fa-check"></i><b>2.8</b> Redes locales virtuales</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="redes-locales.html"><a href="redes-locales.html#criterios-de-membresía"><i class="fa fa-check"></i><b>2.8.1</b> Criterios de membresía</a></li>
+<li class="chapter" data-level="2.8.2" data-path="redes-locales.html"><a href="redes-locales.html#etiquetado-de-vlan"><i class="fa fa-check"></i><b>2.8.2</b> Etiquetado de VLAN</a></li>
+<li class="chapter" data-level="2.8.3" data-path="redes-locales.html"><a href="redes-locales.html#puertos-de-acceso-y-de-trunking"><i class="fa fa-check"></i><b>2.8.3</b> Puertos de acceso y de trunking</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="redes-locales.html"><a href="redes-locales.html#problemas-1"><i class="fa fa-check"></i><b>2.9</b> Problemas</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="capa-de-red.html"><a href="capa-de-red.html"><i class="fa fa-check"></i><b>3</b> Capa de Red</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="capa-de-red.html"><a href="capa-de-red.html#introducción-1"><i class="fa fa-check"></i><b>3.1</b> Introducción</a></li>
+<li class="chapter" data-level="3.2" data-path="capa-de-red.html"><a href="capa-de-red.html#protocolo-ip"><i class="fa fa-check"></i><b>3.2</b> Protocolo IP</a></li>
+<li class="chapter" data-level="3.3" data-path="capa-de-red.html"><a href="capa-de-red.html#esquema-de-direccionamiento"><i class="fa fa-check"></i><b>3.3</b> Esquema de direccionamiento</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="capa-de-red.html"><a href="capa-de-red.html#clases-de-direcciones-ip"><i class="fa fa-check"></i><b>3.3.1</b> Clases de direcciones IP</a></li>
+<li class="chapter" data-level="3.3.2" data-path="capa-de-red.html"><a href="capa-de-red.html#subredes-ip-y-enmascaramiento"><i class="fa fa-check"></i><b>3.3.2</b> Subredes IP y Enmascaramiento</a></li>
+<li class="chapter" data-level="3.3.3" data-path="capa-de-red.html"><a href="capa-de-red.html#direccionamiento"><i class="fa fa-check"></i><b>3.3.3</b> Direccionamiento</a></li>
+<li class="chapter" data-level="3.3.4" data-path="capa-de-red.html"><a href="capa-de-red.html#máscaras-de-longitud-variable"><i class="fa fa-check"></i><b>3.3.4</b> Máscaras de longitud variable</a></li>
+<li class="chapter" data-level="3.3.5" data-path="capa-de-red.html"><a href="capa-de-red.html#cidr"><i class="fa fa-check"></i><b>3.3.5</b> CIDR</a></li>
+<li class="chapter" data-level="3.3.6" data-path="capa-de-red.html"><a href="capa-de-red.html#asignación-de-direcciones-a-dispositivos"><i class="fa fa-check"></i><b>3.3.6</b> Asignación de direcciones a dispositivos</a></li>
+<li class="chapter" data-level="3.3.7" data-path="capa-de-red.html"><a href="capa-de-red.html#direcciones-privadas"><i class="fa fa-check"></i><b>3.3.7</b> Direcciones privadas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="capa-de-red.html"><a href="capa-de-red.html#protocolos-auxiliares"><i class="fa fa-check"></i><b>3.4</b> Protocolos auxiliares</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="capa-de-red.html"><a href="capa-de-red.html#icmp"><i class="fa fa-check"></i><b>3.4.1</b> ICMP</a></li>
+<li class="chapter" data-level="3.4.2" data-path="capa-de-red.html"><a href="capa-de-red.html#arp"><i class="fa fa-check"></i><b>3.4.2</b> ARP</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="capa-de-red.html"><a href="capa-de-red.html#ipv6"><i class="fa fa-check"></i><b>3.5</b> IPv6</a></li>
+<li class="chapter" data-level="3.6" data-path="capa-de-red.html"><a href="capa-de-red.html#enrutamiento"><i class="fa fa-check"></i><b>3.6</b> Enrutamiento</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="capa-de-red.html"><a href="capa-de-red.html#enrutamiento-estático"><i class="fa fa-check"></i><b>3.6.1</b> Enrutamiento estático</a></li>
+<li class="chapter" data-level="3.6.2" data-path="capa-de-red.html"><a href="capa-de-red.html#enrutamiento-dinámico--vector-de-distancias"><i class="fa fa-check"></i><b>3.6.2</b> Enrutamiento dinámico- Vector de distancias</a></li>
+<li class="chapter" data-level="3.6.3" data-path="capa-de-red.html"><a href="capa-de-red.html#enrutamiento-dinámico---estado-de-enlace"><i class="fa fa-check"></i><b>3.6.3</b> Enrutamiento dinámico - Estado de enlace</a></li>
+<li class="chapter" data-level="3.6.4" data-path="capa-de-red.html"><a href="capa-de-red.html#enrutamiento-externo"><i class="fa fa-check"></i><b>3.6.4</b> Enrutamiento externo</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Redes de Computadoras</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Capítulo 1</span> Introducción<a href="intro.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="resumen" class="section level2 unnumbered hasAnchor">
+<h2>Resumen<a href="intro.html#resumen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La convergencia entre las tecnologías de la información y las comunicaciones es cada vez mayor y las barreras entre ellas se han diluido casi por completo. Con herramientas como el correo electrónico, la mensajería instantánea, los foros de discusión y las plataformas de trabajo colaborativo, hoy en día la computadora es una innegable herramienta de comunicación.</p>
+<p>Las redes de computadoras son un tipo de sistemas de comunicaciones. Por ello, iniciamos su estudio describiendo los elementos que conforman un sistema de comunicaciones y que están ahí para ofrecer un servicio específico, en nuestro caso, el de interconexión de equipos computacionales.</p>
+<p>Más adelante se introducen los conceptos de señal como el elemento físico que se propaga a través de las redes de comunicaciones y se presentan las propiedades que pueden ser alteradas en una señal para transportar información. Como en las redes de computadoras esta información es digital, también se introducen los mecanismos para transformar una señal análoga (por ejemplo, la voz) en su formato binario.</p>
+<p>Un requerimiento fundamental para que las redes sean técnica y económicamente viables, es la capacidad de compartir los canales de comunicación (cables eléctricos, espectro electromagnético, enlaces de fibra óptica). Por ello, es muy importante asimilar los conceptos de conmutación y de multiplexaje.</p>
+<p>Una vez presentados los conceptos de sistemas de comunicaciones, entramos en el mundo de las redes de computadoras. Interconectar un conjunto de computadoras es un problema sumamente complejo que involucra desde las propiedades físicas de las señales y los canales de comunicación, hasta la representación interna de los datos que utiliza cada fabricante de computadoras, pasando por cómo establecer las trayectorias más apropiadas para enlazar las computadoras.
+Ello da lugar a arquitecturas o modelos de redes donde el problema de interconexión se divide en tareas concretas, más sencillas.</p>
+<p>La arquitectura de redes más popular en el ámbito académico, es el modelo de capas OSI (<em>Open Systems Interconnection</em>). Se trata de un modelo de siete capas en el que la capa inferior ofrece un servicio a la capa superior, hasta resolver completamente la complejidad de la interconexión. El modelo OSI también define la terminología común a las redes de computadoras, como protocolo, punto de acceso a servicio, nodo de interconexión, etcétera.</p>
+<p>Internet también sigue un modelo de capas, pero solo define formalmente tres, y se considera agnóstico a las llamadas “capas inferiores”, que son las responsables del transporte de datos.</p>
+<p>Cerramos este capítulo con una breve taxonomía de las redes de computadoras en función de su área de cobertura.</p>
+</div>
+<div id="requisitos" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Conceptos básicos<a href="intro.html#requisitos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Durante las últimas décadas los campos de la informática y las telecomunicaciones se han fusionado, generando profundos cambios en la tecnología, los productos y las compañías de esta nueva industria combinada <span class="citation">[1]</span>, llamada Tecnologías de Información y de Comunicaciones TIC. La revolución generada por esta simbiosis ha afectado significativamente el tejido económico y social del mundo. Las redes digitales se están convirtiendo en el sistema nervioso de la Sociedad de la Información. Para Castells <span class="citation">[2]</span>, <em>La Red</em> significa nuevas formas de organización que reemplazan jerarquías verticales integradas como la manera dominante de organización social.</p>
+<p>De acuerdo a la Unión Internacional de Telecomunicaciones (UIT, <em>International Telecommunications Union</em>) el desarrollo dentro del sector de las TIC, puede ilustrarse en tres fases u olas de cambios tecnológicos <span class="citation">[3]</span>:</p>
+<dl>
+<dt>
+<strong>La primera ola</strong>
+</dt>
+<dd>
+<p>Está caracterizada por profundos cambios tecnológicos que dieron lugar a la digitalización, la computarización y la aparición de las redes de conmutación de paquetes, conceptos que serán tratados más adelante.</p>
+<p>Con esta primera ola se consiguió una mejora en la utilización de los recursos y un incremento en la capacidad de las redes de comunicación. Esto posibilitó la creación de nuevos servicios y cimentó un entorno de sinergia que aceleró el desarrollo tecnológico.</p>
+<p>Al convertir todo tipo de fuente de información en un patrón binario (o digital), la digitalización posibilita la integración de diferentes servicios en la misma red, mejorando sus prestaciones a través de procesos como la compresión, la modularización y la detección y corrección anticipada de errores (FEC, <em>Forward Error Correction</em>).</p>
+<p>Con las fuentes de información digitalizadas, éstas pueden ser manipuladas automáticamente con programas informáticos. Esta computarización puede ocurrir dentro de la red misma, dotando de inteligencia a los nodos encargados de encaminar la información de un usuario a otro de la red.</p>
+Como se mostrará más adelante, esta capacidad de procesamiento en los nodos es la base de las redes de conmutación de paquetes, caracterizadas por un uso sumamente eficiente de los recursos disponibles. Esta técnica de conmutación ha sido utilizada en prácticamente todas las arquitecturas de red para transferencia de datos incluyendo, desde luego, aquellas basadas en los protocolos TCP/IP, notablemente la Internet.
+</dd>
+<dt>
+<strong>La segunda ola
+</dt>
+</strong>
+<dd>
+<p>Es representada por el crecimiento explosivo de las redes de comunicaciones, en especial la telefonía móvil, y la creciente penetración de Internet en la sociedad. Resulta natural que todas estas redes converjan y se complementen entre sí, como de hecho está ocurriendo: En la actualidad, las redes móviles son la principal tecnología de acceso a Internet, mientras que las redes llamadas de cuarta generación (basadas en LTE, <em>Long Term Evolution</em>) son redes de conmutación de paquetes en las que las comunicaciones de voz son sólo un servicio más dentro de todos los que se espera sean ofrecidos por estas redes.</p>
+<p>Todo lo anterior ha llevado a la llamada convergencia digital la cual está ocurriendo en diferentes niveles <span class="citation">[4]</span>:</p>
+<ul>
+<li>En el nivel de contenidos, por ejemplo, con la aparición de los servicios de Video en Demanda (<em>Video on Demand</em>) y la televisión sobre el protocolo de Internet (IPTV);</li>
+<li>A nivel de negocios, con esquemas de propiedad cruzada y los servicios triple-play (datos, voz y video) ofrecidos por operadores de telecomunicaciones;</li>
+<li>A nivel de red con la aparición de redes unificadas para la transmisión de señales;</li>
+<li>A nivel de dispositivos, con dispositivos de propósito múltiple</li>
+</ul>
+</dd>
+<dt>
+<strong>La tercera ola
+</dt>
+</strong>
+<dd>
+Va mucho más allá de los desarrollos tecnológicos (y del alcance de este curso), y consiste en el desarrollo de servicios, aplicaciones, contenidos y procesos de apropiación que permitan transitar de una sociedad que usa las TIC, pasando por una sociedad capaz de generar información apoyada en ellas, hacia una sociedad basada en el conocimiento.
+</dd>
+</dl>
+<p>Así, las redes de comunicaciones son vitales para las sociedades contemporáneas, y es por ello que resulta conveniente entender con claridad los fundamentos técnicos en que se sustentan.</p>
+<div id="sistemas-de-comunicaciones" class="section level3 hasAnchor" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Sistemas de comunicaciones<a href="intro.html#sistemas-de-comunicaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Etimológicamente, la palabra telecomunicación está formada por el prefijo griego <em>tele</em> que significa “a distancia” y la raíz latina <em>comunicare</em>, “hacer común”. Así, las telecomunicaciones representan el acto de hacer común, de compartir <em>algo</em> entre dos o más entidades que se encuentran físicamente separadas.</p>
+<p>Para llevar esta definición a ejemplos concretos, ese <em>algo</em> es información (o conocimiento) que puede ser expresado a través de la voz (tele-fonía), de imágenes (tele-visión) o de símbolos (tele-grafía) y que requiere de un sistema que posibilite esta comunicación a la distancia.</p>
+<p>En su forma más general, un sistema de comunicaciones está compuesto por los bloques que se ilustran en la
+figura <a href="intro.html#fig:sistcom">1.1</a>:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:sistcom"></span>
+<img src="figuras/c1/sistcom-1.png" alt="Sistema de comunicaciones básico" width="485" />
+<p class="caption">
+Figura 1.1: Sistema de comunicaciones básico
+</p>
+</div>
+<p>La fuente es la que genera la información y emite mensajes para uno o más destinatarios. La fuente de información puede generar señales analógicas o digitales (ver más adelante). La transferencia de información entre el emisor y el(los) receptor(es), se lleva a través de un canal de comunicación, como puede ser un cable de cobre, una fibra óptica o el espectro radioeléctrico. Cuando las señales viajan a través del canal, necesariamente sufren perturbaciones impredecibles producidas por la naturaleza del canal o por elementos externos al sistema (por ejemplo, atenuaciones debido a la resistividad del medio, interferencia de otras fuentes, distorsión por las propiedades del medio) y que en conjunto se conocen como fuentes de ruido.</p>
+<p>En el sistema de comunicaciones, el transmisor consiste de un conjunto de elementos (como moduladores, codificadores, amplificadores) que permiten adecuar las señales generadas por las fuentes de información a las condiciones del canal de comunicación y de protegerlas, en la medida de lo posible, de las fuentes de ruido a las que serán sometidas. Al otro extremo del canal, el receptor realiza un proceso inverso para recuperar la señal original y entregarla al destinatario.</p>
+</div>
+<div id="redes-de-telecomunicaciones" class="section level3 hasAnchor" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Redes de telecomunicaciones<a href="intro.html#redes-de-telecomunicaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Los sistemas de comunicaciones han ido evolucionando y se han convertido hoy en sistemas complejos interconectados por distintos medios para proporcionar un conjunto de servicios. Estos sistemas son las redes de telecomunicaciones y, en términos generales, deben ser capaces de:</p>
+<ul>
+<li>Proveer un camino entre usuarios y usuarios, y entre usuarios y servicios;</li>
+<li>posibilitar a cada usuario para que pueda seleccionar a sus destinatarios;</li>
+<li>proveer servicios con calidad, aún en periodos de gran actividad;</li>
+<li>proporcionar mecanismos de control y gestión.</li>
+</ul>
+<p>La posibilidad de una red de procesar y transmitir información del tipo deseado por los usuarios, es el “servicio” proporcionado por dicha red. Los usuarios pueden ser finales (suscriptores) o intermedios (otras redes). Algunos ejemplos de servicios, son los siguientes:</p>
+<ul>
+<li>Telefónico local</li>
+<li>Video transmisión</li>
+<li>Tránsito</li>
+<li>Acceso a internet</li>
+<li>Acceso a red de abonado</li>
+</ul>
+</div>
+<div id="señal" class="section level3 hasAnchor" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Señal<a href="intro.html#señal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Un sistema analógico (o análogo) utiliza una propiedad física, como el voltaje, para representar el comportamiento de otro sistema físico. Las propiedades de esta representación son explotadas para almacenar, transformar, duplicar o amplificar el fenómeno original. Las señales utilizadas en un sistema analógico son continuas, por lo que pueden tomar un número potencialmente infinito de valores.</p>
+<p>Hay muchos ejemplos de señales analógicas en la naturaleza, como el sonido, la temperatura ambiente o la intensidad de una fuente de luz (por supuesto, sin considerar los procesos que ocurren a nivel de la física cuántica). De forma similar, la altura de una rampa varía de forma continua y su valor en un punto determinado solo puede ser establecida limitando la resolución del dispositivo utilizado para efectuar la medición.</p>
+<p>Una desventaja de un sistema analógico es la acumulación de pequeñas variaciones aleatorias cada vez que se realiza una operación sobre la señal adquirida. Por ejemplo, en el caso específico de un sistema eléctrico, siempre existen perturbaciones debidas al movimiento molecular (ruido térmico).</p>
+<p>Por su parte, una señal digital solo puede tomar valores discretos y cuantificables del fenómeno físico. Por ejemplo, el número de árboles en un predio o el de los peldaños en una escalera.</p>
+<p>Una señal analógica puede ser convertida en una señal digital lo cual, como se mostrará más adelante, ofrece una gran flexibilidad para manipular la señal. A este proceso se le llama digitalización y conviene recordar que la digitalización es uno de los detonadores de la primera ola en el desarrollo de las TIC.</p>
+<p>Por comodidad vamos a trabajar con señales senoidales simples como la que aparece en la figura <a href="intro.html#fig:senoidal">1.2</a>. Como lo demuestra el Teorema de Fourier, cualquier señal periodica puede aproximarse como una suma de funciones senoidales<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+<p>Una señal senoidal pura se muestra en la figura <a href="intro.html#fig:senoidal">1.2</a> representada como <span class="math inline">\(s(t)\)</span>. Las propiedades de la señal que pueden ser manipuladas para transportar información, son su amplitud (<span class="math inline">\(A\)</span>), su frecuencia (<span class="math inline">\(\omega\)</span>) y su fase (<span class="math inline">\(\phi\)</span>). La amplitud es la magnitud máxima que puede tomar la señal. El tiempo que le toma a una señal desplegar una oscilación completa, se conoce como periodo y su inverso es la frecuencia <span class="math inline">\(\omega\)</span>, que indica el número de oscilaciones por segundo que realiza <span class="math inline">\(s(t)\)</span>. La frecuencia se mide en Hertz. La separación (medida en grados o radianes) de un punto de referencia arbitrario al inicio de un ciclo, es lo que se conoce como fase y se representa por <span class="math inline">\(\phi\)</span>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:senoidal"></span>
+<img src="figuras/c1/senoidal-1.png" alt="*Señal senoidal.*" width="70%" />
+<p class="caption">
+Figura 1.2: <em>Señal senoidal.</em>
+</p>
+</div>
+</div>
+<div id="conversión-analógica-a-digital-ad" class="section level3 hasAnchor" number="1.1.4">
+<h3><span class="header-section-number">1.1.4</span> Conversión analógica a digital (A/D)<a href="intro.html#conversión-analógica-a-digital-ad" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La representación digital de una señal analógica se construye mediante las tres etapas mostradas en la figura <a href="intro.html#fig:conversionad">1.3</a>. El proceso inicia obteniendo muestras de la magnitud de la señal a intervalos regulares (muestreo). A cada muestra obtenida se le asigna el más cercano de un conjunto finito de valores (cuantización). El valor seleccionado se codifica, utilizando típicamente una representación binaria (codificación).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:conversionad"></span>
+<img src="figuras/c1/conversionad-1.png" alt="*Proceso de conversión de una señal analógica a digital.*" width="85%" />
+<p class="caption">
+Figura 1.3: <em>Proceso de conversión de una señal analógica a digital.</em>
+</p>
+</div>
+<p>La cuantización implica una distorsión de la señal original (llamada error de cuantización) pues, en general, el valor discreto que representa la muestra no coincidirá exactamente con su magnitud en ese punto (ver figura <a href="intro.html#fig:mu-y-cuant">1.4</a>). En cambio, la señal digital es mucho más inmune a factores externos (las fuentes de ruido de la figura <a href="intro.html#fig:sistcom">1.1</a>) que alteran la magnitud de la señal.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mu-y-cuant"></span>
+<img src="figuras/c1/muestycuant-1.png" alt="*Muestreo y cuantización de una señal analógica.*" width="85%" />
+<p class="caption">
+Figura 1.4: <em>Muestreo y cuantización de una señal analógica.</em>
+</p>
+</div>
+<p>Finalmente, cada muestra cuantizada es representada por un valor binario (figura <a href="intro.html#fig:coddig">1.5</a>). El conjunto de valores utilizados para la representación digital debe elegirse con cuidado. Entre mayor sea el conjunto menor será la separación entre ellos, y por consiguiente, el error de cuantización será menor. Sin embargo, el patrón binario (es decir, el número de bits) para representar estos valores aumenta. Además, disminuye la posibilidad de eliminar el ruido aditivo generado por fuentes externas.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:coddig"></span>
+<img src="figuras/c1/codifica-1.png" alt="*Codificación de la señal cuantizada.*" width="666" />
+<p class="caption">
+Figura 1.5: <em>Codificación de la señal cuantizada.</em>
+</p>
+</div>
+<p>Por simplicidad, en el ejemplo anterior se ha elegido un código de tres bits. Con tres bits, se tienen <span class="math inline">\(2^3=8~\)</span>niveles discretos. Cada magnitud muestreada se aproxima al nivel más cercano de ellos.</p>
+<div style="color: blue;">
+<p>El proceso de digitalización anterior, en el que cada muestra es convertida al valor discreto más cercano y codificada en una serie de pulsos binarios, también se le conoce como <strong>Modulación por Codificación de Pulsos</strong> (PCM, <em>Pulse Code Modulation</em>).</p>
+</div>
+<div id="teorema-de-nyquist" class="section level4 unnumbered hasAnchor">
+<h4>Teorema de Nyquist<a href="intro.html#teorema-de-nyquist" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Para reconstruir la señal analógica a partir de sus muestras cuantizadas, se recurre a un proceso matemático de interpolación. En 1924, Henry Nyquist mostró, a través del teorema que lleva su nombre, que para obtener una reconstrucción completa, bastaba con tomar muestras al doble de la frecuencia máxima de la señal original<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. En consecuencia, es necesario conocer el rango de frecuencias de la señal (es decir, su <em>ancho de banda</em>, determinar la frecuencia más alta y muestrear al doble de este valor para que la señal digital retenga las propiedades de la original.</p>
+<div class="greybox">
+<p><strong>Caso de estudio: Digitalización de voz con calidad comercial</strong></p>
+<p>Es ilustrativo ejemplificar los conceptos de conversión A/D en el marco de las redes telefónicas digitales.</p>
+<p>La voz está formada por señales que tienen componentes de frecuencia más allá de los 12,000 Hz. Sin embargo, los componentes principales de la voz, es decir, aquellos que permiten distinguir con claridad el mensaje emitido, se encuentran en el rango de 300 Hz a 3,400 Hz.</p>
+<p>En las redes telefónicas digitales se transforma la voz en una señal eléctrica que es sensada cada 125 ms, obteniendo 8,000 muestras por segundo, es decir, un poco más del doble requerido por el teorema a de Nyquist.</p>
+<p>Cada valor se representa con un número binario de 8 bits (se tienen <span class="math inline">\(2^8=256\,\)</span> niveles discretos), por lo que la señal digital tiene una tasa de <span class="math inline">\(8b\times 8000= 64\,kb/s\)</span>.</p>
+<p>Por supuesto, si se comprimen las señales digitalizadas, se requerirá de una tasa de transferencia menor.</p>
+</div>
+<p>Si se capturan menos de dos muestras por ciclo (es decir, si se muestrea a menos del doble de la frecuencia máxima), entonces la señal que se generaría a partir de las muestras tomadas, no es la original, sino una en la que se han perdido algunas de sus propiedades. Por ejemplo, en la figura <a href="intro.html#fig:nyqalias">1.6</a>, los puntos azules se capturan a una tasa notablemente menor a <span class="math inline">\(2f_{max}\)</span>, lo que genera la señal representada por la línea azul punteada.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nyqalias"></span>
+<img src="figuras/c1/nyquistAlias-1.png" alt="*Efecto de muestreo a una tasa menor a la frecuencia de Nyquist.*" width="484" />
+<p class="caption">
+Figura 1.6: <em>Efecto de muestreo a una tasa menor a la frecuencia de Nyquist.</em>
+</p>
+</div>
+<p>Si bien la digitalización introduce una cierta complejidad en el tratamiento de la señal original, la representación digital de la información tiene enormes ventajas para poder procesarla (por ejemplo, para comprimirla, transformarla, analizarla mediante programas de cómputo), almacenarla (por ejemplo, en un archivo) y transportarla en sistemas de comunicaciones digitales. Es por ello que en la actualidad, prácticamente todos los sistemas de comunicaciones están convergiendo hacia su digitalización.</p>
+<p>El teorema de Nyquist, además de indicar el número de muestras necesario para reconstruir una señal analógica a partir de la representación digital, fija el límite máximo de la cantidad de información que puede ser transmitida a través de un canal sin ruido.</p>
+<p>Si la digitalización se realiza al doble de la frecuencia máxima de la señal original (<span class="math inline">\(H\)</span>) y si se utilizan <span class="math inline">\(V\)</span> niveles discretos, entonces:
+<span class="math display">\[
+\text{Tasa máxima de datos} = 2H \log_2 (V)\,b/s
+\]</span></p>
+<p>Claude Shannon extiende en 1948 el trabajo original de Nyquist para canales con presencia de ruido <span class="citation">[5]</span>. Si la cantidad de ruido en el canal se obtiene a partir de la relación entre la potencia de la señal a trasmitir (<span class="math inline">\(S\)</span>) y la potencia del ruido presente (<span class="math inline">\(N\)</span>), entonces la tasa ideal de un canal con ancho de banda <span class="math inline">\(H\)</span> y relación señal a ruido (SNR, <em>signal to noise ratio</em>) <span class="math inline">\(S/N\)</span> es:
+<span class="math display">\[
+\text{Tasa máxima de datos} = H  \log_2 (1 + \frac{S}{N})\,b/s
+\]</span></p>
+<p>Este resultado es muy importante porque, además de ofrecer el límite teórico de la capacidad de un canal, indica que cualquier mensaje puede ser transmitido con confiabilidad, a pesar de tener un canal con ruido, diseñando una codificación que mejore la relación señal a ruido <span class="citation">[6]</span>.</p>
+</div>
+</div>
+</div>
+<div id="conmutación" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Conmutación<a href="intro.html#conmutación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En términos generales, una red de comunicaciones busca interconectar los
+equipos terminales (los dispositivos de los usuarios) de la manera más
+eficiente posible. Resulta impensable asumir una conexión directa de
+todos los equipos terminales entre sí. Se requiere de canales de
+comunicación que puedan ser compartidos entre los flujos intercambiados
+por los equipos terminales, y de mecanismos que permitan esa
+compartición. Dos de estos mecanismos son la conmutación y el
+multiplexaje.</p>
+<p>La conmutación permite establecer una trayectoria entre los equipos
+terminales que desean comunicarse, a través de la cual se efectuará la
+transferencia de información. Utiliza dispositivos intermedios llamados
+<strong>conmutadores</strong> o <em>switches</em> que habilitan una conexión entre sus
+puertos.</p>
+<p>Un ejemplo muy sencillo de una red con un solo conmutador se muestra en
+la figura <a href="intro.html#fig:red1sw">1.7</a>.
+El dispositivo en azul representa un conmutador que tiene conectadas en
+sus seis puertos, las computadoras A a F. En la imagen de la izquierda,
+el conmutador ha establecido una trayectoria entre A y F y entre B y D.
+En otro momento, la imagen de la derecha muestra trayectorias
+establecidas entre B y C, y entre D y F.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:red1sw"></span>
+<img src="figuras/c1/red1sw-1.png" alt="Red simple formada por un conmutador y seis equipos terminales" width="70%" />
+<p class="caption">
+Figura 1.7: Red simple formada por un conmutador y seis equipos terminales
+</p>
+</div>
+<p>El conmutador mantiene una tabla para decidir cómo encaminar la
+información entre sus puertos (por ejemplo, para interconectar las
+computadoras A y F en la imagen izquierda de la
+figura <a href="intro.html#fig:red1sw">1.7</a>.
+Esta tabla puede configurarse de muchas maneras distintas, tales como a través de un mecanismo de señalización o con base en identificadores contenidos en la información; ser estática o cambiar dinámicamente; definir una ruta física o virtual. <em>Una parte sustancial del este curso consiste,
+precisamente, en conocer en detalle cómo operan distintos mecanismos de
+conmutación</em>.</p>
+<p>Históricamente y a un alto nivel, las distintas técnicas de conmutación
+suelen agruparse en tres categorías: conmutación de mensajes, de
+circuitos y de paquetes. En la actualidad, la conmutación de mensajes
+prácticamente ha desaparecido y la conmutación de paquetes va tomando
+cada vez más relevancia sobre la conmutación de circuitos.</p>
+<div id="conmutación-de-mensajes" class="section level3 hasAnchor" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Conmutación de mensajes<a href="intro.html#conmutación-de-mensajes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En la conmutación de mensajes, a la información (es decir, el mensaje)
+que se desea enviar se le agrega un encabezado con varios campos; los
+dos más importantes son el identificador (la dirección) del destinatario y del remitente. El mensaje en su totalidad es transmitido de un nodo de interconexión (un conmutador) a otro hasta llegar a su destino.</p>
+<p>En la figura <a href="intro.html#fig:conmutamsg">1.8</a>, el mensaje está representado por el
+rectángulo en color rojo y el encabezado, por el azul que lo antecede. El
+mensaje viaja del emisor al receptor a través de los conmutadores A y B.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:conmutamsg"></span>
+<img src="figuras/c1/conmutamsg-1.png" alt="Conmutación de mensajes." width="70%" />
+<p class="caption">
+Figura 1.8: Conmutación de mensajes.
+</p>
+</div>
+<p>La figura <a href="intro.html#fig:conmutamsg">1.8</a> supone que los nodos de conmutación son de
+<em>almacenamiento y reenvío</em>, es decir, el mensaje debe llegar en su
+totalidad al nodo antes de ser reenviado por el puerto de salida que
+corresponda. Esto permite, entre otras cosas, verificar la integridad
+del mensaje. Como se verá en un capítulo posterior, también existen
+nodos de conmutación que empiezan a reenviar la información tan pronto
+se ha recibido el encabezado.</p>
+<p>La conmutación de mensajes es muy ineficiente: El enlace entre dos
+dispositivos (por ejemplo, entre los nodos A y B en la
+figura <a href="intro.html#fig:conmutamsg">1.8</a>), está ocupado exclusivamente por el mensaje
+en curso. Si éste es muy grande y otros dispositivos desean enviar
+información a través del mismo enlace, tendrán que esperar mucho tiempo
+hasta que el medio se libere. Además, si por alguna razón una parte del
+mensaje se daña, se tendría que reenviar el mensaje en su totalidad,
+aunque sólo fueran unos cuantos bits los afectados.</p>
+<p>Finalmente, si los nodos son de almacenamiento y reenvío, la red en su
+conjunto está subutilizada, pues no hay información (del mensaje) que
+pueda fluir entre distintos enlaces al mismo tiempo. Para comprender
+mejor este punto, en la figura <a href="intro.html#fig:msg-paq">1.9</a> el mensaje se ha dividido en distintos fragmentos (llamados paquetes o datagramas). Puede apreciarse que distintos fragmentos viajan simultáneamente por diversos enlaces,
+reduciendo sustancialmente el tiempo de transmisión entre la fuente y el
+destino.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:msg-paq"></span>
+<img src="figuras/c1/msg-paq-1.png" alt="Fragmentación de un mensaje en paquetes" width="70%" />
+<p class="caption">
+Figura 1.9: Fragmentación de un mensaje en paquetes
+</p>
+</div>
+<p>En la imagen derecha de la figura <a href="intro.html#fig:msg-paq">1.9</a>, el mensaje se ha dividido en cinco paquetes.
+El tamaño del encabezado es artificialmente grande para enfatizar el
+hecho de que paquetes demasiado pequeños también tienen un impacto
+negativo en la eficiencia de la red: Los encabezados se deben replicar
+tantas veces como paquetes haya, gastando recursos y tiempo de
+transmisión.</p>
+</div>
+<div id="conmutación-de-circuitos" class="section level3 hasAnchor" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Conmutación de circuitos<a href="intro.html#conmutación-de-circuitos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En la conmutación de circuitos se fija una trayectoria (o circuito)
+entre los equipos terminales y se reservan los recursos necesarios (como
+capacidad en los enlaces, espacio de memoria y mapa de encaminamiento en
+los nodos de interconexión) para que la información fluya de la fuente
+al destino. Ningún otro flujo podrá interrumpir esta comunicación. Si
+otro equipo terminal requiere del mismo enlace para establecer una nueva
+trayectoria, la ruta sólo se establece si quedan recursos suficientes;
+de lo contrario, la solicitud de conexión se bloquea o se rechaza.</p>
+<p>La conmutación de circuitos tiene las tres fases que se muestran en la
+figura <a href="intro.html#fig:fases-cc">1.10</a>: Establecimiento de conexión, intercambio de
+datos y desconexión.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fases-cc"></span>
+<img src="figuras/c1/fases-cc-1.png" alt="Las tres fases de las redes de circuitos conmutados" width="40%" />
+<p class="caption">
+Figura 1.10: Las tres fases de las redes de circuitos conmutados
+</p>
+</div>
+<dl>
+<dt>Establecimiento de conexión.</dt>
+<dd>
+<p>Antes de transferir datos, la trayectoria entre fuente y destino
+debe fijarse. Esta puede establecerse de antemano (para conexiones
+de larga duración llamadas circuitos permanentes o dedicados) o
+mediante un proceso de señalización. Por ejemplo, en las redes
+telefónicas, el mecanismo de descolgar y marcar el número telefónico
+detona la señalización necesaria para encontrar una ruta hacia el
+abonado, reservar los recursos necesarios y <em>establecer el circuito</em>
+que permita que la conversación telefónica se lleve a cabo<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
+</dd>
+<dt>Intercambio de información.</dt>
+<dd>
+<p>Una vez establecida la conexión, el intercambio de información entre
+los equipos terminales puede llevarse a cabo. En las redes
+telefónicas, el circuito establecido es bidireccional; en algunas
+redes de datos debe establecerse un circuito en cada dirección.</p>
+</dd>
+<dt>Desconexión.</dt>
+<dd>
+<p>Cuando se ha terminado de transferir la información que se deseaba
+intercambiar (o cuando desaparece la necesidad de mantener un
+circuito dedicado), se activa otro proceso de señalización para
+desconectar el circuito. Este proceso tiene dos objetivos
+principales: Notificar a la contraparte que el circuito ya no estará
+disponible y liberar los recursos de la red para que otros usuarios
+puedan aprovecharlos. En el ejemplo de las redes telefónicas, al
+colgar el auricular (o su equivalente en los teléfonos inteligentes)
+se libera el circuito y los recursos que este ocupaba.</p>
+</dd>
+</dl>
+<p>En la figura <a href="intro.html#fig:fases-cc">1.10</a>, el tiempo transcurre de arriba hacia abajo.
+En el establecimiento de conexión, la señalización pasa de nodo a nodo
+buscando establecer la trayectoria y reservando los recursos necesarios
+para el intercambio de información. Cuando se alcanza el destino y éste
+está dispuesto a aceptar la conexión (por ejemplo, en la red telefónica,
+al recibir el timbrado de llamada y descolgar el auricular) la
+señalización necesaria va en sentido inverso. Cuando llega a la fuente,
+el circuito se ha establecido.</p>
+<p>Una gran desventaja de las redes de conmutación de circuitos es
+precisamente el hecho de que los recursos están reservados y dedicados
+exclusivamente a la conexión establecida, durante el tiempo de vida de
+la sesión, se utilicen o no. Refiriéndonos una vez más a la red
+telefónica, una vez que se ha establecido la conexión, el circuito
+reservado ocupa recursos de la red haya o no intercambio de palabras.</p>
+<p>La figura <a href="intro.html#fig:red-cc">1.11</a> ejemplifica una red de conmutación de circuitos en la que los equipos terminales son aparatos telefónicos. Se han establecido cuatro circuitos representados por un color distinto: verde, rojo, azul y oro. En la figura, estas conexiones han agotado los recursos disponibles al interior de la red, por lo que únicamente se pueden establecer algunas llamadas adicionales en las que la trayectoria no pase por el núcleo de la red. Por supuesto, este es un escenario irreal. Los enlaces entre nodos de conmutación (llamados troncales), tienen capacidad para establecer muchos circuitos telefónicos, no solamente uno.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:red-cc"></span>
+<img src="figuras/c1/red-cc-1.png" alt="Red de conmutación de circuitos." width="80%" />
+<p class="caption">
+Figura 1.11: Red de conmutación de circuitos.
+</p>
+</div>
+</div>
+<div id="conmutación-de-paquetes" class="section level3 hasAnchor" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> Conmutación de paquetes<a href="intro.html#conmutación-de-paquetes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La información que se desea transmitir se divide en bloques llamados paquetes<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. Como ya se ha mencionado, a cada paquete se
+le agrega un encabezado con ayuda del cual los nodos de conmutación
+podrán encaminar el paquete hacia su destino.</p>
+<p>Las arquitecturas de redes basadas en conmutación de paquetes se dividen
+en dos categorías: circuitos virtuales y datagramas. En la primera, al
+igual que en las redes de conmutación de circuitos, la ruta de la fuente
+al destino se establece antes de que pueda haber un intercambio de
+datos.</p>
+<p>Todos los paquetes de una misma conexión recorren la misma trayectoria,
+como se muestra en la figura <a href="intro.html#fig:red-cv">1.12</a>, en la que las trayectorias entre los equipos terminales (esta vez conformados por computadoras), están representadas por las líneas punteadas de color. Por su parte, los círculos de color ejemplifican los paquetes correspondientes a la información intercambiada en cada conexión. A cada paquete se le agrega un
+encabezado que permite a los nodos de conmutación identificar a qué
+trayectoria<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> pertenece y, por lo tanto, encaminarlo por el puerto adecuado.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:red-cv"></span>
+<img src="figuras/c1/red1sw-1.png" alt="Red de conmutación de paquetes - Circuitos virtuales." width="80%" />
+<p class="caption">
+Figura 1.12: Red de conmutación de paquetes - Circuitos virtuales.
+</p>
+</div>
+<p>Se les llama circuitos virtuales porque los recursos no son dedicados a
+una sola conexión, como se observa en la figura en el enlace compartido
+por los flujos verde y rojo. Esta es la principal ventaja de las redes
+de conmutación de paquetes: los enlaces, como otros recursos de red, son
+compartidos por los paquetes de distintas conexiones, lo que aumenta
+sustancialmente la eficiencia de la red.</p>
+<p>Sin embargo, ahora los paquetes <em>compiten</em> por los recursos disponibles.
+Si en un momento dado la información agregada de los paquetes que
+ingresan a un nodo excede la capacidad del enlace de salida, los
+paquetes deberán ser encolados en una memoria temporal (un <em>buffer</em>)
+esperando su turno para ser re-encaminados. A este efecto se le llama
+congestión. Si la congestión es sostenida, la memoria temporal se satura
+y los paquetes en exceso deben ser descartados.</p>
+<p>Algunas arquitecturas de red proveen mecanismos para que, en caso de
+congestión, paquetes identificados como prioritarios sean reenviados
+primero, sin tener que esperar (demasiado) en el buffer o correr el
+riesgo de ser descartados. A estos mecanismos se les llama Calidad de
+Servicio (QoS, <em>Quality of Service</em>).</p>
+<p>En la categoría de conmutación de paquetes - datagramas, no se establece
+una conexión virtual. El encabezado en cada paquete (datagrama) contiene
+el identificador del emisor y del destinatario (en vez de solamente el
+identificador de trayectoria). Con esta información, los nodos de
+conmutación deciden por qué puerto encaminar el paquete para acercarlo a
+su destino. Para ello, los nodos (más adelante los llamaremos
+enrutadores) intercambian información entre sí para darse una idea de la
+topología de la red.</p>
+<p>La figura <a href="intro.html#fig:red-cp">1.13</a> muestra una red de conmutación de datagramas. En términos generales,
+cada nodo decide, con la información que tiene en ese momento, cuál es
+la opción más apropiada para reenviar los datagramas. Por ejemplo, si un
+enlace se encuentra congestionado, podría decidir encaminar datagramas
+por rutas alternas como se observa en la figura.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:red-cp"></span>
+<img src="figuras/c1/red-cp-1.png" alt="Red de conmutación de paquetes - Datagramas." width="80%" />
+<p class="caption">
+Figura 1.13: Red de conmutación de paquetes - Datagramas.
+</p>
+</div>
+<p>Estas arquitecturas son más tolerantes a fallos y a eventos temporales
+de congestión en la red. En cambio, los paquetes pueden llegar al
+destino fuera de orden, con alta variabilidad en el retardo entre uno y
+otro, pueden perderse y, como se verá en capítulos posteriores, hasta
+pueden duplicarse. Será responsabilidad del receptor reordenarlos y
+detectar una eventual pérdida o duplicación. Por ello, al encabezado
+también suele agregársele un número de secuencia junto con otra
+información de control.</p>
+<p>En la tabla siguiente se sintetizan algunas características generales de las redes de conmutación de circuitos y de conmutación de paquetes.</p>
+<table>
+<colgroup>
+<col width="12%" />
+<col width="35%" />
+<col width="52%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="left">Conmutación de circuitos</th>
+<th align="left">Conmutación de paquetes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Características</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="left">Trayectoria con recursos dedicados para el flujo</td>
+<td align="left">Puede establecerse o no una trayectoria pero los recursos son compartidos</td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="left">Ancho de banda y retardo invariantes</td>
+<td align="left">Retraso variable en caso de congestión</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="left">Menor sobrecarga</td>
+<td align="left">Nodos de almacenamiento y reenvío</td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="left">Apropiadas para flujos a tasa constante</td>
+<td align="left">Apropiadas para flujos a tasa variable (ráfagas)</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">Paquetes admitidos aún bajo congestión (ligera)</td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">Puertos de entrada y salida pueden operar a distinta velocidad</td>
+</tr>
+<tr class="even">
+<td align="center">Limitaciones</td>
+<td align="left">Ineficiencia por recursos no aprovechados</td>
+<td align="left">Sobrecarga de encabezados; complejidad en los nodos</td>
+</tr>
+<tr class="odd">
+<td align="center">Uso típico</td>
+<td align="left">Redes telefónicas</td>
+<td align="left">Redes de computadoras</td>
+</tr>
+</tbody>
+</table>
+<p>Para cerrar esta sección se recomienda ver los siguientes videos:</p>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=rHHpwcZiEW4">Leonard Kleinrock on packet
+switching</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=tT4AaelwvV4&amp;t=53s">The story of packet
+switching</a></p></li>
+</ul>
+</div>
+</div>
+<div id="multiplexaje" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Multiplexaje<a href="intro.html#multiplexaje" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En la sección anterior se comentó brevemente sobre la importancia de
+poder compartir los canales de comunicación para poder implementar redes
+eficientes. El multiplexaje (o multiplexación) se refiere precisamente a
+la forma en la que flujos de distintas fuentes pueden intercalarse para
+compartir estos canales de comunicación. Sus orígenes se remontan al
+finales del siglo XIX en las redes telegráficas; hoy es una técnica
+sumamente utilizada en todas las redes de telecomunicaciones.</p>
+<p>El principio de base consiste en que un conjunto de flujos de distintas
+fuentes utiliza un mismo enlace (canal) de comunicación. La suma
+promedio de los flujos entrantes (<span class="math inline">\(\lambda_i\)</span>) es menor que la capacidad
+del enlace de salida (<span class="math inline">\(\mu\)</span>); de lo contrario, la red, al menos en el
+punto de multiplexaje, perdería datos de forma permanente, haciendo
+inestable al sistema.
+<span class="math display">\[\text{Utilización}=\rho =\frac{\Sigma \lambda_i}{\mu} &lt; 1\]</span></p>
+<p>Existen muchas formas de multiplexaje; en redes de computadoras, las más
+importantes son:</p>
+<ul>
+<li><p>Multiplexaje en el tiempo (TDM, <em>Time Division Multiplexing</em>)</p></li>
+<li><p>Multiplexaje en frecuencia (FDM, <em>Frequency Division Multiplexing</em>)</p></li>
+<li><p>Multiplexaje por división de código (CDM, <em>Code Division
+Multiplexing</em>)</p></li>
+<li><p>Multiplexaje en el espacio (SDM, <em>Time Division Multiplexing</em>)</p></li>
+</ul>
+<div id="multiplexaje-en-el-tiempo" class="section level3 hasAnchor" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Multiplexaje en el tiempo<a href="intro.html#multiplexaje-en-el-tiempo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En TDM, la capacidad del canal se asigna en su totalidad a los flujos de
+entrada en distintos intervalos de tiempo. La división en intervalos
+puede ser fija, como se muestra en la figura <a href="intro.html#fig:tdm">1.14</a>, donde las fuentes verde, azul y roja se alternan regularmente la transmisión en el canal de comunicación.</p>
+<p>El acceso al canal también puede ser dinámico, conforme se generen los
+flujos de información. En caso de que dos o más fuentes deseen
+transmitir simultáneamente, se debe contar con algún mecanismo de
+arbitraje para controlar el acceso (en competencia) al canal. A esta
+forma de multiplexaje se le conoce como multiplexaje estadístico.</p>
+<p>El intervalo de tiempo asignado a cada flujo está acotado para que las
+distintas fuentes no perciban un retraso considerable en su
+comunicación, derivado del acceso concurrente al canal. Este intervalo
+puedo tener una duración constante o variable.</p>
+<p>El multiplexaje TDM se utiliza principalmente para comunicaciones
+digitales. Cuando a las fuentes de información se les asigna un
+intervalo fijo con duración constante, requiere de una fuerte
+sincronización entre ellas.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:tdm"></span>
+<img src="figuras/c1/tdm-1.png" alt="Multiplexaje por división de tiempo." width="70%" />
+<p class="caption">
+Figura 1.14: Multiplexaje por división de tiempo.
+</p>
+</div>
+<p>Prácticamente todas las redes de telefonía fija son digitales y utilizan
+TDM para transportar las señales de voz en los enlaces entre centrales
+telefónicas. La arquitectura de red más popular en la actualidad para
+ello, es SONET/SDH.</p>
+</div>
+<div id="multiplexaje-en-frecuencia" class="section level3 hasAnchor" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> Multiplexaje en frecuencia<a href="intro.html#multiplexaje-en-frecuencia" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>FDM divide la capacidad del medio en canales más pequeños asignados a
+las distintas fuentes de información. Una vez asignado un canal, la
+fuente puede transmitir información durante todo el tiempo (asignado),
+aunque con capacidad (es decir, tasa de transmisión) limitada, como se
+muestra en la figura <a href="intro.html#fig:fdm">1.15</a>.</p>
+<p>La transmisión de los flujos en el canal asignado requiere de un proceso
+de <em>modulación</em> de una señal llamada portadora para hacer un corrimiento
+de la señal original hacia la frecuencia del canal correspondiente. Las
+técnicas de modulación no serán cubiertas en este curso.</p>
+<p>La asignación de fuentes a canales puede ser fija o dinámica; asimismo,
+la capacidad de cada canal puede ser constante o variar en función de
+los requerimientos de los flujos de información.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fdm"></span>
+<img src="figuras/c1/fdm-1.png" alt="Multiplexaje por división de frecuencia." width="70%" />
+<p class="caption">
+Figura 1.15: Multiplexaje por división de frecuencia.
+</p>
+</div>
+<p>Un ejemplo común –aunque no vinculado con redes de computadoras– de
+FDM, es la asignación de distintas frecuencias para las estaciones de
+radio y televisión al compartir el espectro radioeléctrico. Como se
+presentará detalladamente en un capítulo posterior, una aplicación más
+cercana a las redes de interés en este curso, es la configuración de
+redes WiFi en distintos canales para evitar que las señales se traslapen. Dentro de un canal, se utiliza el multiplexaje por división de código CDM (ver más adelante).</p>
+<p>Una variante muy importante de FDM para redes ópticas, es el
+multiplexaje por longitud de onda, WDM (<em>Wave Division Multiplexing</em>),
+utilizado para que distintas señales puedan viajar simultáneamente por
+la misma fibra óptica. Cada señal se modula en una longitud de onda
+distinta. Se considera una variante de FDM pues la longitud de onda
+(<span class="math inline">\(\lambda\)</span>) y la frecuencia (<span class="math inline">\(f\)</span>) están directamente relacionadas por la
+velocidad de la luz (<span class="math inline">\(c\)</span>): <span class="math display">\[\lambda = \frac{c}{f}\]</span></p>
+</div>
+<div id="cdm" class="section level3 hasAnchor" number="1.3.3">
+<h3><span class="header-section-number">1.3.3</span> Multiplexaje por división de código<a href="intro.html#cdm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En general, cuando varias señales con niveles de potencia similares son
+transmitidas al mismo tiempo en el mismo medio, generan tal interferencia entre sí que las señales originales quedan irreconocibles.
+En cambio, si para una señal determinada, la potencia que percibe de las
+demás es muy baja, esta interferencia puede ser considerada como ruido y
+mientras no rebase un umbral, la señal original puede recuperarse.</p>
+<p>CDM utiliza un medio con ancho de banda mucho mayor al que se requeriría
+dedicando un canal para transmitir la señal. Ésta se disemina en ese
+ancho de banda (es una técnica de dispersión de espectro, <em>spread spectrum</em>) con un código tal que sea percibido como ruido de baja potencia para otras señales que están ocupando el medio. Si todas las señales utilizan la misma técnica pero sus códigos de dispersión son ortogonales, es decir, con muy baja probabilidad de que tengan elementos comunes, entonces todas las señales pueden ser recuperadas con muy alta probabilidad.</p>
+<p>Existen dos formas de espectro disperso: Secuencia directa (DSSS,
+<em>Direct sequence spread spectrum</em>), que es la más utilizada, y salto de
+frecuencia (FHSS, <em>frequency hopping spread spectrum</em>). En la primera,
+la información original se transmite en una serie de pulsos cortos en
+secuencias llamada <em>chips</em>. El factor de dispersión ortogonal es el
+número de chips por bit o de bits por símbolo. Es de esperar que otra
+señal que se transmita simultáneamente por el mismo medio, tendrá un
+código de chip (un patrón de pulsos, chips por bit, etcétera) distinto
+para no interferir con las demás.</p>
+<p>En FHSS, las señales brincan de una frecuencia a otra en intervalos de
+tiempo cortos llamados <em>chip time</em>. Aunque en la actualidad se utiliza
+menos que DSSS, se ha elegido esta forma para ejemplificar el funcionamiento de CDM en la figura <a href="intro.html#fig:cdm-fh">1.16</a> pues es muy sencilla de comprender visualmente.
+Se puede observar claramente cómo la señal de la fuente verde, por
+ejemplo, se transmite en un canal durante un chip time y brinca a uno
+distinto para el siguiente intervalo.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:cdm-fh"></span>
+<img src="figuras/c1/cdmfh-1.png" alt="Multiplexaje por división de código, CDM - Salto de frecuencia (FHSS)." width="70%" />
+<p class="caption">
+Figura 1.16: Multiplexaje por división de código, CDM - Salto de frecuencia (FHSS).
+</p>
+</div>
+<p>El código en este caso, consiste en la duración del intervalo y en las frecuencias (los canales) que la señal utiliza en cada uno de ellos.
+Cada fuente tendrá su propio código y sólo el receptor que tenga el
+mismo código podrá recuperar la señal original. Esta característica
+ofrece una gran seguridad para las comunicaciones que requieran de alta
+privacidad. De hecho, el espectro disperso fue una técnica desarrollada
+para proteger comunicaciones militares en los años cincuenta.</p>
+<p>CDM se utiliza intensamente en la actualidad en muchas redes, como en
+los sistemas GPS, GSM para telefonía móvil, WiMAX para redes de acceso
+inalámbricas y en WiFi para el despliegue de redes locales inalámbricas.
+Conviene enfatizar que en estas últimas, todos los equipos comparten el
+mismo código de dispersión. CDM se utiliza para compartir el espectro de
+frecuencia con otros servicios, no para asegurar la privacidad de las
+distintas comunicaciones.</p>
+</div>
+<div id="multiplexaje-espacial" class="section level3 hasAnchor" number="1.3.4">
+<h3><span class="header-section-number">1.3.4</span> Multiplexaje espacial<a href="intro.html#multiplexaje-espacial" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En comunicaciones inalámbricas, dado que la potencia de una señal se
+degrada (en la atmósfera terrestre) exponencialmente con la distancia,
+una banda de frecuencias (es decir, un canal de comunicaciones
+inalámbricas) puede ser reutilizada por distintas fuentes de información
+siempre que éstas se encuentren lo suficientemente alejadas entre sí
+como para no generar interferencia.</p>
+<p>Es por ello que, por ejemplo, un mismo canal de radio o televisión puede
+tener señales distintas en diferentes zonas geográficas del país. Del
+mismo modo, el multiplexaje espacial permite la reutilización de
+frecuencias en las células de las redes móviles así como en las zonas de
+cobertura de redes WiFi.</p>
+<p>En redes cableadas, también se utiliza (quizás inapropiadamente) el
+término multiplexaje espacial para describir redes cuya topología está
+conformada por enlaces punto a punto (es decir, sólo conectan dos
+dispositivos de comunicaciones), como ocurre con enlaces de fibra óptica
+y redes locales basadas en conmutadores, las cuales serán estudiadas
+extensamente en un capítulo posterior.</p>
+</div>
+</div>
+<div id="arquitecturas-de-red" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Arquitecturas de red<a href="intro.html#arquitecturas-de-red" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Las primeras redes digitales fueron diseñadas para interconectar
+computadoras de un mismo fabricante. La proliferación de diferentes
+arquitecturas de cómputo dificultaba enormemente el que computadoras de
+distintos fabricantes pudiesen comunicarse e interactuar entre sí.</p>
+<p>Para resolver estas dificultades, se definen estándares que buscan
+asegurar la interconexión e interoperabilidad entre los dispositivos de
+distintos fabricantes. Las normas definidas por los estándares atienden
+distintos niveles de complejidad en la interconexión y conforman lo que
+se ha dado en llamar una arquitectura de red.</p>
+<p>En redes de computadoras, la arquitectura màs conocida es el modelo de
+referencia OSI (<em>Open Systems Interconnection</em>) definido por la Organización Internacional para la Estandarización, el cual se presenta más adelante. Otros órganos de estandarización importantes son:</p>
+<ul>
+<li><p>La Unión Internacional de Telecomunicaciones (ITU, <em>International
+Telecommunications Union</em>). Define recomendaciones para sistemas de
+telecomunicaciones.</p></li>
+<li><p>ANSI (<em>American National Standards</em>). Define estándares que aplican
+para los Estados Unidos, muchos de los cuales se ha vuelto
+estándares internacionales</p></li>
+<li><p>El ETSI (<em>European Telecommunications Standards Institute</em>). Está
+conformada papor fabricantes de equipo y operadores de redes y
+aunque es una organización fundada en Europa, tiene ingerencia a
+nivel global</p></li>
+<li><p>IEEE (<em>Institute of Electrical and Electronics Engineers</em>). El grupo de
+trabajo 802 del IEEE define la gran mayorìa de los estándares
+utilizados en redes locales.</p></li>
+</ul>
+<div id="modelo-isoosi" class="section level3 hasAnchor" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Modelo ISO/OSI<a href="intro.html#modelo-isoosi" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La Organización Internacional para la Estandarización (ISO,
+<em>International Standards Organization</em>) definió un modelo de referencia
+que ayudara a garantizar la interoperación de los distintos sistemas de
+cómputo interconectados a través de una red de computadoras. Este modelo
+se conoce como OSI (<em>Open Systems Interconnection</em>).</p>
+<p>El modelo ISO/OSI sigue una estrategia de "divide y vencerás"
+organizando el problema de comunicación en una estructura jerárquica de
+capas. Algunos de los principios básicos de diseño son los
+siguientes <span class="citation">[7]</span>:</p>
+<ul>
+<li><p>Cada capa debe efectuar una función bien definida</p></li>
+<li><p>La función de cada capa debe seleccionarse con la intención de
+definir protocolos normalizados internacionalmente</p></li>
+<li><p>Los límites entre las capas deben permitir una descripción pequeña
+de los servicios ofrecidos por la capa inferior y minimizar las
+interacciones entre las capas.</p></li>
+<li><p>Una nueva capa debe crearse en situaciones donde se necesita un nivel
+de abstracción diferente</p></li>
+<li><p>El nùmero de capas debe ser lo suficientmente grande para que
+funciones diferentes se encuentren en capas diferentes y, por otra
+parte, debe ser lo suficientemente pequeño para que su integración
+no sea difícil.</p></li>
+</ul>
+<p>La figura <a href="intro.html#fig:datososi">1.17</a> muestra los principales conceptos del modelo.
+Cada capa es responsable de resolver una tarea específica de
+comunicación, ofreciendo sus servicios a la capa inmediata superior a
+través de puntos de acceso al servicio (SAP, <em>Service Access Point</em>)
+bien definidos. A través de estos SAP, las capas intercambian unidades
+de información conocidas como unidades de datos de servicio (SDU,
+<em>Service Data Unit</em>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:datososi"></span>
+<img src="figuras/c1/datososi-1.png" alt="Principales conceptos en el modelo ISO/OSI." width="70%" />
+<p class="caption">
+Figura 1.17: Principales conceptos en el modelo ISO/OSI.
+</p>
+</div>
+<p>Para resolver su tarea, las capas en un determinado nivel se comunican
+con capas del mismo nivel en otros dispositivos, a través de los
+protocolos de comunicaciones intercambiando información contenida en las
+llamadas unidades de datos protocolarias (PDU, <em>Protocol Data Unit</em>).</p>
+<p>El modelo ISO/OSI está conformado por las siete capas que se describen a
+continuación (ver figura <a href="intro.html#fig:modosi">1.18</a>):</p>
+<dl>
+<dt>1, Capa física</dt>
+<dd>
+<p>Define las características de los elementos necesarios para la
+conexión así como las de los bits enviados (características
+eléctricas, ópticas, mecánicas y procedurales). Por ejemplo, define
+el formato de los conectores, el número de cables utilizados, la
+velocidad de transmisión y el formato de las señales que representan
+los bits de comunicación.</p>
+</dd>
+<dt>2, Capa de enlace de datos</dt>
+<dd>
+<p>Se encarga de dar formato y de proveer una transmisión libre de
+errores (o al menos, capaz de detectar la ocurrencia de un error)
+entre dos elementos conectados directamente. Cuando el canal de
+comunicación es compartido, como en las redes locales, esta capa
+también es responsable de definir los mecanismos de control de
+acceso al medio.</p>
+</dd>
+<dt>3, Capa de red</dt>
+<dd>
+<p>Establece los mecanismos necesarios para encaminar eficientemente la
+información entre los equipos terminales. Como se observa en la
+figura <a href="intro.html#fig:modosi">1.18</a>, la responsabilidad de encaminar paquetes de
+nodo a nodo a través de la red, involucra únicamente a las primeras
+tres capas del modelo, siendo esta última la responsable de decidir
+por qué puerto de un nodo de interconexión deberá salir un paquete
+determinado para acercarlo a su destino.</p>
+</dd>
+<dt>4, Capa de transporte</dt>
+<dd>
+<p>Es la primera capa que permite tratar las unidades de datos (TPDU,
+<em>Transport PDU</em> de extremo a extremo (es decir, entre los equipos
+terminales involucrados en la comunicación). Por ello, esta capa se
+encarga, sobre todo, de asegurar que la información llegó
+correctamente a su destino o en su caso, solicitar la retransmisión;
+de ser necesario, reordenar los datagramas para entregar datos
+validados a las capas superiores.</p>
+</dd>
+<dt>5, Capa de sesión</dt>
+<dd>
+<p>Se encarga de controlar el establecimiento y el fin de un diálogo
+entre dispositivos, permitiendo, por ejemplo, que se restablezca una
+comunicación desde un punto estable en caso de que falle la
+infraestructura de comunicaciones. No se han implementado protocolos
+que provean las funcionalidades de la capa de sesión (ni de la de
+presentación).</p>
+</dd>
+<dt>6, Capa de presentación</dt>
+<dd>
+Dado que los equipos terminales tienen arquitecturas heterogéneas
+(distintos formatos de datos, tamaño de palabra, etcétera), esta
+capa es responsable (conceptualmente) de transformar los datos
+intercambiados para para proveer una representación estándar e
+interoperable entre los equipos terminales.
+</dd>
+<dt>7, Capa de aplicación</dt>
+<dd>
+<p>Esta capa es la que ofrece los servicios de red (por ejemplo,
+conexión remota, transferencia de archivos, correo electrónico) a
+los usuarios de la misma.</p>
+</dd>
+</dl>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:modosi"></span>
+<img src="figuras/c1/modosi-1.png" alt="Arquitectura del modelo de referencia ISO/OSI." width="70%" />
+<p class="caption">
+Figura 1.18: Arquitectura del modelo de referencia ISO/OSI.
+</p>
+</div>
+</div>
+<div id="modelo-tcpip" class="section level3 hasAnchor" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> Modelo TCP/IP<a href="intro.html#modelo-tcpip" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El modelo OSI es un excelente marco de referencia para describir las
+funciones necesarias para desplegar redes de computadoras. Sin embargo,
+la implementación de sus protocolos prácticamente no tuvo acogida dada
+la lentitud de los procesos de estandarización y la complejidad de
+algunos de los protocolos propuestos.</p>
+<p>A finales de los años 70, la Agencia de Proyectos de Investigación
+Avanzada de la Defensa de Estados Unidos (DARPA) se dio a la tarea de
+desarrollar una red de conmutación de paquetes que conectara las redes
+de equipos disímiles que empezaban a ser desplegadas en sus centros de
+investigación. Así nació la Internet de nuestros días.</p>
+<p>DARPA no podía esperar a que OSI terminara de definir su modelo de
+referencia. Inspirada en los mismos principios de base, el modelo TCP/IP
+también define una arquitectura de capas conocida como la pila de
+protocolos TCP/IP. Para fines prácticos, esta arquitectura puede verse
+como un modelo de cuatro capas: Aplicación, Transporte, Red y las
+llamadas capas inferiores (ver
+figura <a href="intro.html#fig:modtcpip">1.19</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:modtcpip"></span>
+<img src="figuras/c1/modtcpip-1.png" alt="Arquitectura del modelo TCP/IP." width="70%" />
+<p class="caption">
+Figura 1.19: Arquitectura del modelo TCP/IP.
+</p>
+</div>
+<dl>
+<dt>Capa de aplicación</dt>
+<dd>
+<p>Corresponde a las capas de Aplicación, Representación y Sesión del
+modelo ISO/OSI y ofrece los servicios de red a los usuarios finales.
+Aquí se encuentran protocolos como HTTP para navegación y acceso a
+páginas Web, SMTP para correo electrónico, TELNET, SSH para acceso
+remoto, FTP para transferencia de archivos, etcétera.</p>
+</dd>
+<dt>Capa de transporte</dt>
+<dd>
+<p>Corresponde en términos generales a la capa de transporte de
+ISO/OSI. Los dos protocolos principales definidos en esta capa son
+TCP (de donde el modelo toma parte de su nombre) y UDP. TCP
+(<em>Transmission Control Protocol</em>) es responsable de garantizar la
+entrega en orden y sin errores de extremo a extremo. Es un protocolo
+orientado a conexión. UDP (<em>User Datagram Protocol</em>) es un protocolo
+sumamente sencillo que se encarga de ofrecer servicios de red sin
+garantías de entrega, a la capa de aplicación. Más adelante se
+mostrará con detalle la operación de estos dos protocolos y bajo qué condiciones conviene utilizar cada uno.</p>
+</dd>
+<dt>Capa de red</dt>
+<dd>
+<p>Corresponde a la capa de red de ISO/OSI, responsable de encaminar
+los paquetes a través de la red. El protocolo encargado de ello es
+IP (el segundo término en el nombre del modelo), en el que se define
+el formato de los N-PDU, los identificadores de los equipos
+terminales y las redes donde se encuentran (las direcciones IP),
+entre otros elementos. En esta capa también se define una serie de
+protocolos para intercambiar información sobre la topología de la
+red (protocolos de enrutamiento) así como protocolos auxiliares para
+verificar la integridad de la red.</p>
+</dd>
+<dt>Capas inferiores</dt>
+<dd>
+<p>El modelo TCP/IP no define arquitecturas ni protocolos para las
+capas de enlace de datos ni física. Siendo una arquitectura diseñada
+para la "Interconexión de Redes" (de ahí el nombre <em>Internet</em>), el
+modelo es agnóstico a las capas inferiores. Suele decirse que IP
+corre sobre todo (sobre cualquier tipo de red) y todo corre sobre IP
+(es decir, cualquier aplicación de red)</p>
+<p>Homogeneizando las comunicaciones con IP en la capa de red, se
+ocultan las características físicas y tecnológicas de las redes
+individuales y se logra la conectividad global entre ellas. Esta
+característica permite, además, incorporar cualquier nueva
+tecnología de conexión.</p>
+</dd>
+</dl>
+</div>
+<div id="encapsulamiento" class="section level3 hasAnchor" number="1.4.3">
+<h3><span class="header-section-number">1.4.3</span> Encapsulamiento<a href="intro.html#encapsulamiento" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En las arquitecturas de red presentadas anteriormente, una capa de nivel
+N utiliza los servicios ofrecidos por la capa inferior (N-1) para
+realizar sus funciones y a su vez ofrecer sus servicios a la capa
+superior. La interacción entre capas para ofrecer estos servicios se da
+a través de los protocolos de comunicaciones. Cada protocolo agrega
+información adicional (los encabezados del protocolo) para prestar estos
+servicios. A este proceso se le conoce como encapsulamiento.</p>
+<p>Para reforzar estos conceptos en la
+figura <a href="intro.html#fig:encapsula">1.20</a> se muestra cómo interactúan los protocolos de
+las capas de TCP/IP cuando se consulta una página Web.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:encapsula"></span>
+<img src="figuras/c1/encapsula-1.png" alt="Encapsulamiento en TCP/IP para cargar una página web." width="70%" />
+<p class="caption">
+Figura 1.20: Encapsulamiento en TCP/IP para cargar una página web.
+</p>
+</div>
+<p>Cuando se introduce el identificador de una página web en un navegador
+(por ejemplo, www.itam.mx), se utiliza un mecanismo de resolución de
+nombres simbólicos (no mostrado en la figura) para obtener el
+identificador de red del servidor que alberga la página. Una vez
+obtenida esta información, se invoca el protocolo de capa de aplicación
+HTTP para acceder a este servidor. El PDU a este nivel se conoce
+informalmente como mensaje. De todos los "servicios" que ofrece HTTP,
+el que se utiliza para cargar una página web es el comando GET.</p>
+<p>HTTP utiliza el servicio de transporte TCP a través del puerto (TSAP)
+80. El PDU de TCP (conocido como segmento) agrega información adicional
+como el número de puerto, números de secuencia y acuses de recibo para
+verificar la integridad y la entrega ordenada de los datos.</p>
+<p>TCP utiliza los servicios de IP para encaminar los segmentos hacia el
+destino, en este caso, el servidor Web. IP agrega información al SDU que
+recibió de TCP para formar su propio PDU, llamado paquete IP o
+datagrama. La información más importante que se agrega en los
+encabezados de IP son las direcciones fuente (el equipo terminal que
+solicita la página) y destino (la dirección del servidor Web
+consultado).</p>
+<p>Hasta aquí terminan las funciones del modelo TCP/IP. La
+figura <a href="intro.html#fig:encapsula">1.20</a> asume que el equipo terminal está conectado a
+una red local Ethernet (esa es la "capa inferior"), por lo que el
+paquete IP accede a los servicios de la red local y deposita su
+información en una trama Ethernet. En el siguiente capítulo se mostrará
+cómo opera Ethernet y por qué es necesario que a este nivel se definan
+nuevos identificadores fuente y destino.</p>
+</div>
+</div>
+<div id="taxonomía" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Taxonomía<a href="intro.html#taxonomía" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Existen diversas maneras en las que las redes digitales pueden ser
+clasificadas, por ejemplo, por los servicios que ofrecen (telefonía fija
+y móvil, televisión, intercambio de información); por su función en la
+arquitectura de red (redes de acceso, redes de transporte); por la
+población de usuarios que las utilizan (redes públicas, privadas,
+corporativas, para el hogar); por su cobertura geográfica. Esta última
+clasificación es muy común en la literatura, por lo que se presentará
+brevemente.</p>
+<dl>
+<dt>Redes de área corporal (BAN, <em>Personal Area Network</em>)</dt>
+<dd>
+<p>Se trata de un concepto relativamente reciente en el que los
+dispositivos utilizan el cuerpo humano como medio de transmisión.
+Los dispositivos transmiten información entre sí con el simple hecho
+de tocarlos. Esta tecnología debe utilizar señales de baja potencia
+para reducir la interferencia entre dispositivos y, sobre todo para
+evitar efectos nocivos para la salud.</p>
+<p>Una ventaja del cuerpo como medio de transmisión es que la
+información no se irradia al ambiente. El Instituto de
+Investigaciones en Electrónica y Telecomunicación de Corea del Sur
+ha desarrollado un prototipo que permite intercambiar datos a 5kb/s.
+Esta clase de dispositivos podría usarse para ofrecer servicios de
+autenticación, pago electrónico o monitoreo clínico de pacientes. Su
+área de cobertura es de un par de metros.</p>
+</dd>
+<dt>Redes de área personal (PAN, <em>Body Area Network)</em></dt>
+<dd>
+<p>Son redes típicamente inalámbricas que interconectan dispositivos de
+cómputo en un área de cobertura pequeña, alrededor de 10 metros. Las
+primeras redes PAN utilizaban enlaces infrarrojo para la
+interconexión, ofrecían velocidades de 2.4kb/s hasta 16Mb/s en un
+rango de hasta un metro pero los dispositivos debían contar con una
+trayectoria directa entre ellos, es decir, sin objetos que la
+obstruyeran. A esto se le conoce en telecomunicaciones como línea de
+vista (LOS, <em>Line Of Sight</em>).</p>
+<p>Los estándares actuales, entre los que destacan IEEE 802.15.1, mejor
+conocido como Bluetooth, IEEE 802.15.4, llamado ZigBee<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> y
+Wireless USB<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>, no requieren de LOS. Bluetooth 2.0 ofrece
+velocidades de 3Mb/s mientras que WUSB alcanza los 110Mb/s en
+distancias de 10 metros. ZigBee, más enfocada a la interconexión de
+dispositivos, es una red muy simple, de bajo costo, baja velocidad
+(hasta 250 kb/s) y relativamente segura.</p>
+<p>Todas ellas están diseñadas para operar en modo ad-hoc, en el que
+los dispositivos electrónicos se conectan entre sí sin la
+intervención del usuario. Es decir, los dispositivos identifican a
+la red, solicitan su ingreso, reciben una dirección y establecen la
+comunicación por sí mismos.</p>
+</dd>
+<dt>Redes de área local (LAN, <em>Local Area Network)</em></dt>
+<dd>
+<p>Son las más conocidas en las organizaciones y, de manera creciente,
+en los hogares. En el capítulo <a href="#c:lan"><strong>??</strong></a> se presentan estas redes. Permiten conectar dispositivos con una cobertura de cientos de metros hasta un par de kilómetros.
+Históricamente, la tecnología dominante en estas redes ha sido
+Ethernet, creada por Robert Metcalfe en los laboratorios Xerox PARC
+a mediados de los años 70 <span class="citation">[8]</span> y estandarizada por la
+IEEE bajo el grupo de trabajo 802.3 <a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>.</p>
+<p>En sus primeras versiones, los dispositivos se conectan a un medio
+compartido (un cable coaxial, o un concentrador) en el que se
+difunde la señal transmitida, que puede ser escuchada por todos.
+Cuando un dispositivo desea enviar información, verifica que el
+medio esté libre y la transmite en una trama que tiene, entre otros
+campos, identificadores del remitente y del receptor. Este último
+toma la trama del medio; los demás la ignoran.</p>
+<p>Debido a su gran flexibilidad, facilidad de integración y bajos
+costos de implementación, se ha observado un crecimiento exponencial
+de redes locales inalámbricas basadas en la familia de estándares
+IEEE 802.11<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> tanto en las organizaciones privadas como en el
+hogar y en áreas públicas como aeropuertos, parques y cafeterías,
+sobre todo para dar acceso a la red Internet en los llamados
+hot-spots. Estas redes, también conocidas como WiFi, ofrecen
+velocidades nominales que alcanzan los 500 Mb/s.</p>
+</dd>
+<dt>Redes de área de campus (CAN, <em>Campus Area Network)</em></dt>
+<dd>
+<p>Conforme fueron diseminándose las redes locales surgió la necesidad
+de conectarlas entre sí de manera eficiente en áreas que podían
+abarcar unos cuantos kilómetros, como hospitales, aeropuertos,
+campus universitarios, y edificios corporativos. Esta interconexión
+podía realizarse por medio de conmutadores ATM, o por medio de
+tecnologías específicas para ello, como FDDI (Fiber Distributed Data
+Interface). En la actualidad, la interconexión suele darse a través
+de enlaces punto a punto (típicamente enlaces ópticos) entre
+conmutadores Ethernet o enrutadores IP.</p>
+</dd>
+<dt>Redes de área metropolitana (MAN, <em>Metrtopolitan Area Network)</em></dt>
+<dd>
+<p>Con una cobertura de decenas de kilómetros, en esta categoría suelen
+concentrarse dos grupos de tecnologías: aquellas utilizadas
+principalmente para interconectar redes locales dentro de una ciudad
+y aquellas utilizadas como redes de acceso, principalmente a
+Internet. Para la interconexión de redes locales, la tecnología
+dominante es MetroEthernet (IEEE 802.3ah) la cual evolucionó de las
+redes LAN, con las que los usuarios tienen una larga familiaridad.
+MetroEthernet puede ser implementada sobre líneas de cobre aunque
+con mayor frecuencia su infraestructura se basa en fibras ópticas.
+Si el proveedor utiliza DWDM, puede alcanzar velocidades de hasta
+100Gb/s.</p>
+</dd>
+<dt>Redes de área amplia (WAN, <em>Wide Area Network)</em></dt>
+<dd>
+<p>En esta categoría, en la que también se incluyen las redes de área
+regional (RAN, <em>Regional Area Network)</em>, se cubren grandes
+extensiones, incluso varios países. La mayoría de estas redes está
+integrada a la infraestructura de transporte (alambrada) de los
+grandes operadores. Típicamente están formadas por nodos de
+conmutación de gran velocidad interconectados entre sí con enlaces
+de fibra óptica utilizando tecnologías como ATM, SONET/SDH y WDM.</p>
+<p>La norma IEEE 802.22, tiene como objeto
+proveer acceso inalámbrico fijo a regiones de hasta 100 km de radio
+en áreas con baja densidad poblacional. Utiliza frecuencias sin
+licencia en la banda originalmente establecida para la
+radiodifusión de televisión. El estándar hace uso de radios
+cognitivos. Posee la gran ventaja de no interferir con dispositivos
+usando frecuencias con licencia. Esta tecnología resulta de
+particular interés en países en desarrollo y en áreas rurales.</p>
+</dd>
+<dt>Redes de área global (GAN, <em>Global Area Network)</em></dt>
+<dd>
+<p>Las redes de área global cubren un área geográfica ilimitada
+interconectando una gran cantidad de redes. Este es el caso de las
+redes telefónicas fijas a escala mundial, e integradas casi
+totalmente con sus contrapartes celulares. Otro ejemplo evidente es
+Internet, la gran "red de redes", que ha rebasado las fronteras de
+la tierra con la propuesta de iniciativas para lanzar sondas
+espaciales que utilizan enrutadores con el protocolo IP para enviar
+información a la tierra.</p>
+</dd>
+</dl>
+</div>
+<div id="problemas" class="section level2 hasAnchor" number="1.6">
+<h2><span class="header-section-number">1.6</span> Problemas<a href="intro.html#problemas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="exercise">
+<p><span id="exr:c11" class="exercise"><strong>Problema 1.1  </strong></span>Alguien sugiere que <em>"...el espectro radioeléctrico es como una
+autopista y las bandas de frecuencia son como sus carriles".</em>
+Admitiendo que el ejemplo es válido en el contexto en que se presentó,</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>¿Qué sería la frecuencia? ¿La longitud de onda?</p></li>
+<li><p>La autopista tiene tres carriles en una dirección y tres en la dirección
+contraria. ¿Podría equipararse a una comunicación Full duplex, Half duplex, Simplex o ninguna de éstas?</p></li>
+<li><p>¿Qué técnica de multiplexaje sería mejor representada con un automóvil
+que se cambia de un carril a otro continuamente? (TDM, FDM, CDM, Ninguna)</p></li>
+<li><p>¿Con qué se podría relacionar el que un automóvil transporte 1, 2 o más
+pasajeros?</p></li>
+</ol>
+</div>
+<div class="exercise">
+<p><span id="exr:c12" class="exercise"><strong>Problema 1.2  </strong></span>Las muestras de una señal determinada, tienen los valores 7.1 V, 4.0 V,
+0.3 V y 2.6V. ¿Cómo se representarían estas muestras en un sistema PCM
+con codificación de 5 bits?</p>
+</div>
+<div class="exercise">
+<p><span id="exr:c13" class="exercise"><strong>Problema 1.3  </strong></span>Unos sensores ambientales generan señales con frecuencia máxima de 12
+kHz. Se toman muestras de estas señales y se transmiten a través de un
+canal de 100 kHz. Considerando el teorema de Nyquist, ¿Cuántas señales
+pueden ser multiplexadas en ese canal?</p>
+<p>Opciones: 1; 2; 4; 8; 10; 16</p>
+</div>
+<div class="exercise">
+<p><span id="exr:c14" class="exercise"><strong>Problema 1.4  </strong></span>¿Cuáles son las propiedades de una señal portadora que se pueden
+modificar para que transporte información?</p>
+<ul>
+<li>Longitud de onda</li>
+<li>Frecuencia</li>
+<li>Fase</li>
+<li>Polaridad</li>
+<li>Amplitud</li>
+<li>Dirección</li>
+<li>Voltaje</li>
+<li>Campo electro-magnético</li>
+</ul>
+</div>
+<div class="exercise">
+<p><span id="exr:c15" class="exercise"><strong>Problema 1.5  </strong></span>Encuentre la longitud de onda de las siguientes señales:
+(a) 8 kHz; (b)1500 kHz; (c) 1.3 GHz</p>
+</div>
+<div class="exercise">
+<p><span id="exr:c16" class="exercise"><strong>Problema 1.6  </strong></span>¿Qué diferencia fundamental hay entre un circuito y un circuito virtual?</p>
+</div>
+<div class="exercise">
+<p><span id="exr:c17" class="exercise"><strong>Problema 1.7  </strong></span>Describe dos razones para modular la información que se desea transmitir</p>
+</div>
+<div class="exercise">
+<p><span id="exr:c18" class="exercise"><strong>Problema 1.8  </strong></span>Para las siguientes afirmaciones, indique si son correctas o no.
+Justifique muy brevemente su respuesta</p>
+<ul>
+<li><p>En una red, todos los equipos terminales (hosts) implementan la capa
+de transporte</p></li>
+<li><p>En una red, todos los enrutadores implementan la capa de transporte</p></li>
+<li><p>En una red, todos los enrutadores implementan la capa de red</p></li>
+<li><p>Un enrutador puede dar servicio a varios protocolos de capa de
+transporte</p></li>
+<li><p>Una de las funciones de la capa de red es encaminar de forma segura
+y confiable los paquetes de la fuente a su destino</p></li>
+</ul>
+</div>
+<div class="exercise">
+<ul>
+<li><span id="exr:c19" class="exercise"><strong>Problema 1.9  </strong></span></li>
+<li><ol style="list-style-type: lower-alpha">
+<li>¿Qué significan las siglas OSI?</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: lower-alpha">
+<li>¿Qué capa del modelo es la responsable de garantizar la integridad de
+las comunicaciones de extremo a extremo?</li>
+</ol></li>
+<li><ol start="3" style="list-style-type: lower-alpha">
+<li>¿Cuál es la función de la capa física?</li>
+</ol></li>
+</ul>
+</div>
+<div class="exercise">
+<p><span id="exr:c110" class="exercise"><strong>Problema 1.10  </strong></span>En una comunidad, todas las computadoras pueden comunicarse entre sí con
+enlaces de micro ondas hacia una estación base con una gran antena en el
+centro geográfico de la comunidad. Suponiendo que no existen problemas
+de congestión, ¿En qué capa conviene más administrar estas
+comunicaciones: enlace, red o transporte? Justifique brevemente.</p>
+<p>Suponga ahora que en la comunidad se depliega una serie de pequeñas
+radio bases con cobertura reducida. ¿En qué capa conviene más
+administrar estas comunicaciones: enlace, red o transporte? Justifique
+brevemente.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:c111" class="exercise"><strong>Problema 1.11  </strong></span>Resuelva el siguiente sudoku.</p>
+<ul>
+<li><ol style="list-style-type: lower-alpha">
+<li>Capa del modelo de OSI encargada de establecer la ruta por la que
+viajarán los paquetes</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: lower-alpha">
+<li>Capa del modelo de OSI responsable de verificar la integridad de la
+información de extremo a extremo</li>
+</ol></li>
+<li>(c)Capa del modelo de OSI que establece las características físicas,
+mecánicas, eléctricas, de los enlaces</li>
+</ul>
+</div>
+<p><img src="figuras/c1/RSASudoku-1.png" width="60%" style="display: block; margin: auto;" /></p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Si bien la suma puede ser infinita, en general basta con un número relativamente pequeño de componentes senoidales para representar con una precisión aceptable la señal<a href="intro.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Recordemos que una señal compleja puede representarse por una suma de señales senoidales<a href="intro.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>La reservación de recursos ocurre en las redes de telefonía fija. Las redes móviles son mucho más complejas y no se puede garantizar que los recursos necesarios estén disponibles al pasar de una célula a
+otra<a href="intro.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>En distintas arquitecturas de red, estos bloques reciben diferentes nombres, como tramas, celdas, segmentos
+y datagramas<a href="intro.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>En muchas arquitecturas de red, a este identificador se le llama identificador de circuito virtual (VCI, <em>Virtual Circuit Identificator</em>)<a href="intro.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>IEEE 802.15 WPAN Task Group 1. <a href="http://www.ieee802.org/15/pub/TG1.html" class="uri">http://www.ieee802.org/15/pub/TG1.html</a><a href="intro.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>Certified Wireless USB. <a href="http://www.usb.org/developers/wusb/" class="uri">http://www.usb.org/developers/wusb/</a><a href="intro.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p><a href="http://" class="uri">http://</a> www.ieee802.org /3/<a href="intro.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p><a href="http://www.ieee802.org/11/" class="uri">http://www.ieee802.org/11/</a><a href="intro.html#fnref9" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="redes-locales.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/00-RCIntro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown_RedesComputadoras.pdf", "bookdown_RedesComputadoras.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

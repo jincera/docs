@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 2 Capa física | Redes de Computadoras</title>
+  <meta name="description" content="Notas del curso Redes de Computadoras en HTML." />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 2 Capa física | Redes de Computadoras" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Notas del curso Redes de Computadoras en HTML." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 2 Capa física | Redes de Computadoras" />
+  
+  <meta name="twitter:description" content="Notas del curso Redes de Computadoras en HTML." />
+  
+
+<meta name="author" content="José Incera" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="capa-de-enlace-de-datos.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Redes de Computadoras. Notas de Curso</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#resumen"><i class="fa fa-check"></i>Resumen</a></li>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#requisitos"><i class="fa fa-check"></i><b>1.1</b> Conceptos básicos</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#sistemas-de-comunicaciones"><i class="fa fa-check"></i><b>1.1.1</b> Sistemas de comunicaciones</a></li>
+<li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#redes-de-telecomunicaciones"><i class="fa fa-check"></i><b>1.1.2</b> Redes de telecomunicaciones</a></li>
+<li class="chapter" data-level="1.1.3" data-path="intro.html"><a href="intro.html#señal"><i class="fa fa-check"></i><b>1.1.3</b> Señal</a></li>
+<li class="chapter" data-level="1.1.4" data-path="intro.html"><a href="intro.html#conversión-analógica-a-digital-ad"><i class="fa fa-check"></i><b>1.1.4</b> Conversión analógica a digital (A/D)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#conmutación"><i class="fa fa-check"></i><b>1.2</b> Conmutación</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#conmutación-de-mensajes"><i class="fa fa-check"></i><b>1.2.1</b> Conmutación de mensajes</a></li>
+<li class="chapter" data-level="1.2.2" data-path="intro.html"><a href="intro.html#conmutación-de-circuitos"><i class="fa fa-check"></i><b>1.2.2</b> Conmutación de circuitos</a></li>
+<li class="chapter" data-level="1.2.3" data-path="intro.html"><a href="intro.html#conmutación-de-paquetes"><i class="fa fa-check"></i><b>1.2.3</b> Conmutación de paquetes</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#multiplexaje"><i class="fa fa-check"></i><b>1.3</b> Multiplexaje</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#multiplexaje-en-el-tiempo"><i class="fa fa-check"></i><b>1.3.1</b> Multiplexaje en el tiempo</a></li>
+<li class="chapter" data-level="1.3.2" data-path="intro.html"><a href="intro.html#multiplexaje-en-frecuencia"><i class="fa fa-check"></i><b>1.3.2</b> Multiplexaje en frecuencia</a></li>
+<li class="chapter" data-level="1.3.3" data-path="intro.html"><a href="intro.html#cdm"><i class="fa fa-check"></i><b>1.3.3</b> Multiplexaje por división de código</a></li>
+<li class="chapter" data-level="1.3.4" data-path="intro.html"><a href="intro.html#multiplexaje-espacial"><i class="fa fa-check"></i><b>1.3.4</b> Multiplexaje espacial</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#arquitecturas-de-red"><i class="fa fa-check"></i><b>1.4</b> Arquitecturas de red</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#modelo-isoosi"><i class="fa fa-check"></i><b>1.4.1</b> Modelo ISO/OSI</a></li>
+<li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#modelo-tcpip"><i class="fa fa-check"></i><b>1.4.2</b> Modelo TCP/IP</a></li>
+<li class="chapter" data-level="1.4.3" data-path="intro.html"><a href="intro.html#encapsulamiento"><i class="fa fa-check"></i><b>1.4.3</b> Encapsulamiento</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#taxonomía"><i class="fa fa-check"></i><b>1.5</b> Taxonomía</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#problemas"><i class="fa fa-check"></i><b>1.6</b> Problemas</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="capa-física.html"><a href="capa-física.html"><i class="fa fa-check"></i><b>2</b> Capa física</a>
+<ul>
+<li class="chapter" data-level="" data-path="capa-física.html"><a href="capa-física.html#resumen-1"><i class="fa fa-check"></i>Resumen</a></li>
+<li class="chapter" data-level="2.1" data-path="capa-física.html"><a href="capa-física.html#medios-de-transmisión"><i class="fa fa-check"></i><b>2.1</b> Medios de transmisión</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="capa-física.html"><a href="capa-física.html#introducción"><i class="fa fa-check"></i><b>2.1.1</b> Introducción</a></li>
+<li class="chapter" data-level="" data-path="capa-física.html"><a href="capa-física.html#baudaje-y-velocidad-de-transmisión"><i class="fa fa-check"></i>Baudaje y velocidad de transmisión</a></li>
+<li class="chapter" data-level="2.1.2" data-path="capa-física.html"><a href="capa-física.html#medios-guiados"><i class="fa fa-check"></i><b>2.1.2</b> Medios guiados</a></li>
+<li class="chapter" data-level="" data-path="capa-física.html"><a href="capa-física.html#par-trenzado"><i class="fa fa-check"></i>Par trenzado</a></li>
+<li class="chapter" data-level="" data-path="capa-física.html"><a href="capa-física.html#cable-coaxial"><i class="fa fa-check"></i>Cable coaxial</a></li>
+<li class="chapter" data-level="" data-path="capa-física.html"><a href="capa-física.html#fibra-óptica"><i class="fa fa-check"></i>Fibra óptica</a></li>
+<li class="chapter" data-level="2.1.3" data-path="capa-física.html"><a href="capa-física.html#medios-no-guiados"><i class="fa fa-check"></i><b>2.1.3</b> Medios no guiados</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="capa-física.html"><a href="capa-física.html#sistemas-de-comunicaciones-1"><i class="fa fa-check"></i><b>2.2</b> Sistemas de comunicaciones</a></li>
+<li class="chapter" data-level="2.3" data-path="capa-física.html"><a href="capa-física.html#codificaciones"><i class="fa fa-check"></i><b>2.3</b> Codificaciones</a></li>
+<li class="chapter" data-level="2.4" data-path="capa-física.html"><a href="capa-física.html#problemas-1"><i class="fa fa-check"></i><b>2.4</b> Problemas</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="capa-de-enlace-de-datos.html"><a href="capa-de-enlace-de-datos.html"><i class="fa fa-check"></i><b>3</b> Capa de enlace de datos</a>
+<ul>
+<li class="chapter" data-level="" data-path="capa-de-enlace-de-datos.html"><a href="capa-de-enlace-de-datos.html#resumen-2"><i class="fa fa-check"></i>Resumen</a></li>
+<li class="chapter" data-level="3.1" data-path="capa-de-enlace-de-datos.html"><a href="capa-de-enlace-de-datos.html#introducción-1"><i class="fa fa-check"></i><b>3.1</b> Introducción</a></li>
+<li class="chapter" data-level="3.2" data-path="capa-de-enlace-de-datos.html"><a href="capa-de-enlace-de-datos.html#control-de-errores"><i class="fa fa-check"></i><b>3.2</b> Control de errores</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="capa-de-enlace-de-datos.html"><a href="capa-de-enlace-de-datos.html#detección-de-errores"><i class="fa fa-check"></i><b>3.2.1</b> Detección de errores</a></li>
+<li class="chapter" data-level="3.2.2" data-path="capa-de-enlace-de-datos.html"><a href="capa-de-enlace-de-datos.html#auto-corrección-de-errores"><i class="fa fa-check"></i><b>3.2.2</b> Auto-corrección de errores</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="capa-de-enlace-de-datos.html"><a href="capa-de-enlace-de-datos.html#protocolos-para-corrección-de-errores"><i class="fa fa-check"></i><b>3.3</b> Protocolos para corrección de errores</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="capa-de-enlace-de-datos.html"><a href="capa-de-enlace-de-datos.html#protocolo-stop-and-wait"><i class="fa fa-check"></i><b>3.3.1</b> Protocolo Stop and Wait</a></li>
+<li class="chapter" data-level="3.3.2" data-path="capa-de-enlace-de-datos.html"><a href="capa-de-enlace-de-datos.html#protocolo-de-bit-alternado"><i class="fa fa-check"></i><b>3.3.2</b> Protocolo de bit alternado</a></li>
+<li class="chapter" data-level="3.3.3" data-path="capa-de-enlace-de-datos.html"><a href="capa-de-enlace-de-datos.html#protocolos-de-ventanas-deslizantes"><i class="fa fa-check"></i><b>3.3.3</b> Protocolos de ventanas deslizantes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="redes-locales.html"><a href="redes-locales.html"><i class="fa fa-check"></i><b>4</b> Redes locales</a>
+<ul>
+<li class="chapter" data-level="" data-path="redes-locales.html"><a href="redes-locales.html#resumen-3"><i class="fa fa-check"></i>Resumen</a></li>
+<li class="chapter" data-level="4.1" data-path="redes-locales.html"><a href="redes-locales.html#introducción-2"><i class="fa fa-check"></i><b>4.1</b> Introducción</a></li>
+<li class="chapter" data-level="4.2" data-path="redes-locales.html"><a href="redes-locales.html#ethernetieee-802.3"><i class="fa fa-check"></i><b>4.2</b> Ethernet/IEEE 802.3</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="redes-locales.html"><a href="redes-locales.html#csmacd"><i class="fa fa-check"></i><b>4.2.1</b> CSMA/CD</a></li>
+<li class="chapter" data-level="4.2.2" data-path="redes-locales.html"><a href="redes-locales.html#formato-de-la-trama"><i class="fa fa-check"></i><b>4.2.2</b> Formato de la trama</a></li>
+<li class="chapter" data-level="4.2.3" data-path="redes-locales.html"><a href="redes-locales.html#implementaciones"><i class="fa fa-check"></i><b>4.2.3</b> Implementaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="redes-locales.html"><a href="redes-locales.html#redes-locales-inalámbricas"><i class="fa fa-check"></i><b>4.3</b> Redes locales inalámbricas</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="redes-locales.html"><a href="redes-locales.html#protocolo-de-acceso"><i class="fa fa-check"></i><b>4.3.1</b> Protocolo de Acceso</a></li>
+<li class="chapter" data-level="4.3.2" data-path="redes-locales.html"><a href="redes-locales.html#implementaciones-1"><i class="fa fa-check"></i><b>4.3.2</b> Implementaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="redes-locales.html"><a href="redes-locales.html#conmutacion"><i class="fa fa-check"></i><b>4.4</b> Conmutacion</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="redes-locales.html"><a href="redes-locales.html#principio-de-operación"><i class="fa fa-check"></i><b>4.4.1</b> Principio de operación</a></li>
+<li class="chapter" data-level="4.4.2" data-path="redes-locales.html"><a href="redes-locales.html#conmutadores-transparentes---operación"><i class="fa fa-check"></i><b>4.4.2</b> Conmutadores transparentes - operación</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="redes-locales.html"><a href="redes-locales.html#protocolo-spanning-tree"><i class="fa fa-check"></i><b>4.5</b> Protocolo Spanning Tree</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="redes-locales.html"><a href="redes-locales.html#protocolo-spanning-tree-1"><i class="fa fa-check"></i><b>4.5.1</b> Protocolo Spanning Tree</a></li>
+<li class="chapter" data-level="" data-path="redes-locales.html"><a href="redes-locales.html#asignación-del-puente-raíz"><i class="fa fa-check"></i>Asignación del Puente Raíz</a></li>
+<li class="chapter" data-level="" data-path="redes-locales.html"><a href="redes-locales.html#temporizadores-y-reconfiguración-de-la-topología"><i class="fa fa-check"></i>Temporizadores y reconfiguración de la topología</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="redes-locales.html"><a href="redes-locales.html#rapid-stp"><i class="fa fa-check"></i><b>4.6</b> Rapid STP</a></li>
+<li class="chapter" data-level="4.7" data-path="redes-locales.html"><a href="redes-locales.html#agregación-de-enlaces"><i class="fa fa-check"></i><b>4.7</b> Agregación de enlaces</a></li>
+<li class="chapter" data-level="4.8" data-path="redes-locales.html"><a href="redes-locales.html#redes-locales-virtuales"><i class="fa fa-check"></i><b>4.8</b> Redes locales virtuales</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="redes-locales.html"><a href="redes-locales.html#criterios-de-membresía"><i class="fa fa-check"></i><b>4.8.1</b> Criterios de membresía</a></li>
+<li class="chapter" data-level="4.8.2" data-path="redes-locales.html"><a href="redes-locales.html#etiquetado-de-vlan"><i class="fa fa-check"></i><b>4.8.2</b> Etiquetado de VLAN</a></li>
+<li class="chapter" data-level="4.8.3" data-path="redes-locales.html"><a href="redes-locales.html#puertos-de-acceso-y-de-trunking"><i class="fa fa-check"></i><b>4.8.3</b> Puertos de acceso y de trunking</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="redes-locales.html"><a href="redes-locales.html#problemas-2"><i class="fa fa-check"></i><b>4.9</b> Problemas</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Redes de Computadoras</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="capa-física" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Capítulo 2</span> Capa física<a href="capa-física.html#capa-física" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="resumen-1" class="section level2 unnumbered hasAnchor">
+<h2>Resumen<a href="capa-física.html#resumen-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La capa física es la responsable de dar sentido a las características de las señales que representan los bits transportados de un dispositivo a otro a través de un canal de comunicaciones (de un medio físico). En el modelo de OSI, es responsable de estandarizar las propiedades eléctricas,
+mecánicas y de procedimiento de las interfaces utilizadas para conectar los dispositivos al canal.</p>
+<p>En este capítulo se presentan las características básicas de algunos de los medios físicos más utilizados en redes de computadoras así como una breve introducción a los sistemas de comunicaciones que sirvieron como infraestructura de base a las redes de computadoras.</p>
+</div>
+<div id="medios-de-transmisión" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Medios de transmisión<a href="capa-física.html#medios-de-transmisión" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="introducción" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Introducción<a href="capa-física.html#introducción" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Como se ha comentado en el capítulo anterior, la energía que transportan
+las señales que representan los bits entre un dispositivo y otro, se
+propaga a través de medios físicos. Cada medio tiene distintas
+propiedades que inciden de manera distinta sobre las señales
+transportadas y, por consiguiente, afectan las características de las
+redes a ser desplegadas. Algunas de estas propiedades son:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left">Tipo de conexión</td>
+<td></td>
+<td align="left">Modo de transmisión</td>
+</tr>
+<tr class="even">
+<td align="left">Características de transmisión</td>
+<td></td>
+<td align="left">Cobertura</td>
+</tr>
+<tr class="odd">
+<td align="left">Características de propagación</td>
+<td></td>
+<td align="left">Costo</td>
+</tr>
+</tbody>
+</table>
+<p>El <strong>tipo de conexión</strong> se refiere a la manera en la que los
+dispositivos<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> acceden y comparten el medio. Consideraremos únicamente dos posibilidades. En la primera, llamada <em>punto a punto</em>, el medio está dedicado a la comunicación entre dos dispositivos, como se muestra en la figura <a href="capa-física.html#fig:p2ppmp">2.1</a>(a).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:p2ppmp"></span>
+<img src="figuras/c2/p2ppmp.jpg" alt="*Tipos de conexiones*" width="70%" />
+<p class="caption">
+Figura 2.1: <em>Tipos de conexiones</em>
+</p>
+</div>
+<p>El otro tipo de conexión considerado en este documento, son las
+conexiones punto-multipunto (figura <a href="capa-física.html#fig:p2ppmp">2.1</a>(b)). En éstas, se asume que los dispositivos en la red comparten el medio. Frecuentemente se trata de un canal de difusión en el que, cuando un dispositivo está transmitiendo un mensaje, todos los demás conectados al medio, lo escuchan. Veremos ejemplos concretos de este tipo de conexión en capítulos posteriores.</p>
+<p>Dado que varios dispositivos comparten el medio, se hace indispensable contar con protocolos de comunicaciones. En este caso, será necesario definir las reglas para evitar conflictos entre dispositivos que quieran utilizar el canal simultáneamente.</p>
+<p>El <strong>modo de transmisión</strong>, ejemplificado en la
+figura <a href="capa-física.html#fig:modotx">2.2</a>, se refiere a la dirección de la comunicación entre los dispositivos, la cual puede ser:</p>
+<div class="description">
+<p><em>Simplex</em>. Si la comunicación se da solamente en una dirección. En la práctica, existen muy pocos sistemas de comunicacones que operen en modo simplex, pues en la mayoría de los casos, se espera al menos el acuse de recibo de los mensajes.</p>
+<p><em>Half dúplex</em>. Se da cuando la comunicación es bidireccional, pero sólo puede haber un mensaje a la vez en el canal de comunicación, por lo que los mensajes entre los nodos comunicantes deben alternarse. Un ejemplo familiar son las comunicaciones <em>push to talk</em> usadas en los <em>walkie-tokie</em>. Se trata, pues, de una forma de multiplexaje en el tiempo (TDM).</p>
+<p><em>Full dúplex</em>. En este caso, la comunicación también es bidireccional pero el medio permite que haya mensajes viajando en ambas direcciones simultáneamente, o bien, se tienen dos medios (por ejemplo, dos cables), uno en cada dirección.</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:modotx"></span>
+<img src="figuras/c2/modotx.jpg" alt="*Modo de transmisión*" width="35%" />
+<p class="caption">
+Figura 2.2: <em>Modo de transmisión</em>
+</p>
+</div>
+<p>Las <strong>características de transmisión y de propagación</strong> están
+directamente relacionadas con las características físicas del canal de comunicación. Estas características hacen que, en general, la señal que se recibe sea distinta a la transmitida.</p>
+<p>El teorema de Fourier demuestra que una señal periódica (y al menos en teoría, una señal finita puede imaginarse como periódica) se puede
+formar por una suma de senos y cosenos que son múltiplos de su
+frecuencia fundamental. En la figura <a href="capa-física.html#fig:fourier">2.3</a>,
+se representa del lado izquierdo una señal como las variaciones de
+voltaje (o corriente) de la señal en el tiempo. En el lado derecho se representa la misma señal como los componentes senoidales y cosenoidales en el dominio de la frecuencia (el eje de las abcisas es frecuencia). Cada espiga (llamada armónica) tiene una determinada amplitud.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fourier"></span>
+<img src="figuras/c2/fourier.jpg" alt="*Una señal representada en el dominio del tiempo (figura de la izquierda) y de la frecuencia (figura de la derecha)*" width="70%" />
+<p class="caption">
+Figura 2.3: <em>Una señal representada en el dominio del tiempo (figura de la izquierda) y de la frecuencia (figura de la derecha)</em>
+</p>
+</div>
+<p>Vista en el dominio de la frecuencia, el <em>ancho de banda de una señal</em> es el rango de las frecuencias que la conforman, es decir, la diferencia entre la frecuencia más alta y la más baja de sus componentes.</p>
+<p>Desgraciadamente, el medio por el que viaja la señal ofrece
+resistencia a la propagación de la energía, por lo que las señales se <em>atenúan</em>. En genera,l no permite que todas las frecuencias se propaguen de igual manera<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>. La velocidad a la que se propagan varía con la frecuencia y, de hecho, algunas se atenúan tanto que ya no son perceptibles. Por ello, las señales se <em>distorsionan</em> en el medio.</p>
+<p>Así, el medio es una especie de filtro que bloquea algunos de los
+componentes de la señal. Llamamos <em>ancho de banda del medio</em> (a veces lo llamaremos respuesta en frecuencia) al conjunto de frecuencias que pueden viajar por éste sin que se atenúen sensiblemente, es decir, las frecuencias que no distorsionan sensiblemente a la señal.</p>
+<p>La figura <a href="capa-física.html#fig:bwcanal">2.4</a>, tomada de <span class="citation">[5]</span>, ejemplifica el impacto que las diferencias entre el ancho de banda de la señal y el ancho de banda del medio puede tener en la información transportada. En el primer renglón se muestra la señal cuadrada que representa el valor ASCII de la letra "b" en binario y a su derecha se presentan sus principales armónicas.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bwcanal"></span>
+<img src="figuras/c2/bwcanal.jpg" alt="*Impacto del ancho de banda del canal sobre una señal*" width="50%" />
+<p class="caption">
+Figura 2.4: <em>Impacto del ancho de banda del canal sobre una señal</em>
+</p>
+</div>
+<p>En los renglones subsecuentes de la figura, se muestra qué ocurre con la señal si el ancho de banda del medio permite el paso de sólo 1, 2, 4 u 8 armónicas. Se observa claramente la distorsión (la diferencia entre la forma de la señal original y la recibida), aunque con ocho armónicas, ya se puede distinguir el mensaje original.</p>
+<p>El hecho de que no se necesiten todas las armónicas para poder
+interpretar la señal original, es muy importante para diseñar sistemas de comunicaciones eficientes. Por ejemplo, el rango de frecuencias que pueden ser emitidas por las cuerdas vocales humanas, típicamente va de los 200 Hz (sonidos muy graves) a los 7,500 Hz (sonidos muy agudos), o sea, un ancho de banda de alrededor de 7,300 Hz.</p>
+<p>Sin embargo, el rango de frecuencias necesario para comprender con
+claridad una conversación, va de los 300Hz a los 3,400Hz. Por esta
+razón, las viejas redes utilizadas exclusivamente para telefonía,
+introducían filtros para cortar la señal en esas frecuencias, reduciendo
+el ancho de banda del medio a 3,100 Hz por conversación telefónica. Si el medio tiene un ancho de banda mayor (como es el caso), éste puede transportar simultáneamente varias conversaciones con un mecanismo de multiplexaje.</p>
+<p>Para cerrar este tema, conviene mencionar que el concepto de ancho de banda no es privativo de los canales de comunicación. El oído humano, por ejemplo, tiene una respuesta en frecuencia de 20Hz a 20,000Hz, es decir, el tímpano (de una persona joven y sana) vibra y genera estímulos en el cerebro que son interpretados como sonidos, dentro de ese rango de frecuencias exclusivamente.</p>
+</div>
+<div id="baudaje-y-velocidad-de-transmisión" class="section level3 unnumbered hasAnchor">
+<h3>Baudaje y velocidad de transmisión<a href="capa-física.html#baudaje-y-velocidad-de-transmisión" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El baudaje representa el máximo número de <em>símbolos</em>, es decir, de
+cambios de estado que puede soportar un canal de comunicaciones. Por
+ello, el baudaje es proporcional al ancho de banda del medio.</p>
+<p>Como se verá más adelante, en comunicaciones digitales cada símbolo
+puede tener uno o más bits de información<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>, por lo que el baudaje y la velocidad de transmisión medida en bits por segundo, no
+necesariamente son iguales.</p>
+<p>En cualquier caso, a condiciones iguales, a mayor ancho de banda, mayor es la velocidad de transmisión. Harry Nyquist demostró que existe un límite en la cantidad de datos que se pueden transmitir en el medio. Si el canal tiene <span class="math inline">\(B\)</span> baudios, el "pulso más estrecho" que se puede transmitir es <span class="math inline">\(1/2B\)</span>, por lo que para un símbolo que puede tomar <span class="math inline">\(M\)</span> valores distintos, (por ejemplo, <span class="math inline">\(M\)</span> niveles de voltaje), la velocidad máxima de transmisión del canal es: <span class="math display">\[C= 2B\log_2(M)\,\text{bps}\]</span></p>
+<div class="example">
+<p><span id="exm:unnamed-chunk-4" class="example"><strong>Ejemplo 2.1  </strong></span>Si el ancho de banda de una señal es de <span class="math inline">\(B = 3,200\)</span> Hz y los símbolos pueden tomar <span class="math inline">\(M=8\)</span> valores, la capacidad máxima teórica de transmisión
+es de:
+<span class="math display">\[C = 2\times3,200\times\log_2(8) = 2\times3,200\times3 =  19,200\,bps\]</span></p>
+</div>
+<p>La fórmula de Nyquist sugiere que se puede incrementar indefinidamente la velocidad de transmisión de un canal con <span class="math inline">\(B\)</span> símbolos aumentando indefinidamente el número <span class="math inline">\(M\)</span> de niveles de la señal. En la práctica, sin embargo, esto no es posible porque, como se mencionó en el capítulo anterior, las señales se ven afectadas por interferencias (llamadas ruido) que siempre están presentes en los canales de comunicaciones.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:imgruido"></span>
+<img src="figuras/c2/ImgRuido.jpg" alt="*Ruido aditivo sobre una señal digital*" width="70%" />
+<p class="caption">
+Figura 2.5: <em>Ruido aditivo sobre una señal digital</em>
+</p>
+</div>
+<p>El ruido en la figura <a href="capa-física.html#fig:imgruido">2.5</a> es la señal roja sobre puesta a la señal binaria. Si el ancho de cada pulso disminuye (es decir, si el baudje aumenta), el ruido afecta una mayor parte del símbolo binario, y hasta puede llegar a anularlo. Considere, por ejemplo el pico de la señal de ruido cercana al tercer bit.</p>
+<p>Así mismo, si la distancia entre los niveles de la señal binaria es muy pequeña, el ruido impediría distinguir con precisión qué nivel (y por lo tanto, qué valores binarios) se está transmitiendo.</p>
+<p>Claude Shannon relacionó en uno de sus principales trabajos, la
+velocidad de transmisión máxima que un canal con ancho de banda B podría alcanzar considerando el ruido al que está expuesta la señal. Su fórmula, conocida como el <em>límite de Shannon</em>, es:
+<span class="math display">\[C = B \log_2 (1 +\frac{S}{N})\]</span></p>
+<p>La fracción <span class="math inline">\(S/N\)</span>, es la relación de la potencia de la señal dividida entre la potencia del ruido. No tiene unidades y se le conoce como SNR, <em>signal to noise ratio</em>.</p>
+<div class="example">
+<p><span id="exm:unnamed-chunk-5" class="example"><strong>Ejemplo 2.2  </strong></span>Considere una señal de <span class="math inline">\(B=3,200\,\text{Hz}\)</span> y una relación señal a ruido de 1000 (es decir, 30 dB). La capacidad del canal en bps es de: <span class="math display">\[C = 3,200\times\log_2(1+1000) = 3,200\times \log_2(1001) = 3,200\times\frac{\log_{10}1001}{\log_{10}2}\approx 31.9 kbps\]</span></p>
+</div>
+</div>
+<div id="medios-guiados" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Medios guiados<a href="capa-física.html#medios-guiados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Las señales de los mensajes deben propagarse a través de un canal o
+medio de transmisión. Tanenbaum clasifica estos medios en guiados y no
+guiados <span class="citation">[5]</span>. En los primeros, la energía se propaga por un
+medio físico acotado, como los cables telefónicos y las fibras ópticas.
+En los medios no guiados la energía suele propagarse en forma de señales
+electromagnéticas.</p>
+</div>
+<div id="par-trenzado" class="section level3 unnumbered hasAnchor">
+<h3>Par trenzado<a href="capa-física.html#par-trenzado" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El par trenzado es uno de los medios más antiguos y populares en las
+redes de computadoras. Está formado por un par de conductores
+(típicamente de cobre) recubiertos de plástico que se entrelazan entre
+sí como se muestra en la figura <a href="capa-física.html#fig:partrenzado">2.6</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:partrenzado"></span>
+<img src="figuras/c2/partrenzado.jpg" alt="*Cable con pares trenzados no blindados*" width="40%" />
+<p class="caption">
+Figura 2.6: <em>Cable con pares trenzados no blindados</em>
+</p>
+</div>
+<p>Recordemos que un alambre metálico funciona como una antena: cuando se
+hace pasar corriente eléctrica a través de él, se induce una señal
+electromagnética (la famosa ley de la mano derecha). Así mismo, el
+alambre puede captar campos electromagnéticos del exterior, que se
+convertirán en interferencia para la señal transportada.</p>
+<p>Al torcer el cable, las emisiones electromagnéticas en cada conductor se
+cancelan entre sí, reduciendo la <strong>diafonía</strong>, es decir, la
+interferencia que la señal transmitida en ese par, genera en pares
+adyacentes. Al mismo tiempo, se reduce la interferencia generada por las
+señales electromagnéticas circundantes: el campo es capturado por los
+dos conductores más o menos en la misma proporción, por lo que la
+diferencia en intensidad entre uno y otro conductor casi no se ve
+afectada<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> <span class="citation">[9]</span>.</p>
+<p>Como veremos más adelante, la mayor parte de las redes de acceso
+telefónicas (llamadas par de abonado, o de última milla) utilizan pares
+trenzados para enlazar a los suscriptores con las centrales telefónicas.
+Estas redes tienen tal cobertura que, a decir de Tanenbaum, si se
+extendieran juntos todos los despliegues de pares de abonado, se crearía
+un cable que podría ir a la Luna y regresar a la Tierra ¡mil
+veces! <span class="citation">[5]</span></p>
+<p>Aunque la señal se atenúa aceleradamente con la distancia, el par
+trenzado tiene un ancho de banda relativamente amplio, por lo que su uso
+en redes locales también es sumamente popular, sobre todo en lo que se
+conoce como cableado estructurado. Se trata de los tendidos de cable que
+se despliegan por ductos y canaletas <em>ex profeso</em> desde los cuartos de
+destribución donde se proveen los equipos de conectividad a la red,
+hasta las rosetas en las paredes de las oficinas, en las que se conectan
+los equipos terminales.</p>
+<p>Las primeras redes se desplegaron con los mismos cables que se
+utilizaban para los servicios de telefonía; a estos cables se le llama
+UTP (<em>unshielded twisted pair</em>) de categoría 3. La categoría está
+relacionada con el calibre o grosor del cable (menos de un milímetro de
+diámetro) y con el número de vueltas por centímetro en el trenzado.</p>
+<p>Como veremos más adelante, las redes locales ethernet que utilizan par
+trenzado, están limitadas a 100 metros. A esta distancia, con un cable UTP
+categoría 3 se puede transmitir a velocidades de 10 Mbps. En los años 90
+las redes locales a 100 Mbps se empezaron a popularizar. Para alcanzar
+estas velocidades, se pueden usar varios pares categoría 3 en paralelo,
+pares trenzados con blindaje (<em>STP, shielded twisted pair</em>)<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> o pares
+UTP categoría 5. Estos son muy similares a los de categoría 3 pero
+tienen un número mayor de vueltas por centímetro, lo que disminuye la
+diafonía.</p>
+<p>En la actualidad las redes locales alambradas operan a velocidades de 1
+y 10 Gbps<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>. En estas redes se utilizan cables de categoría 5e,
+6, y 7. En estos últimos, cada par tiene un blindaje típicamente de
+aluminio, como se muestra en la figura <a href="capa-física.html#fig:ftp">2.7</a>, lo que
+reduce aún más la diafonía, aunque estos cables utilizan conectores
+especiales y son mucho más costosos que los anteriores.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ftp"></span>
+<img src="figuras/c2/ftp.jpg" alt="*Cable trenzado Cat 7.*" width="40%" />
+<p class="caption">
+Figura 2.7: <em>Cable trenzado Cat 7.</em>
+</p>
+</div>
+</div>
+<div id="cable-coaxial" class="section level3 unnumbered hasAnchor">
+<h3>Cable coaxial<a href="capa-física.html#cable-coaxial" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El cable coaxial es el tipo de medio por el que entregaban sus servicios
+la mayoría de los operadores de televisión por cable<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a>. Se trata de un
+conductor central de cobre rodeado por otro conductor en forma de malla
+circular y separados por un medio dieléctrico (ver figura
+ <a href="capa-física.html#fig:cablecoaxial">2.8</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:cablecoaxial"></span>
+<img src="figuras/c2/cablecoaxial.jpg" alt="*Cable coaxial*" width="35%" />
+<p class="caption">
+Figura 2.8: <em>Cable coaxial</em>
+</p>
+</div>
+<p>El blindaje externo funciona como una jaula de Faraday, por lo que este
+medio es altamente resistente a las interferencias electromagnéticas.
+Esto y el hecho de que el núcleo de cobre sea mucho más grueso que el
+par trenzado, permite transportar señales a una distancia mucho mayor y
+con más ancho de banda.</p>
+<p>Como se verá posteriormente, las primeras redes locales Ethernet
+utilizaban un cable coaxial con impedancia de <span class="math inline">\(50\,\Omega\)</span>. Sin embargo,
+los despliegues de red local con cable coaxial son costosos, intrusivos
+y difíciles de manipular por lo que han sido casi totalmente sustituidos
+por cables UTP o por redes inalámbricas.</p>
+<p>Las redes de televisión por cable utilizan un cable con impedancia de
+<span class="math inline">\(75\,\Omega\)</span>. Cuando estos operadores también ofrecen servicios de
+acceso a Internet, se hace un multiplexaje en frecuencia sobre el ancho
+de banda del medio. Algunas frecuencias se utilizan para enviar datos de
+la red al usuario (canal de bajada), algunas frecuencias para el sentido
+contrario (canal de subida) y las frecuencias restantes se utilizan para
+enviar las señales de video digitalizado.</p>
+</div>
+<div id="fibra-óptica" class="section level3 unnumbered hasAnchor">
+<h3>Fibra óptica<a href="capa-física.html#fibra-óptica" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La fibra óptica es, por mucho, la tecnología más eficiente para la
+transmisión de información en medios cableados. A través de ella no
+viajan señales eléctricas sino haces de luz por lo que es inmune a la
+interferencia electromagnética. De esta manera, se pueden transmitir
+señales con mucho mayor ancho de banda, a grandes distancias y sin
+necesidad de regenerar o amplificar la señal.</p>
+<p>Su funcionamiento está basado en las propiedades de refracción y
+reflexión de la luz cuando encuentra un medio con densidades ópticas
+distintas. La fibra óptica está formada por un tubo rígido de silicio
+muy delgado de alta pureza llamado núcleo (<em>core</em>). El núcleo está
+rodeado por otro tubo de silicio llamado revestimiento (<em>cladding</em>)
+fabricado con impurezas para alterar su densidad (ver
+figura <a href="capa-física.html#fig:fibra">2.9</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fibra"></span>
+<img src="figuras/c2/fibra.jpg" alt="*Fibra óptica formada por nucleo, revestimiento y recubrimiento.*" width="35%" />
+<p class="caption">
+Figura 2.9: <em>Fibra óptica formada por nucleo, revestimiento y recubrimiento.</em>
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fzigzag"></span>
+<img src="figuras/c2/fzigzag.jpg" alt="*Propagación de un haz de luz en la fibra*" width="35%" />
+<p class="caption">
+Figura 2.10: <em>Propagación de un haz de luz en la fibra</em>
+</p>
+</div>
+<p>Al inyectar un haz de luz, éste viajará por el núcleo. Si el haz choca con el revestimiento, la diferencia entre los índices de refracción (las densidades ópticas) hace que el haz sea reflejado, por lo que la señal viaja en forma de zig-zag como se muestra en la figura <a href="capa-física.html#fig:fzigzag">2.10</a>. El ángulo de ataque o ángulo de incidencia es fundamental. Si rebasa el ángulo permitido, el haz no se reflejará, sino que será refractado en el revestimiento y la señal se perderá.</p>
+<p>Un efecto curioso de este desplazamiento en zig-zag, es que aunque la
+señal viaja a la velocidad de la luz, el haz recorre una distancia mucho
+mayor que el tamaño físico del medio (la fibra). Esto hace que la
+velocidad efectiva de propagación en una fobra óptica sea ligeramente
+menor que la velocidad de propagación en alambres de cobre, que es del
+orden de 2/3 la velocidad de la luz, es decir, <span class="math inline">\(\approx 200,000\,km/s\)</span>.</p>
+<p>Las fibras ópticas con un núcleo muy pequeño (menor a 10 micras) tienen
+prácticamente un solo ángulo de incidencia y son llamadas monomodales.
+Las fibras llamadas multimodales tienen un núcleo mucho mayor (alrededor
+de 50 micras) y cuando un haz del luz es insertado a la fibra, éste lo
+hace con varios ángulos de incidencia. El hecho de que haya varias
+trayectorias fluyendo simultáneamente,hace que éstas interfieran entre
+sí, lo que limita un tanto la velocidad de transmisión, pues el efecto de
+la interferencia dependerá tanto de la duración del pulso, como la distancia
+máxima que pueda recorrer la señal antes de que la degradación sea
+dominante. A esta interferencia se le conoce como <em>dispersión
+cromática</em>.</p>
+<p>En teoría, una sola fibra óptica monomodal puede transmitir señales en
+el orden de los terabits por segundo. En la práctica, hoy en día se
+pueden transmitir señales a más de 100 Gbps en decenas de kilómetros.</p>
+<p>Sin embargo, las fibras monomodales son mucho más costosas de fabricar y
+además la fuente de luz debe ser sumamente precisa para poder inyectar
+el haz en el muy pequeño ángulo de incidencia permitido. Estas fuentes
+de luz consisten de lasers de alta precisión. En cambio, en las fibras
+multimodales la señal puede ser generada por un LED de bajo costo.</p>
+<p>Además de los costos de la fibra y las fuentes de luz, los despliegues
+de redes de fibra son más costosos que los de cobre pues la fibra es más
+frágil y puede romperse, es mucho más difícil repararla y su despliegue,
+sobre todo para redes de área amplia, requiere de personal altamente
+especializado.</p>
+<p>Por otra parte, las bondades de la fibra óptica rebasan por mucho las
+restricciones de costo y complejidad en el despliegue. Además de las
+ventajas de velocidad ya mencionadas, conviene destacar las siguientes
+características de las redes de fibra óptica:</p>
+<ul>
+<li><p>Mucho menor atenuación de la señal que en medios électricos (hay
+menor resistencia) permite transmitir a distancias mucho mayores sin
+necesidad de amplificación.</p></li>
+<li><p>Son inmunes a factores ambientales como la oxidación, la
+interfernecia generada por rayos eléctricos, etc.</p></li>
+<li><p>Son más seguras pues es prácticamente imposible interferir la señal
+mientras ésta se propaga del origen al destino</p></li>
+</ul>
+</div>
+<div id="medios-no-guiados" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Medios no guiados<a href="capa-física.html#medios-no-guiados" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="sistemas-de-comunicaciones-1" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Sistemas de comunicaciones<a href="capa-física.html#sistemas-de-comunicaciones-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="codificaciones" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Codificaciones<a href="capa-física.html#codificaciones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="problemas-1" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Problemas<a href="capa-física.html#problemas-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="exercise">
+<p><span id="exr:c21" class="exercise"><strong>Problema 2.1  </strong></span>Proporcione dos ejemplos de sistemas que utilizan conexiones punto a
+punto y multipunto.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:c22" class="exercise"><strong>Problema 2.2  </strong></span>Una línea de ensamble en una planta de manufactura, tiene un sensor de
+presencia en cada una de sus diez estaciones de trabajo como se muestra
+en la figura. Los sensores envían su estado (la estación está libre u
+ocupada) cada 10 seg y en secuencia (primero el 1, después el 2, etc.) a
+un centro de monitoreo. Un mensaje de un sensor, con todos sus campos,
+es de 32 bytes</p>
+<p>La velocidad en el cable que conecta los sensores con la estación de
+monitoreo, es de 256 kb/s. Un mensaje de un sensor.</p>
+</div>
+<p><img src="figuras/c2/lineaEnsamble.jpg" width="60%" style="display: block; margin: auto;" /></p>
+<ul>
+<li><p>¿Qué tipo de conexión y qué modo de transmisión tiene esta red?
+Justifique brevemente su respuesta. (Ayuda: Las opciones son Punto a
+punto, punto a multipunto, simplex, half dúplex, full dúplex)</p></li>
+<li><p>¿Qué modo de multiplexaje se está utilizando?</p></li>
+<li><p>¿Cuál es la utilización del medio? (Ayuda: No confunda bits y bytes)</p></li>
+</ul>
+<p>```</p>
+<div class="exercise">
+<p><span id="exr:c23" class="exercise"><strong>Problema 2.3  </strong></span>¿Por qué un cable coaxial no se trenza y uno telefónico sí?</p>
+</div>
+<div class="exercise">
+<p><span id="exr:c24" class="exercise"><strong>Problema 2.4  </strong></span>Imagine una fibra óptica tendida a lo largo del ecuador. Su longitud
+sería un poco mayor a 40,000 km. Considere únicamente <span class="math inline">\(t_f\)</span>, el retardo
+de propagación en la fibra (ignorando todos los retrasos de
+procesamiento, regeneración, etcétera). Desde un punto en el ecuador se
+envía una señal por la fibra y exactamente al mismo tiempo se envía una
+señal a un satélite geoestacionario que la devuelve a la Tierra, El
+retardo de ida y vuelta al satélite es <span class="math inline">\(t_s\)</span>. ¿Qué relación hay entre
+<span class="math inline">\(t_f\)</span> y <span class="math inline">\(t_s\)</span>?</p>
+<ul>
+<li><span class="math inline">\(t_f\approx t_s/3\)</span></li>
+<li><span class="math inline">\(t_f \approx t_s/2\)</span></li>
+<li><span class="math inline">\(t_f\approx 3t_s/4\)</span></li>
+<li><span class="math inline">\(t_f\approx t_s\)</span></li>
+<li><span class="math inline">\(t_f\approx 4t_s/3\)</span></li>
+</ul>
+</div>
+<div class="exercise">
+<p><span id="exr:c25" class="exercise"><strong>Problema 2.5  </strong></span>Establezca una relación entre los conceptos de la derecha y los de la
+izquierda poniendo en los casilleros de la derecha la o las claves de la
+izquierda que correspondan. Cada elemento de la derecha puede tener cero
+o más respuestas correctas.</p>
+</div>
+<p><img src="tablas/ejerc2.jpg" width="110%" style="display: block; margin: auto;" /></p>
+<div class="exercise">
+<p><span id="exr:c26" class="exercise"><strong>Problema 2.6  </strong></span>¿Cuántos bits "caben" en un enlace E1 (2.048 Mbps) de 300 Km?
+Considere una velocidad de propagación de <span class="math inline">\(0.67\,c\)</span>.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:c27" class="exercise"><strong>Problema 2.7  </strong></span>¿Cuál es la máxima velocidad de transmisión para un sistema que tiene un
+ancho de banda de 24 kHz y una relación señal a ruido de 20 dB?</p>
+</div>
+<div class="exercise">
+<p><span id="exr:c28" class="exercise"><strong>Problema 2.8  </strong></span>Dos músicos situados en ciudads distantes quieren tener una jam session
+mediante una red de comunicaciones. Encuentre la máxima distancia entre
+los músicos si quisieran interactuar en tiempo real, entendiendo por
+ello la existencia de un retardo igual al que habría si estuvieran
+separados 10 metros. La velocidad del sonido es, aproximadamente, 330
+m/s y la velocidad de propagación en la red es 2/3 la velocidad de la
+luz.</p>
+</div>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="10">
+<li id="fn10"><p>Cuando no sea indispensable hacer la distinción de sus funciones, utilizarmeos indistintamente los términos nodo, dispositivo o equipo para referirnos a los equipos intermedios de comunicaciones y equipos terminales conectados a la red<a href="capa-física.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>Las señales electromagnéticas en el vacío son un caso especial que no será tratado en estas notas.<a href="capa-física.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>pero sí en la especificación de Ethernet original<a href="capa-física.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>Es decir, la señal no está modulada: se transmite en exclusividad
+con la técnica de codificación apropiada - Manchester en este caso.<a href="capa-física.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>Las categorías entre los distintos tipos de cable UTP tienen
+varias diferencias; una de las más notables, es que una categoría
+superior tiene mayor inmunidad a la interferencia. Entre las
+categorías 3 y 5 esto se consigue con un mayor número de vueltas por
+metro, lo que provoca una mejor cancelación de la radiación en cada
+par de hilos.<a href="capa-física.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p>Como veremos más adelante, se recomienda fragmentar una red con
+VLANs o subredes para no tener tantos nodos. Sin embargo, en la
+actualidad, con el surgimiento de dispositivos móviles y objetos
+inteligentes, es muy factible volver a tener redes lcoales con miles
+de dispositivos<a href="capa-física.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<li id="fn16"><p>En realidad, es posible y relativamente sencillo usurpar una
+dirección MAC; la seguridad proporcionada por esta membresía depende
+en parte del cuidado que se tenga en impedir o dificultar que un
+hacker pueda conocer las direcciones MAC de equipos sensibles.<a href="capa-física.html#fnref16" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="capa-de-enlace-de-datos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-CapaFisica.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown_RedesComputadoras.pdf", "bookdown_RedesComputadoras.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

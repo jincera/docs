@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 3 Capa de Red | Redes de Computadoras</title>
+  <meta name="description" content="Notas del curso Redes de Computadoras en HTML." />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 3 Capa de Red | Redes de Computadoras" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Notas del curso Redes de Computadoras en HTML." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 3 Capa de Red | Redes de Computadoras" />
+  
+  <meta name="twitter:description" content="Notas del curso Redes de Computadoras en HTML." />
+  
+
+<meta name="author" content="José Incera" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="redes-locales.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Redes de Computadoras. Notas de Curso</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#resumen"><i class="fa fa-check"></i>Resumen</a></li>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#requisitos"><i class="fa fa-check"></i><b>1.1</b> Conceptos básicos</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#sistemas-de-comunicaciones"><i class="fa fa-check"></i><b>1.1.1</b> Sistemas de comunicaciones</a></li>
+<li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#redes-de-telecomunicaciones"><i class="fa fa-check"></i><b>1.1.2</b> Redes de telecomunicaciones</a></li>
+<li class="chapter" data-level="1.1.3" data-path="intro.html"><a href="intro.html#señal"><i class="fa fa-check"></i><b>1.1.3</b> Señal</a></li>
+<li class="chapter" data-level="1.1.4" data-path="intro.html"><a href="intro.html#conversión-analógica-a-digital-ad"><i class="fa fa-check"></i><b>1.1.4</b> Conversión analógica a digital (A/D)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#conmutación"><i class="fa fa-check"></i><b>1.2</b> Conmutación</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#conmutación-de-mensajes"><i class="fa fa-check"></i><b>1.2.1</b> Conmutación de mensajes</a></li>
+<li class="chapter" data-level="1.2.2" data-path="intro.html"><a href="intro.html#conmutación-de-circuitos"><i class="fa fa-check"></i><b>1.2.2</b> Conmutación de circuitos</a></li>
+<li class="chapter" data-level="1.2.3" data-path="intro.html"><a href="intro.html#conmutación-de-paquetes"><i class="fa fa-check"></i><b>1.2.3</b> Conmutación de paquetes</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#multiplexaje"><i class="fa fa-check"></i><b>1.3</b> Multiplexaje</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#multiplexaje-en-el-tiempo"><i class="fa fa-check"></i><b>1.3.1</b> Multiplexaje en el tiempo</a></li>
+<li class="chapter" data-level="1.3.2" data-path="intro.html"><a href="intro.html#multiplexaje-en-frecuencia"><i class="fa fa-check"></i><b>1.3.2</b> Multiplexaje en frecuencia</a></li>
+<li class="chapter" data-level="1.3.3" data-path="intro.html"><a href="intro.html#cdm"><i class="fa fa-check"></i><b>1.3.3</b> Multiplexaje por división de código</a></li>
+<li class="chapter" data-level="1.3.4" data-path="intro.html"><a href="intro.html#multiplexaje-espacial"><i class="fa fa-check"></i><b>1.3.4</b> Multiplexaje espacial</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#arquitecturas-de-red"><i class="fa fa-check"></i><b>1.4</b> Arquitecturas de red</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#modelo-isoosi"><i class="fa fa-check"></i><b>1.4.1</b> Modelo ISO/OSI</a></li>
+<li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#modelo-tcpip"><i class="fa fa-check"></i><b>1.4.2</b> Modelo TCP/IP</a></li>
+<li class="chapter" data-level="1.4.3" data-path="intro.html"><a href="intro.html#encapsulamiento"><i class="fa fa-check"></i><b>1.4.3</b> Encapsulamiento</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#taxonomía"><i class="fa fa-check"></i><b>1.5</b> Taxonomía</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#problemas"><i class="fa fa-check"></i><b>1.6</b> Problemas</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="redes-locales.html"><a href="redes-locales.html"><i class="fa fa-check"></i><b>2</b> Redes locales</a>
+<ul>
+<li class="chapter" data-level="" data-path="redes-locales.html"><a href="redes-locales.html#resumen-1"><i class="fa fa-check"></i>Resumen</a></li>
+<li class="chapter" data-level="2.1" data-path="redes-locales.html"><a href="redes-locales.html#introducción"><i class="fa fa-check"></i><b>2.1</b> Introducción</a></li>
+<li class="chapter" data-level="2.2" data-path="redes-locales.html"><a href="redes-locales.html#ethernetieee-802.3"><i class="fa fa-check"></i><b>2.2</b> Ethernet/IEEE 802.3</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="redes-locales.html"><a href="redes-locales.html#csmacd"><i class="fa fa-check"></i><b>2.2.1</b> CSMA/CD</a></li>
+<li class="chapter" data-level="2.2.2" data-path="redes-locales.html"><a href="redes-locales.html#formato-de-la-trama"><i class="fa fa-check"></i><b>2.2.2</b> Formato de la trama</a></li>
+<li class="chapter" data-level="2.2.3" data-path="redes-locales.html"><a href="redes-locales.html#implementaciones"><i class="fa fa-check"></i><b>2.2.3</b> Implementaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="redes-locales.html"><a href="redes-locales.html#redes-locales-inalámbricas"><i class="fa fa-check"></i><b>2.3</b> Redes locales inalámbricas</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="redes-locales.html"><a href="redes-locales.html#protocolo-de-acceso"><i class="fa fa-check"></i><b>2.3.1</b> Protocolo de Acceso</a></li>
+<li class="chapter" data-level="2.3.2" data-path="redes-locales.html"><a href="redes-locales.html#implementaciones-1"><i class="fa fa-check"></i><b>2.3.2</b> Implementaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="redes-locales.html"><a href="redes-locales.html#conmutacion"><i class="fa fa-check"></i><b>2.4</b> Conmutacion</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="redes-locales.html"><a href="redes-locales.html#principio-de-operación"><i class="fa fa-check"></i><b>2.4.1</b> Principio de operación</a></li>
+<li class="chapter" data-level="2.4.2" data-path="redes-locales.html"><a href="redes-locales.html#conmutadores-transparentes---operación"><i class="fa fa-check"></i><b>2.4.2</b> Conmutadores transparentes - operación</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="redes-locales.html"><a href="redes-locales.html#protocolo-spanning-tree"><i class="fa fa-check"></i><b>2.5</b> Protocolo Spanning Tree</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="redes-locales.html"><a href="redes-locales.html#protocolo-spanning-tree-1"><i class="fa fa-check"></i><b>2.5.1</b> Protocolo Spanning Tree</a></li>
+<li class="chapter" data-level="" data-path="redes-locales.html"><a href="redes-locales.html#asignación-del-puente-raíz"><i class="fa fa-check"></i>Asignación del Puente Raíz</a></li>
+<li class="chapter" data-level="" data-path="redes-locales.html"><a href="redes-locales.html#temporizadores-y-reconfiguración-de-la-topología"><i class="fa fa-check"></i>Temporizadores y reconfiguración de la topología</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="redes-locales.html"><a href="redes-locales.html#rapid-stp"><i class="fa fa-check"></i><b>2.6</b> Rapid STP</a></li>
+<li class="chapter" data-level="2.7" data-path="redes-locales.html"><a href="redes-locales.html#agregación-de-enlaces"><i class="fa fa-check"></i><b>2.7</b> Agregación de enlaces</a></li>
+<li class="chapter" data-level="2.8" data-path="redes-locales.html"><a href="redes-locales.html#redes-locales-virtuales"><i class="fa fa-check"></i><b>2.8</b> Redes locales virtuales</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="redes-locales.html"><a href="redes-locales.html#criterios-de-membresía"><i class="fa fa-check"></i><b>2.8.1</b> Criterios de membresía</a></li>
+<li class="chapter" data-level="2.8.2" data-path="redes-locales.html"><a href="redes-locales.html#etiquetado-de-vlan"><i class="fa fa-check"></i><b>2.8.2</b> Etiquetado de VLAN</a></li>
+<li class="chapter" data-level="2.8.3" data-path="redes-locales.html"><a href="redes-locales.html#puertos-de-acceso-y-de-trunking"><i class="fa fa-check"></i><b>2.8.3</b> Puertos de acceso y de trunking</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="redes-locales.html"><a href="redes-locales.html#problemas-1"><i class="fa fa-check"></i><b>2.9</b> Problemas</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="capa-de-red.html"><a href="capa-de-red.html"><i class="fa fa-check"></i><b>3</b> Capa de Red</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="capa-de-red.html"><a href="capa-de-red.html#introducción-1"><i class="fa fa-check"></i><b>3.1</b> Introducción</a></li>
+<li class="chapter" data-level="3.2" data-path="capa-de-red.html"><a href="capa-de-red.html#protocolo-ip"><i class="fa fa-check"></i><b>3.2</b> Protocolo IP</a></li>
+<li class="chapter" data-level="3.3" data-path="capa-de-red.html"><a href="capa-de-red.html#esquema-de-direccionamiento"><i class="fa fa-check"></i><b>3.3</b> Esquema de direccionamiento</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="capa-de-red.html"><a href="capa-de-red.html#clases-de-direcciones-ip"><i class="fa fa-check"></i><b>3.3.1</b> Clases de direcciones IP</a></li>
+<li class="chapter" data-level="3.3.2" data-path="capa-de-red.html"><a href="capa-de-red.html#subredes-ip-y-enmascaramiento"><i class="fa fa-check"></i><b>3.3.2</b> Subredes IP y Enmascaramiento</a></li>
+<li class="chapter" data-level="3.3.3" data-path="capa-de-red.html"><a href="capa-de-red.html#direccionamiento"><i class="fa fa-check"></i><b>3.3.3</b> Direccionamiento</a></li>
+<li class="chapter" data-level="3.3.4" data-path="capa-de-red.html"><a href="capa-de-red.html#máscaras-de-longitud-variable"><i class="fa fa-check"></i><b>3.3.4</b> Máscaras de longitud variable</a></li>
+<li class="chapter" data-level="3.3.5" data-path="capa-de-red.html"><a href="capa-de-red.html#cidr"><i class="fa fa-check"></i><b>3.3.5</b> CIDR</a></li>
+<li class="chapter" data-level="3.3.6" data-path="capa-de-red.html"><a href="capa-de-red.html#asignación-de-direcciones-a-dispositivos"><i class="fa fa-check"></i><b>3.3.6</b> Asignación de direcciones a dispositivos</a></li>
+<li class="chapter" data-level="3.3.7" data-path="capa-de-red.html"><a href="capa-de-red.html#direcciones-privadas"><i class="fa fa-check"></i><b>3.3.7</b> Direcciones privadas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="capa-de-red.html"><a href="capa-de-red.html#protocolos-auxiliares"><i class="fa fa-check"></i><b>3.4</b> Protocolos auxiliares</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="capa-de-red.html"><a href="capa-de-red.html#icmp"><i class="fa fa-check"></i><b>3.4.1</b> ICMP</a></li>
+<li class="chapter" data-level="3.4.2" data-path="capa-de-red.html"><a href="capa-de-red.html#arp"><i class="fa fa-check"></i><b>3.4.2</b> ARP</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="capa-de-red.html"><a href="capa-de-red.html#ipv6"><i class="fa fa-check"></i><b>3.5</b> IPv6</a></li>
+<li class="chapter" data-level="3.6" data-path="capa-de-red.html"><a href="capa-de-red.html#enrutamiento"><i class="fa fa-check"></i><b>3.6</b> Enrutamiento</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="capa-de-red.html"><a href="capa-de-red.html#enrutamiento-estático"><i class="fa fa-check"></i><b>3.6.1</b> Enrutamiento estático</a></li>
+<li class="chapter" data-level="3.6.2" data-path="capa-de-red.html"><a href="capa-de-red.html#enrutamiento-dinámico--vector-de-distancias"><i class="fa fa-check"></i><b>3.6.2</b> Enrutamiento dinámico- Vector de distancias</a></li>
+<li class="chapter" data-level="3.6.3" data-path="capa-de-red.html"><a href="capa-de-red.html#enrutamiento-dinámico---estado-de-enlace"><i class="fa fa-check"></i><b>3.6.3</b> Enrutamiento dinámico - Estado de enlace</a></li>
+<li class="chapter" data-level="3.6.4" data-path="capa-de-red.html"><a href="capa-de-red.html#enrutamiento-externo"><i class="fa fa-check"></i><b>3.6.4</b> Enrutamiento externo</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Redes de Computadoras</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="capa-de-red" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Capítulo 3</span> Capa de Red<a href="capa-de-red.html#capa-de-red" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introducción-1" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Introducción<a href="capa-de-red.html#introducción-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Como se ha mencionado al introducir el modelo de capas ISO/OSI, la función principal de la capa de red es encontrar una trayectoria por la cual se encaminarán los paquetes desde la fuente hasta su destino.</p>
+<p>A partir de este capítulo nos enfocaremos exclusivamente en las capas y protocolos del Modelo TCP/IP. En este modelo, la capa de red es, precisamente, la capa IP (<em>Internet Protocol</em>). En esta capa, a las unidades de información intercambiadas se les llama <strong>paquetes</strong> o <strong>datagramas</strong>. En el presente capítulo conoceremos el formato de los datagramas IPv4 e IPv6, así como algunos protocolos auxiliares como ICMP y ARP. También conoceremos los fundamentos para asignar direcciones a nuestras redes, subredes y equipos terminales.</p>
+<p>Finalmente, se presentarán distintos protocolos de enrutamiento, que son los que permiten encaminar o <em>enrutar</em> los paquetes desde la fuente hasta su destino.</p>
+</div>
+<div id="protocolo-ip" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Protocolo IP<a href="capa-de-red.html#protocolo-ip" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El éxito de Internet se explica en gran medida por determinadas decisiones fundamentales con las que fue diseñada (Saltzer, et al., 1984). Su objetivo primordial es interconectar redes heterogéneas entre sí (de ahí su nombre) de manera sencilla. Para ello, todos los dispositivos conectados deben “hablar” y “entender” un “lenguaje” común: el protocolo IP.</p>
+<p>El protocolo IP recibe información de la capa superior (la capa de transporte) y crea un datagrama que viaja por la red hasta su destino. Cuenta con un mecanismo sencillo para detectar errores en el encabezado. No verifica la integridad de la información pues esta función ya se realiza en capa de transporte (como se verá en el siguiente capítulo) o en la capa de enlace de datos.</p>
+<p>Existen dos versiones del protocolo IP: IPv4 e IPv6. En esta sección se presenta el protocolo IPv4. Mostraremos la operación de este protocolo a partir de la descripción de los campos que conforman el datagrama IP, el cual se presenta en la figura <a href="capa-de-red.html#fig:hdrip">3.1</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:hdrip"></span>
+<img src="figuras/c4/datagramaIP.jpg" alt="*Formato del datagrama IPv4*" width="60%" />
+<p class="caption">
+Figura 3.1: <em>Formato del datagrama IPv4</em>
+</p>
+</div>
+<ul>
+<li><p><strong>Versión.</strong> El primer campo, de cuatro bits, contiene la versión del datagrama. Sólo son válidos dos números: 0100 (versión 4) y 0110 (Versión 6). Hasta hoy,</p></li>
+<li><p><strong>IHL.</strong> <em>Internet Header Length</em>. Dado que los datagramas IPv4 pueden contener opciones, la longitud del encabezado puede variar. Este campo contiene la longitud en múltiplos de 4 bytes (o en palabras de 32 bits). En realidad, es muy raro encontrar datagramas IP con opciones, por lo que este campo casi siempre contendrá el valor ‘5’, que corresponde a 20 bytes, la longitud del encabezado sin opciones.</p></li>
+<li><p><strong>DSCP.</strong> <em>DiffServ Code Point</em> Anteriormente este campo se conocía como <em>Tipo de Servicio</em> y tenía por intención permitir que el usuario pudiera indicar su preferencia por algún tipo de red en particular: baja latencia, alto caudal, servicio confiable o bajo costo. En la práctica, la preferencia casi nunca se especificaba y no se podía garantizar el servicio a lo largo de toda la internet. Lo que es peor, podía introducir lazos indeseables en el encaminamiento de paquetes. En la actualidad, este byte permite ofrecer “servicios diferenciados” cuando se implementa una red con distintas calidades de servicio.</p></li>
+<li><p><strong>Longitud total.</strong> Indica la longitud total del datagrama. Dado que este campo es de 16 bits, la longitud total es de 64 kBytes (<span class="math inline">\(2^{16}\)</span>).</p></li>
+<li><p><strong>Identificación, Banderas y Offset del fragmento.</strong> Si bien el datagrama puede tener una longitud de hasta 64 kBytes, la realidad es que la mayoría de las redes pueden transportar paquetes de mucho menor tamaño. Por ejemplo, en el capítulo anterior se ha señalado que el tamaño máximo de una trama es de 1,500 bytes. En estos casos, el datagrama debe fragmentarse y los fragmentos viajan separados por la red hasta el destino, en el que se reunifican para formar el datagrama original. El datagrama original tiene un <em>Identificador</em> de 32 bits que se copia en todos los fragmentos. Todos los fragmentos, excepto el último, tienen la bandera “M” (<em>More fragments</em>) activado. La posición del fragmento en el datagrama original está indicada por el campo <em>Offset del fragmento</em> (en realidad es el valor indicado, multiplicado por 8).
+Como este proceso de fragmentación y rensamblado es muy costoso, si la bandera “D” (<em>Don’t fragment</em>) está encendida, significa que se prefiere descartar el datagrama que fragmentarlo.</p></li>
+<li><p><strong>Tiempo de vida.</strong> Indica el número máximo de “saltos” que puede tomar un datagrama antes de ser descartado. El valor actual de default es de 32. Cada vez que el paquete llega a un enrutador, este valor se decrementa en uno. Si llega a cero, el enrutador lo descarta y, opcionalmente, envía un mensaje indicando que el destinatario “fue inalcanzable”. Esta es una forma sencilla de eliminar datagramas que, por ejemplo, tienen algún error en su dirección destino y que podrían estar viajando por la red de manera indefinida Como se verá más adelante, cuando un enrutador no conoce la trayectoria para acercar el datagrama a su destino, suele enviarlo a una “ruta por omisión”. Si todos los enrutadores tienen una ruta por omisión, el paquete estaría viajando indefinidamente por la red.</p></li>
+<li><p><strong>Protocolo</strong>. Indica el protocolo superior (o de la capa de red) al cual se le debe de entregar la información que transporta el datagrama. La lista de protocolos está especificada en el RFC 1700.</p></li>
+<li><p><strong>Checksum</strong>. Se calcula como el complemento a 1 de la suma de 16 bits de los campos del encabezado. Aunque débil, es un mecanismo que no requiere de mucho procesamiento, lo cual es importante porque cada enrutador lo debe calcular. Se asume que la información está protegida con algoritmos más robustos en la capa 4 y, como se ha mostrado, en la capa 2.</p></li>
+<li><p><strong>Dirección fuente y destino</strong>. Indican el número de red y el número de nodo para el emisor y receptor del paquete, respectivamente. En la siguiente sección se presentan las direcciones IP detalladamente.</p></li>
+<li><p><strong>Opciones.</strong> Inician con un byte que identifica el código de la opción. Se han especificado opciones para seguridad, enrutamiento estricto, registro de rutas y sellos de tiempo, entre otros. La realidad es que las opciones prácticamente nunca se utilizan (de hecho, fueron descartadas en la especificación de IPv6) y no serán cubiertas en estas notas.</p></li>
+<li><p><strong>Padding.</strong> El encabezado de IP debe ser un múltiplo de 4 bytes (palabras de 32 bits). Si se incluye una opción que no sea múltiplo de 4 bytes, en este campo se añade un “relleno” para alinearla a esa longitud.</p></li>
+</ul>
+</div>
+<div id="esquema-de-direccionamiento" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Esquema de direccionamiento<a href="capa-de-red.html#esquema-de-direccionamiento" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para comunicarse, cada dispositivo necesita de un identificador único<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a> llamado la <strong>dirección IP</strong>. Para entender el formato de las direcciones IP, un concepto esencial que debe quedar muy claro, es que “Internet” es una * <strong>Inter</strong>conexión de <strong>Net</strong>works *. Por ello, las direcciones IP están formadas por dos partes: un <strong>identificador de red</strong> y un <strong>identificador de host</strong> o dispositivo (en realidad, un identificador de la tarjeta de red del dispositivo).</p>
+<p>Como se observa en la figura <a href="capa-de-red.html#fig:hdrip">3.1</a>, cada datagrama contiene la dirección del destinatario. Los nodos de conmutación en la red, llamados <strong>enrutadores</strong> en esta capa, revisan la parte de red de la dirección IP y deciden a qué enrutador vecino entregarle el datagrama para acercarlo a la red donde se encuentra el destinatario. Una vez alcanzada la red destino, se analiza la parte de host de la dirección IP para entregarla al dispositivo correspondiente.</p>
+<p>En IPv4, las direcciones IP son de 32 bits y, para simplificar su interpretación por las personas, son divididas en cuatro bytes, cada uno expresado en formato decimal y separado por un punto. Por ejemplo, la computadora que hospeda el servidor Web del ITAM, tiene la dirección IP 148.205.148.6, lo cual es mucho más sencillo de asimilar, que su equivalente en binario: <code>10010100 11001101 10010100 0000110</code>.</p>
+<div id="clases-de-direcciones-ip" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Clases de direcciones IP<a href="capa-de-red.html#clases-de-direcciones-ip" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Cada red conectada a Internet debe tener su propia dirección (su identificador único) y los enrutadores debían contar con un mecanismo sencillo para poder obtener ese identificador de la dirección IP y, con base en él, encaminar el datagrama hacia la red donde se encuentra el destinatario.</p>
+<p>Para ello, los diseñadores de Internet decidieron definir cinco distintos tipos de redes que se pueden distinguir a partir de los bits más significativos de la dirección IP.</p>
+<div id="clase-a" class="section level5 unnumbered hasAnchor">
+<h5>Clase A<a href="capa-de-red.html#clase-a" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Si el bit más significativo de la dirección IP empieza en cero, tenemos una direción clase A y el primer byte de la dirección IP es el identificador de la red. Los tres bytes restantes quedan disponibles para identificadores de hosts en esa red.</p>
+<p>Con siete bits (recordemos que el primer bit ya se ocupó, debe ser cero), tenemos <span class="math inline">\(2^7=128\)</span> identificadores de red clase A. En realidad, 126, pues los identificadores 0 y 127 están reservados.</p>
+<p>Cada una de estas redes dispone de <span class="math inline">\(2^{24}-2=16,777,214\)</span> identificadores de host. Se han reducido dos direcciones pues cuando todos los bits de la parte de host están en cero, tenemos el identificador de la red y cuando todos están en uno, tenemos una dirección de difusión dentro de esa red.</p>
+<p>Esta clase fue propuesta para muy pocas grandes organizaciones con una gran cantidad de hosts, como puede ser un organismo de gobierno o un proveedor de acceso a Internet.</p>
+</div>
+<div id="clase-b" class="section level5 unnumbered hasAnchor">
+<h5>Clase B<a href="capa-de-red.html#clase-b" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Si el bit más significativo de la dirección IP empieza en uno y el siguiente en cero, tenemos una direción clase B y los dos primeros bytes son el identificador de la red. Los dos bytes restantes quedan disponibles para identificadores de hosts en esa red.</p>
+<p>Con 14 bits (los primeros dos valen 10), tenemos <span class="math inline">\(2^{14}=16,384\)</span> identificadores de red clase B. Cada una de estas redes dispone de <span class="math inline">\(2^{16}-2=64,534\)</span> identificadores de host.</p>
+<p>Esta clase fue propuesta para organizaciones de tamaño medio y grande que pudieran tener unos miles de computadoras conectadas a Internet. Observe que sólo hay 16,384 de estas direcciones disponibles en el mundo. El ITAM tiene una de ellas.</p>
+</div>
+<div id="clase-c" class="section level5 unnumbered hasAnchor">
+<h5>Clase C<a href="capa-de-red.html#clase-c" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Si los dos primeros bits más significativos de la dirección IP empiezan en uno y el tercero en cero, tenemos una direción clase C y los tres primeros bytes de la dirección IP son el identificador de la red. El byte restante queda disponible para identificadores de hosts en esa red.</p>
+<p>Con 21 bits (los 3 primeros valen 110), tenemos <span class="math inline">\(2^{21}=2,097,152\)</span> identificadores de red clase C. Cada una de estas redes dispone de <span class="math inline">\(2^{8}-2=254\)</span> identificadores de host.</p>
+<p>Esta clase fue propuesta para organizaciones con pocas computadoras con necesidad de conectarse a Internet. Se anticipaba que hubiera unos pocos millones de organizaciones de este tipo. Recordemos que estas decisiones se tomaron hace más 40 años, cuando nadie imaginaba lo que terminó siendo Internet en nuestras vidas.</p>
+</div>
+<div id="clase-d" class="section level5 unnumbered hasAnchor">
+<h5>Clase D<a href="capa-de-red.html#clase-d" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Las direcciones clase D se reconocen porque los primeros cuatro bits más significativos tienen un valor 1110. Con ellas se pueden crear grupos <strong>Multicast</strong>, en los que el datagrama se entrega a todos los dispositivos que tengan la misma dirección IP multicast. Por ejemplo, en algunos de los protocolos de enrutamiento que se verán más adelante, los enrutadores se configuran con direcciones multicast para que sólo ellos reciban los datagramas con la información que les permita concebir la topología de la red.</p>
+</div>
+<div id="clase-e" class="section level5 unnumbered hasAnchor">
+<h5>Clase E<a href="capa-de-red.html#clase-e" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Si los primeros cuatro bits valen uno, se tiene una dirección clase E. Se trata de un bloque reservado para experimentación y sus direcciones no pueden ser utilizadas en una red operativa.</p>
+<p>En la tabla de la figura <a href="capa-de-red.html#fig:clases">3.2</a> se sintetizan las principales características de las clases de direcciones IP:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:clases"></span>
+<img src="figuras/c4/clases.jpg" alt="*Clases de direcciones IP*" width="60%" />
+<p class="caption">
+Figura 3.2: <em>Clases de direcciones IP</em>
+</p>
+</div>
+</div>
+</div>
+<div id="subredes-ip-y-enmascaramiento" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Subredes IP y Enmascaramiento<a href="capa-de-red.html#subredes-ip-y-enmascaramiento" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>No es práctico tener un espacio plano de direccionamiento para todos los dispositivos en una red. No tiene mucho sentido enumerar de manera consecutiva a cada uno de los dispositivos pues con toda probabilidad estos dispositivos podrían organizarse en grupos, por ejemplo, con base en su ubicación o su función en la organización, tal como se podrían organizar las VLANs.</p>
+<p>Una red IP puede dividirse en pequeñas redes llamadas subredes. Para identificar cada una de las subredes, se toman “prestados” bits del campo de host de la dirección IP. Entonces, en la dirección IP se tiene un campo para identificar la red, un campo para identificar las subredes en esa red y un campo para identificar los dispositivos en cada subred.</p>
+<hr />
+<div class="example">
+<p><span id="exm:subred" class="example"><strong>Ejemplo 3.1  </strong></span>Supongamos una organización que tiene una dirección de clase B con la que puede asignar direcciones IP a 65,534 dispositivos. Si la organización tiene 12 unidades de negocio, entonces podría definir doce subredes (en realidad, 16) y en cada una de estas subredes podría asignar direcciones para poco más de 4,000 dispositivos.</p>
+<p>Dado que se tienen que definir 12 subredes, se deben tomar prestados cuatro bits del campo de host (<span class="math inline">\(2^3 = 8 &lt; 12 \le 2^4=16\)</span>) y quedan 12 bits para asignar direcciones IP a dispositivos en cada subred.</p>
+</div>
+<hr />
+<p>Las subredes están bajo administración local, por lo que el mundo externo ve a la organización como una sola red sin tener conocimiento detallado de su estructura interna. En cambio, los enrutadores dentro de la organización deben saber a qué subred dirigir el tráfico correspondiente, es decir cuántos bits de la dirección IP contienen la dirección de red y subred. Para ello se utilizan las máscaras de red.</p>
+<p>Al igual que las direcciones IP, la máscara de red también tiene una longitud de 32 bits y se expresa como cuatro dígitos decimales. Los bits en 1 en la máscara indican los bits correspondientes en la dirección IP que identifican las direcciones de red y subred (no se hace distinción entre ellas, no es necesario). Los bits en 0 en la máscara, indican los bits correspondientes en la dirección IP que identifican las direcciones de los hosts. Para la red del ejemplo <a href="capa-de-red.html#exm:subred">3.1</a>, la máscara tiene los primeros 20 bits encendidos y su identificador es `255.255.240.0 como se muestra en la figura <a href="capa-de-red.html#fig:mascara">3.3</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mascara"></span>
+<img src="figuras/c4/mascara.jpg" alt="*Subredes y máscara de red*" width="60%" />
+<p class="caption">
+Figura 3.3: <em>Subredes y máscara de red</em>
+</p>
+</div>
+</div>
+<div id="direccionamiento" class="section level3 hasAnchor" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Direccionamiento<a href="capa-de-red.html#direccionamiento" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para reforzar los conceptos de redes, subredes y máscaras, hagamos un ejercicio de direccionamiento. Considere la red de la figura <a href="capa-de-red.html#fig:reddir">3.4</a> que tiene una dirección clase C <code>198.62.193.0</code>. Nuestro trabajo es asignar direcciones IP dentro de ese bloque a todos los dispositivos en la red.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:reddir"></span>
+<img src="figuras/c4/reddir.jpg" alt="*Red para ejemplo de direccionamiento*" width="50%" />
+<p class="caption">
+Figura 3.4: <em>Red para ejemplo de direccionamiento</em>
+</p>
+</div>
+<p>En primer lugar, se debe identificar cuántas subredes y cuántos dispositivos en cada subred se conectarán. Esto determina cómo se hará el direccionamiento. Para nuestro ejercicio, vamos a considerar que en ninguna subred habrá más de 10 dispositivos.</p>
+<p>¿Cuántas subredes tiene la red de la figura <a href="capa-de-red.html#fig:reddir">3.4</a>? Con poca experiencia diríamos que hay cuatro subredes. Sin embargo, si recordamos que los enrutadores separan (e interconectan) redes (ok, también subredes), en realidad tenemos siete. Las cuatro en los extremos y las tres que las interconectan. A pesar de ser enlaces punto a punto, en Internet son consideradas redes.</p>
+<p>Si tenemos siete subredes, debemos tomar prestados 3 bits del campo de host, dejando 5 bits para poder direccionar hasta 30 dispositivos en cada subred. Sin embargo, esto no deja ningún margen para añadir más subredes. Dado que en ninguna red habrá más de 10 dispositivos, el campo de host debe ser de cuatro bits, lo que nos deja cuatro bits para los identificadores de subred, con lo que podremos definir en un futuro hasta 16 subredes.</p>
+<p>Con esa política de direccionamiento, en la figura <a href="capa-de-red.html#fig:tabidred">3.5</a> se muestran los primeros ocho identificadores de subred para nuestro ejercicio.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:tabidred"></span>
+<img src="figuras/c4/tabidred.jpg" alt="*Identificadores de subred para la red del ejemplo.*" width="60%" />
+<p class="caption">
+Figura 3.5: <em>Identificadores de subred para la red del ejemplo.</em>
+</p>
+</div>
+<p>Es momento de asignar identificadores a (las interfaces de) los dispositivos. Podríamos asignarlos de manera arbitraria, pero siempre es una buena práctica que simplifica la gestión de la red, establecer una política. Por ejemplo, el gateway en la red tendrá el identificador menos significativo, el servidor de configuración DHCP el siguiente, el servidor de impresión el siguiente, y las computadoras de los usuarios se asignan consecutivamente en orden descendente.</p>
+<p>Con una política como la anterior, y recordando que las direcciones primera y última están reservadas, la asignación de direcciones en la red de nuestro ejemplo quedaría como se muestra en la figura <a href="capa-de-red.html#fig:reddirsol">3.6</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:reddirsol"></span>
+<img src="figuras/c4/reddirsol.jpg" alt="*Red de ejemplo con direcciones asignadas.*" width="70%" />
+<p class="caption">
+Figura 3.6: <em>Red de ejemplo con direcciones asignadas.</em>
+</p>
+</div>
+</div>
+<div id="máscaras-de-longitud-variable" class="section level3 hasAnchor" number="3.3.4">
+<h3><span class="header-section-number">3.3.4</span> Máscaras de longitud variable<a href="capa-de-red.html#máscaras-de-longitud-variable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El ejercicio de direccionamiento que acabamos de realizar, cumple con lo necesario para ese ejemplo pero es ineficiente. En particular, sabemos que en los enlaces punto a punto que interconectan las subredes, no habrá dispositivos de usuarios. Sin embargo, para cada uno de esos enlaces (de esas subredes) se ha reservado un bloque con 14 direcciones de host, de las que únicamente se utilizan dos. Las otras 12 se están desperdiciando.</p>
+<p>Esto puede resolverse utilizando máscaras de longitud variable (VLSM) que permiten optimizar el espacio de direcciones disponibles mediante la división de una red (o subred) en subredes de diferente tamaño.</p>
+<p>En otras palabras, dentro de la organización es válido y hasta recomendable, utilizar máscaras con diferentes longitudes en distintas subredes, atendiendo las necesidades reales de direccionamiento de la organización.</p>
+<p>En nuestro ejercicio, los enlaces punto a punto requieren únicamente de dos direcciones, una para cada interfaz de red<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a>. Para obtener dos direcciones IP, necesitamos de dos bits del campo de host. Esto nos da cuatro identificadores, pero recordemos que el primero y el último están reservados.</p>
+<p>Entonces, para los identificadores de las subredes de los enlaces punto a punto, podemos extender la máscara de 28 a 30 bits a partir del identificador de (sub)red <code>198.62.193.64</code>. El direccionamiento resultante se muestra en la figura <a href="capa-de-red.html#fig:reddirvlsm">3.7</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:reddirvlsm"></span>
+<img src="figuras/c4/reddirvlsm.jpg" alt="*Direccionamiento con máscaras de longitud variable.*" width="70%" />
+<p class="caption">
+Figura 3.7: <em>Direccionamiento con máscaras de longitud variable.</em>
+</p>
+</div>
+</div>
+<div id="cidr" class="section level3 hasAnchor" number="3.3.5">
+<h3><span class="header-section-number">3.3.5</span> CIDR<a href="capa-de-red.html#cidr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A principios de los años 90 se pusieron en evidencia varios problemas relacionados con el direccionamiento basado en clases de redes y que estaba acelerando el agotamiento de las direcciones IP disponibles.</p>
+<p>Considere el caso de una organización que requiere de 1,800 direcciones IP para sus dispositivos. En los años 80, se le hubiera otorgado una dirección clase B, desperdiciando ¡63,734 direcciones! Otra opción podría ser asignarle ocho direcciones clase C; el desperdicio sería menor pero la organización debe anunciar y atender los paquetes dirigidos a esas ocho redes. Esto aumenta innecesariamente las tablas de enrutamiento en Internet.</p>
+<p>CIDR, <em>Classless Inter-Domain Routing</em> se desarrolló a principios de la década de 1990 para atender estos problemas. La idea es básicamente utilizar únicamente la máscara de red para establecer qué bits conforman el identificador de red en vez de observar únicamente los primeros bits más significativos. A los “n” bits que conforman la máscara se le llama prefijo y determinan el identificador de red de la dirección IP. Se representa con una diagonal y el número de bits correspondiente. Por ejemplo, la máscara <code>255.255.0.0</code> se representa con el prefijo <code>/16</code>.</p>
+<p>Con esta técnica, los bloques de direcciones IP se pueden asignar de manera más flexible y eficiente pues CIDR permite que los bloques de direcciones sean asignados con una longitud de prefijo variable, lo que significa que una red puede recibir una cantidad más ajustada de direcciones, evitando así el desperdicio de espacio de direcciones.</p>
+<p>En el ejemplo anterior, ahora se podría asignar a la organización que requiere de 1,800 direcciones IP, el bloque <code>192.168.0.0/21</code>, lo que deja un espacio de 2,046 direcciones de host.</p>
+<p>CIDR se convirtió en una solución esencial para paliar el agotamiento de las direcciones IPv4, y sigue siendo ampliamente utilizado en la actualidad junto con la adopción creciente de IPv6, que ofrece una cantidad significativamente mayor de direcciones.</p>
+<p>Al introducir CIDR también se restringió severamente el otorgamiento de direcciones de red. En la mayoría de los países, estas direcciones únicamente se otorgan a proveedores de acceso a Internet (ISP) con base en los siguientes bloques de direcciones que se reservaron para la distintas regiones geográficas:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Bloque</th>
+<th>Región</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>192.0.0 a 193.255.255</td>
+<td>Multiregión</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>194.0.0 a 195.255.255</td>
+<td>Europa</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>196.0.0 a 197.255.255</td>
+<td>Otros</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>198.0.0 a 198.255.255</td>
+<td>América del Norte</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>200.0.0 a 201.255.255</td>
+<td>America Central y del Sur</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>202.0.0 a 203.255.255</td>
+<td>Costa del Pacífico</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>204.0.0 a 205.255.255</td>
+<td>Otros</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>206.0.0 a 207.255.255</td>
+<td>Otros</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div id="sumarización-de-direcciones" class="section level4 unnumbered hasAnchor">
+<h4>Sumarización de direcciones<a href="capa-de-red.html#sumarización-de-direcciones" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Como se ha comentado, CIDR también permite que las tablas de enrutamiento sean menores y se actualicen con menor frecuencia, lo que mejora el desempeño de los enrutadores.</p>
+<p>En efecto, si los bloques de direcciones se asignan a regiones, los administradores de las regiones a ISPs y los ISPs a sus clientes, entonces es posible anunciar en la Internet el prefijo de un ISP sin tener que anunciar todas las redes que administra ese ISP. Cuando un paquete llega al ISP, éste utilizará un prefijo más grande para encaminarlo a la red del cliente que corresponda. Esta forma de <strong>enrutamiento jerárquico</strong> es lo que se conoce como sumarización de rutas.</p>
+<p>La red de la figura <a href="capa-de-red.html#fig:sumariza">3.8</a> ejemplifica este concepto. El núcleo es la red de un ISP que tiene dos clientes: A1, al que le asignó las redes 100.20.0.0 a 200.20.0.15, y A2 al que le asignó las redes 200.20.16.0 a 200.20.16.31.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:sumariza"></span>
+<img src="figuras/c4/sumariza.jpg" alt="*Ejemplo de sumarización de direcciones.*" width="70%" />
+<p class="caption">
+Figura 3.8: <em>Ejemplo de sumarización de direcciones.</em>
+</p>
+</div>
+<p>En vez de anunciar a Internet las 32 redes, el ISP anunciaría únicamente una red con el prefijo <code>200.20.0.0/19</code>.</p>
+<p>Para poder realizar la agregación es necesario que el número de redes sea una potencia de 2 y que todas ellas compartan los bits que se encuentran más a la izquierda, es decir, que tengan el mismo prefijo.</p>
+<p>Por ejemplo, las 8 redes clase C 192.168.168.0 a 192.168.175.0 pueden agregarse en 192.168.168.0/21.</p>
+</div>
+</div>
+<div id="asignación-de-direcciones-a-dispositivos" class="section level3 hasAnchor" number="3.3.6">
+<h3><span class="header-section-number">3.3.6</span> Asignación de direcciones a dispositivos<a href="capa-de-red.html#asignación-de-direcciones-a-dispositivos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La asignación de direcciones a dispositivos en una red es un aspecto fundamental para asegurar la conectividad y el funcionamiento adecuado de los sistemas. Existen dos métodos principales para llevar a cabo esta asignación: la configuración manual y la configuración dinámica a través de protocolos como RARP, BOOTP y DHCP.</p>
+<p>En la configuración manual, un administrador de red asigna manualmente una dirección IP específica a cada dispositivo en la red. Esta asignación se realiza de forma estática y permanente, lo que significa que la dirección IP del dispositivo no cambia a menos que el administrador realice una modificación.</p>
+<p>Si bien la configuración manual ofrece precisión y control sobre las direcciones IP asignadas, puede resultar tediosa y propensa a errores en redes con muchos dispositivos. <em>Esta configuración sólo es recomendable dispositivos que requieren de una dirección IP estable, como es el caso de servidores y enrutadores por omisión</em>.</p>
+<p>La configuración dinámica se basa en la automatización de la asignación de direcciones IP mediante protocolos como RARP (Reverse Address Resolution Protocol), BOOTP (Bootstrap Protocol) y DHCP (Dynamic Host Configuration Protocol). RARP permite que un dispositivo sin dirección IP conozca su dirección IP a partir de su dirección física (MAC address).</p>
+<p>BOOTP fue el precursor de DHCP y se utilizaba para proporcionar direcciones IP y otra información de configuración básica a los dispositivos durante el arranque.</p>
+<p>DHCP es el protocolo más utilizado actualmente para asignar direcciones IP de manera dinámica y automática a los dispositivos en una red. Con DHCP, los dispositivos pueden obtener una dirección IP temporalmente cuando se conectan a la red, lo que facilita la gestión y la flexibilidad en entornos con dispositivos móviles o una alta rotación de dispositivos.</p>
+<p>El servidor DHCP también configura en el cliente otros parámetros importantes como el prefijo o máscara de red, la dirección de los DNS (se verán más adelante) y de los enrutadores por omisión.</p>
+<p>Veamos el funcionamiento del protocolo DHCP a partir de la siguiente tabla de estados:</p>
+<table>
+<colgroup>
+<col width="15%" />
+<col width="84%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Estado</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Descubrimiento</td>
+<td>El cliente DHCP envía un paquete <em>discover</em> a la red local para encontrar un servidor DHCP. La dirección de difusión es 255.255.255.255</td>
+</tr>
+<tr class="even">
+<td>Oferta</td>
+<td>Todos los servidores DHCP que escuchan el mensaje anterior responden al cliente con una mensaje <em>offer</em> de dirección IP y configuración de red.</td>
+</tr>
+<tr class="odd">
+<td>Solicitud</td>
+<td>El cliente selecciona una de las ofertas y envía una solicitud para aceptar la oferta de un servidor DHCP específico mediante un mensaje <em>request</em></td>
+</tr>
+<tr class="even">
+<td>Aceptación</td>
+<td>El servidor DHCP confirma la solicitud del cliente con un mensaje <em>Ack</em> y asigna la dirección IP definitiva al cliente.</td>
+</tr>
+<tr class="odd">
+<td>Renovación</td>
+<td>Durante el tiempo de arrendamiento, el cliente DHCP renueva la dirección IP con el servidor DHCP.</td>
+</tr>
+<tr class="even">
+<td>Reautenticación</td>
+<td>Cuando se alcanza la mitad del tiempo de arrendamiento, el cliente DHCP verifica la conexión.</td>
+</tr>
+<tr class="odd">
+<td>Liberación</td>
+<td>Cuando un dispositivo se desconecta o apaga, libera la dirección IP asignada y queda disponible.</td>
+</tr>
+</tbody>
+</table>
+<p>En realidad, se tienen tres modos de operación: Asignación manual, asignación dinámica permanente y asignación dinámica (leasing). En esta última, la dirección se asigna durante un período de tiempo y el cliente debe estar renovando continuamente la solicitud.</p>
+<p>Si por un lado DHCP simplifica la configuración y contribuye a la escalabilidad de la red, ciertas funciones administrativas pueden complicarse. Por ejemplo, si los dispositivos reciben dinámicamente su dirección, ¿cómo identificar cuál es el dispositivo que presenta una falla?</p>
+</div>
+<div id="direcciones-privadas" class="section level3 hasAnchor" number="3.3.7">
+<h3><span class="header-section-number">3.3.7</span> Direcciones privadas<a href="capa-de-red.html#direcciones-privadas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Con el crecimiento exponencial de Internet a principios de la década de los 90, CIDR no sería suficiente para frenar el agotamiento de direcciones IP, por lo que surgieron otras iniciativas. La más importante fue la creación del protocolo IPv6, que veremos más adelante. Pero la más efectiva hasta hoy, fue la definición de bloques de direcciones privadas.</p>
+<p>Las direcciones privadas son bloques de direcciones IP que pueden ser utilizadas dentro de las redes locales de una organización para poder aprovechar la pila de protocolos TCP/IP para interconectar dispositivos sin que éstos requieran de direcciones IP únicas y globales.</p>
+<p>Con una dirección privada se puede hacer prácticamente todo lo que se puede hacer con una dirección pública global, <em>excepto interconectarse a Internet</em>. La direcciones privadas no son ruteables en Internet, lo que significa que los dispositivos que utilizan direcciones IP privadas no pueden comunicarse directamente con dispositivos fuera de la red de la organización.</p>
+<p>Los bloques de direcciones IP privadas fueron definidos en el RFC 1918, publicado en 1996. Los tres rangos de direcciones IP privadas son los siguientes:</p>
+<ul>
+<li><p><strong>10.0.0.0 a 10.255.255.255</strong> (rango CIDR: 10.0.0.0/8): Este bloque de direcciones privadas ofrece más de 16 millones de direcciones IP, lo que lo convierte en la opción preferida para redes empresariales y corporativas.</p></li>
+<li><p><strong>172.16.0.0 a 172.31.255.255</strong> (rango CIDR: 172.16.0.0/12): Este bloque de direcciones privadas proporciona más de un millón de direcciones IP y suele ser utilizado en redes medianas o grandes.</p></li>
+<li><p><strong>192.168.0.0 a 192.168.255.255</strong> (rango CIDR: 192.168.0.0/16): Este bloque de direcciones privadas ofrece aproximadamente 65 mil direcciones IP y es comúnmente utilizado en redes domésticas y PyMEs.</p></li>
+</ul>
+<p>Además de las direcciones privadas, existen otros bloques de direcciones IP que están reservados para fines específicos, como:</p>
+<ul>
+<li><p>Direcciones de lazo de retorno (<em>loop local</em>): <strong>127.0.0.0 a 127.255.255.255</strong> (rango CIDR: 127.0.0.0/8). Estas direcciones se utilizan para la comunicación interna del dispositivo consigo mismo. La dirección 127.0.0.1 es comúnmente conocida como “localhost” y se utiliza para probar el funcionamiento de la pila de protocolos de red.</p></li>
+<li><p>Direcciones de rango de enlace local: <strong>169.254.0.0 a 169.254.255.255</strong> (rango CIDR: 169.254.0.0/16). Estas direcciones son asignadas automáticamente por los dispositivos cuando no pueden obtener una dirección IP válida de un servidor DHCP. Se utilizan en situaciones en las que no hay un servidor DHCP disponible para asignar direcciones. Este bloque fue definido en el RFC 3927.</p></li>
+</ul>
+<p>El uso adecuado de direcciones privadas y bloques de direcciones reservados es fundamental para garantizar una gestión eficiente de las direcciones IP dentro de una red local y para evitar conflictos de direcciones al conectarse a Internet. Al comprender estos rangos y su propósito, los administradores de redes pueden diseñar y configurar redes de manera más efectiva y segura.</p>
+<p>La asignación de direcciones IP privadas es una práctica común que permite una gestión más sencilla de las direcciones dentro de la red. Además, al no ser ruteables en Internet, son intrínsicamente seguras, pues un dispositivo con una dirección privada no puede ser accedido desde el exterior de la organización.</p>
+<div id="network-address-translation---nat" class="section level4 unnumbered hasAnchor">
+<h4>Network Address Translation - NAT<a href="capa-de-red.html#network-address-translation---nat" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Network Address Translation (NAT) es una técnica que permite que muchos dispositivos puedan compartir una o unas cuantas direcciones IP. Así, las redes de la organización pueden ser desplegadas con direcciones privadas y si algunos dispositivos necesitan acceder a Internet, pueden hacer uso temporal de las direcciones públicas a disposición de la organización.</p>
+<hr />
+<div class="example">
+<p><span id="exm:nat" class="example"><strong>Ejemplo 3.2  </strong></span>Imaginemos que una organización dispone de las direcciones públicas 200.1.1.1 a 200.1.1.5 y tiene 100 dispositivos en su red interna con direcciones privadas del bloque 10.0.0.0/8</p>
+<p>En un momento determinado, el dispositivo 10.1.2.3 desea comunicarse con un servidor 198.9.8.7 (que está en una red externa). El datagrama eventualmente llegará al enrutador que conecta la organización con su ISP, donde normalmente reside el NAT; éste intercepta el mensaje y sustituye la dirección fuente por una de su pool, digamos, 200.1.1.3.</p>
+<p>La respuesta del servidor llegará al NAT quien habrá registrado que la dirección 200.1.1.3 fue asignada al dispositivo 10.1.2.3 por lo que puede remplazar la dirección (ahora, de destino) por la del dispositivo.</p>
+<p>Mientras esa comunicación tiene lugar (las direcciones se asignan por un cierto tiempo o hasta que se cierra la conexión), otro dispositivo, digamos, 10.1.2.5 quiere comunicarse con el host 15.66.12.1. Al llegar al NAT, éste hará la sustitución de direcciones por otra disponible en el pool, por ejemplo, 200.1.1.1 para que el mensaje pueda viajar por Internet.</p>
+</div>
+<hr />
+<p><img src="figuras/c4/nat.JPG" width="50%" style="display: block; margin: auto;" /></p>
+<p>Un problema evidente con el esquema anterior es que en un momento dado sólo podrían comunicarse hacia Internet tantos dispositivos como direcciones IP públicas tenga la organización. Esta es una seria restricción sobre todo en la actualidad, cuando el acceso a Internet es indispensable.</p>
+<p>Afortunadamente, es una restricción muy fácil de superar con una extensión de NAT llamada <strong>Network Address Port Translation (NAPT)</strong>, o NAT con sobrecarga.</p>
+<p>Como se verá en capítulos posteriores, al punto de acceso al servicio de la capa de transporte en Internet, se le llama Puerto. Los paquetes que integran el flujo entre un emisor y un destinatario, pueden distinguirse por una tupla de cinco elementos: Dirección IP fuente; dirección IP destino; protocolo en la capa de transporte; puerto fuente y puerto destino.</p>
+<p>Tomando ventaja de lo anterior, NAPT mapea los paquetes de un emisor a un puerto fuente y una dirección IP pública. Como se tienen más de 60,000 puertos fuente, entonces se pueden tener muchísimas “sesiones” entre dispositivos con direcciones privadas y dispositivos en Internet, utilizando una única dirección IP pública.</p>
+<hr />
+<div class="example">
+<p><span id="exm:napt" class="example"><strong>Ejemplo 3.3  </strong></span>Continuando con el ejemplo <a href="capa-de-red.html#exm:nat">3.2</a>, ahora la organización dispone únicamente de la dirección pública 200.1.1.1.</p>
+<p>Cuando el dispositivo 10.1.2.3/2345 desea comunicarse con el servidor 198.9.8.7/80 (2345 es el puerto fuente asignado por el sistema operativo al proceso que desea la comunicación; 80 es le puerto del proceso en el destino; este puerto es para servidores Web) el datagrama es interceptado por el NAPT, quien sustituye la dirección fuente por la pública y el puerto fuente por uno que tenga disponible, digamos, 1024.</p>
+<p>La respuesta del servidor llegará al NAPT quien habrá registrado que <em>el puerto</em> 1024 fue asignada al flujo proveniente de 10.1.2.3/2345 por lo que puede remplazar la dirección y el puerto correspondientes.</p>
+<p>Mientras esa comunicación tiene lugar el flujo proveniente de 10.1.2.5/1234 quiere comunicarse con el host 15.66.12.1/80. Al llegar al NAPT, éste hará la sustitución con otro puerto que tenga disponible, por ejemplo, el 1025</p>
+</div>
+<hr />
+<p><img src="figuras/c4/napt.JPG" width="60%" style="display: block; margin: auto;" /></p>
+<p>Un NAT puede ser implementado en un enrutador, en un firewall o en un dispositivo especializado. Esta es la mejor opción para redes donde el trafico es elevado pues requiere mucho procesamiento: no solo deben cambiarse las direcciones sino debe recalcularse el CRC de los encabezados.</p>
+<p>Además, en algunos protocolos (eg, Comando PORT de ftp; H.323; DNS) también debe analizarse el campo de datos para detectar y modificar direcciones ahí y posiblemente hasta cambie de tamaño la trama.</p>
+<p>Normalmente NAT proporciona una traducción dinámica, aunque algunas implantaciones soportan asignación estática para servicios como WWW y mail servers.</p>
+</div>
+</div>
+</div>
+<div id="protocolos-auxiliares" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Protocolos auxiliares<a href="capa-de-red.html#protocolos-auxiliares" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="icmp" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> ICMP<a href="capa-de-red.html#icmp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Definido en el RFC 792, ICMP (<em>Internet Control Message Protocol</em>) es un protocolo auxiliar esencial en las redes TCP/IP. se utiliza principalmente para proporcionar notificaciones sobre el funcionamiento de la red, así como para informar sobre errores y problemas en la transmisión de paquetes IP.</p>
+<p>ICMP va encapsulado en IP como si fuera un protocolo de alto nivel, sin embargo, se considera como parte integral del protocolo IP. ICMP reporta errores, mas no hace confiable a IP. La confiabilidad debe ser implementada por protocolos de alto nivel.</p>
+<p>A través de mensajes ICMP, los dispositivos pueden enviar solicitudes de eco (ping) para probar la conectividad y latencia con otros dispositivos. Además, ICMP también se utiliza para notificar errores, como la falta de una ruta adecuada para la entrega de un paquete IP, lo que resulta en mensajes de “Tiempo Excedido” o “Destino Inalcanzable”.</p>
+<p>A continuación se presentan los principales mensajes ICMP:</p>
+<ul>
+<li><p><strong>Destino inalcanzable</strong>.- ICMP type: 3. El paquete no se entregó. No puede encontrarse la ruta o un paquete con el bit DF no puede pasar una red con un valor de paquete mas pequeño.</p></li>
+<li><p><strong>Tiempo excedido</strong>.- ICMP type: 11. El valor de TTL llegó a 0 y el paquete ha sido descartado (posible condición de loop o tiempo de reensamble expirado).</p></li>
+<li><p><strong>Problemas con parámetros</strong>.- ICMP type: 12. Un valor ilegal ha sido detectado en algún campo del encabezado.</p></li>
+<li><p><strong>Anuncio y solicitud de enrutador</strong>.- ICMP type: 9,10. Permite a los enrutadores anunciarse en una subred o contestar a una solicitud, todo lo anterior con la finalidad de configurar en forma automática el ruteador por default (gateway).</p></li>
+<li><p><strong>Redirección</strong>.- ICMP type: 5. Se utiliza para que el enrutador le notifique al emisor que existe una ruta más adecuada. Este comando puede ser utilizado maliciosamente, por lo que muchos enrutadores lo bloquean</p></li>
+<li><p><strong>Petición y respuesta de eco</strong>.- ICMP type: 8, 0. Sirve para saber si un nodo es alcanzable y está activo. Son los comandos de la aplicación “ping”.</p></li>
+</ul>
+<p>Las dos aplicaciones de ICMP más ampliamente utilizadas basadas en los mensajes ICMP son:</p>
+<ul>
+<li><p><strong>ping</strong>. Envía paquetes de solicitud de eco (type 8) a un host remoto y espera una respuesta de eco (type 0). Esto permite verificar si un host remoto está disponible y mide el tiempo de ida y vuelta (RTT) de los paquetes, lo que es útil para monitorear la conectividad y la latencia de la red.</p></li>
+<li><p><strong>traceroute</strong>. Con ayuda del mensaje tiempo excedido (type 11), determina la ruta completa que un datagrama sigue desde el emisor hasta el destinatario. Envía un datagrama IP (UDP) al nodo destino con un TTL=1, el primer enrutador decrementa ese valor, descarta la trama y envía un mensaje ICMP de tiempo excedido. De esa forma el primer enrutador es localizado. Este proceso es repetido con valores de TTL incrementados en forma sucesiva. El UDP enviado hace referencia a un puerto (aplicación no existente), de tal forma que cuando dicho UDP alcanza al nodo destino, este contesta con un mensaje ICMP de puerto inalcanzable, de esa forma Traceroute determina cuando el nodo destino ha sido alcanzado.</p></li>
+</ul>
+<p>Aunque ICMP es de gran utilidad para monitorear y mantener el estado de la red, también puede ser utilizado maliciosamente en ataques de denegación de servicio (DoS) o para eludir la seguridad. Por esta razón, en algunos entornos, los administradores de red pueden limitar o filtrar ciertos tipos de mensajes ICMP para mejorar la seguridad.</p>
+</div>
+<div id="arp" class="section level3 hasAnchor" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> ARP<a href="capa-de-red.html#arp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Como vimos en el capítulo anterior, la comunicación entre nodos dentro de una red local (o dominio de difusión) se realiza con base en las direcciones MAC, también llamadas direcciones físicas.</p>
+<p>Si la red local está interconectada con otras redes de la misma organización, entonces es una subred cuyos nodos son identificados y accedidos desde las otras redes, a través de direcciones IP (también llamadas direcciones lógicas).</p>
+<p>El protocolo <em>Address Resolution Protocol</em>, ARP, definido en el RFC 826, sirve para realizar el mapeo de direcciones IP a direcciones MAC dentro de una misma subred.</p>
+<p>Todos los dispositivos mantienen una tabla ARP, llamada <em>cache ARP</em> que relaciona direcciones físicas (MAC) y lógicas (IP). Cuando un dispositivo necesita comunicarse con otro en la misma red local, busca en su tabla ARP si conoce la dirección MAC del destino requerido. Si la encuentra, simplemente arma la trama con la dirección MAC correspondiente y la envía.</p>
+<p>Si no se encuentra en la tabla ARP, el dispositivo envía una solicitud de ARP (ARP request) en forma de paquete de difusión preguntando por la dirección MAC del dispositivo con la dirección IP de destino como se muestra en la figura <a href="capa-de-red.html#fig:arp1">3.9</a>, donde se solicita la dirección MAC del dispositivo con dirección IP <span class="math inline">\(IP_{1.2}\)</span>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:arp1"></span>
+<img src="figuras/c4/arp1.jpg" alt="*Envío de mensaje de difusión ARP Request*." width="50%" />
+<p class="caption">
+Figura 3.9: <em>Envío de mensaje de difusión ARP Request</em>.
+</p>
+</div>
+<p>Como el mensaje fue enviado con una dirección de difusión, todos los dispositivos en la red local reciben la solicitud, pero solo el dispositivo con la dirección IP solicitada responde con un mensaje de respuesta de ARP (ARP reply) que contiene su dirección MAC (figura <a href="capa-de-red.html#fig:arp2">3.10</a>). Observe que esta es una respuesta unicast que solo va dirigida a quien emitió la solicitud ARP.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:arp2"></span>
+<img src="figuras/c4/arp2.jpg" alt="*Envío de mensaje ARP Reply*." width="50%" />
+<p class="caption">
+Figura 3.10: <em>Envío de mensaje ARP Reply</em>.
+</p>
+</div>
+<p>Una vez que el dispositivo solicitante recibe la respuesta, actualiza su tabla ARP con la dirección MAC del dispositivo de destino y utiliza esa dirección para comunicarse con el dispositivo en cuestión como se muestra en la figura <a href="capa-de-red.html#fig:arp3">3.11</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:arp3"></span>
+<img src="figuras/c4/arp3.jpg" alt="*Comunicación con base en información de la tabla ARP*." width="50%" />
+<p class="caption">
+Figura 3.11: <em>Comunicación con base en información de la tabla ARP</em>.
+</p>
+</div>
+<p>Cada entrada en la tabla ARP tiene un tiempo de vida, el cual se reinicializa mientras se observe actividad entre los dispositivos emisor y destinatario.</p>
+<p>El Protocolo ARP no tiene mecanismos de autenticación, lo que lo hace susceptible a ataques de suplantación o <em>ARP spoofing</em>. En este tipo de ataques, un dispositivo malicioso envía respuestas de ARP falsas para envenenar la tabla ARP de otros dispositivos y redirigir el tráfico hacia él. Para mitigar este riesgo, se han desarrollado técnicas de seguridad como el ARP cache poisoning detection (ARPWatch) y el uso de VLANs para segmentar la red.</p>
+<p>En algunas configuraciones de red, un enrutador puede actuar como un proxy ARP respondiendo a solicitudes ARP en nombre de otros dispositivos en la red. Esto permite que dispositivos en diferentes subredes se comuniquen entre sí sin la necesidad de que tengan conocimiento directo de las direcciones MAC del otro.</p>
+<p>Un dispositivo puede enviar un paquete de <em>ARP gratuito</em> para anunciar su dirección MAC en la red. Esto se utiliza a veces para actualizar la tabla ARP de otros dispositivos o para verificar si una dirección IP específica ya está siendo utilizada por otro dispositivo.</p>
+</div>
+</div>
+<div id="ipv6" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> IPv6<a href="capa-de-red.html#ipv6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Las direcciones IP utilizadas en la actualidad, tienen una longitud de 32 bits, con lo que, en principio, se podrían asignar más de 4 mil millones de identificadores únicos; un número bastante significativo para la época en que fue definido el protocolo IP. Sin embargo, debido a las políticas iniciales de asignación de direcciones y al totalmente inesperado crecimiento de la red, a principios de los años 90 se observó que las direcciones IP podrían agotarse muy rápidamente. La comunidad reaccionó con varias propuestas, entre las que cabe destacar a) una política mucho más restrictiva de asignación de direcciones; b) la definición y uso de bloques de direcciones privadas para ser utilizadas al interior de las organizaciones, junto con un esquema dinámico de traducción a direcciones públicas para aquellos flujos que debían atravesar la Internet; c) la definición de una nueva versión del protocolo de red, IPv6.</p>
+<p>IPv6 ofrece un espacio de direcciones varios órdenes de magnitud mayor al disponible actualmente. La longitud de una dirección es de 128 bits, que de acuerdo a algunas estimaciones pesimistas, permite contar con más de 1,500 direcciones únicas por metro cuadrado de la superficie terrestre (Hinden, 1995). Desafortunadamente, IPv6 no es compatible con su predecesor, por lo que su despliegue requiere de mecanismos para la coexistencia temporal de ambos protocolos, lo que se traduce en mayores costos de mantenimiento y gestión. Esto, aunado al hecho de que en los Estados Unidos el problema de agotamiento de direcciones no es tan grave, ha provocad que el despliegue de IPv6 sea particularmente lento en ese país, a diferencia de países como Corea y Japón, donde ha adquirido una atención especial. En 2005 el Gobierno estadounidense decretó un plazo de tres años para que todos sus productos de TI fueran compatibles con IPv6, por lo que se espera un estímulo importante en la adopción del protocolo en el sector privado en ese país (Garreston, 2005).</p>
+</div>
+<div id="enrutamiento" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Enrutamiento<a href="capa-de-red.html#enrutamiento" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="enrutamiento-estático" class="section level3 hasAnchor" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> Enrutamiento estático<a href="capa-de-red.html#enrutamiento-estático" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="enrutamiento-dinámico--vector-de-distancias" class="section level3 hasAnchor" number="3.6.2">
+<h3><span class="header-section-number">3.6.2</span> Enrutamiento dinámico- Vector de distancias<a href="capa-de-red.html#enrutamiento-dinámico--vector-de-distancias" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="enrutamiento-dinámico---estado-de-enlace" class="section level3 hasAnchor" number="3.6.3">
+<h3><span class="header-section-number">3.6.3</span> Enrutamiento dinámico - Estado de enlace<a href="capa-de-red.html#enrutamiento-dinámico---estado-de-enlace" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="enrutamiento-externo" class="section level3 hasAnchor" number="3.6.4">
+<h3><span class="header-section-number">3.6.4</span> Enrutamiento externo<a href="capa-de-red.html#enrutamiento-externo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+
+<div id="refs" class="references csl-bib-body">
+<div class="csl-entry">
+<div class="csl-left-margin">[1] </div><div class="csl-right-inline">W. Stallings, <em>Data and computer communications</em>. Prentice Hall, 2007.</div>
+</div>
+<div class="csl-entry">
+<div class="csl-left-margin">[2] </div><div class="csl-right-inline">M. Castells, <em>The rise of the network society. The information age</em>. Blackwell, 2000.</div>
+</div>
+<div class="csl-entry">
+<div class="csl-left-margin">[3] </div><div class="csl-right-inline">ITU and I. Bank, <span>“<span>‘The ICT regulation toolkit’</span>.”</span> Available: <a href="&quot;http://www.ictregulationtoolkit.org/en/home&quot;">"http://www.ictregulationtoolkit.org/en/home"</a></div>
+</div>
+<div class="csl-entry">
+<div class="csl-left-margin">[4] </div><div class="csl-right-inline">T. Directorate for Science, I. Industry, and C. Policy, <span>“"ECD broadband statistics".”</span> 2006.Available: <a href="&quot;http://www.oecd.org/document/9/0,2340,en_2649_34223_37529673_1_1_1_1,00.html&quot;">"http://www.oecd.org/document/9/0,2340,en_2649_34223_37529673_1_1_1_1,00.html"</a></div>
+</div>
+<div class="csl-entry">
+<div class="csl-left-margin">[5] </div><div class="csl-right-inline">A. Tanenbaum, <em>Redes de computadoras, 4a ed.</em> Prentice Hall, 2003.</div>
+</div>
+<div class="csl-entry">
+<div class="csl-left-margin">[6] </div><div class="csl-right-inline">H. Rheingold, <em>Tools for thought: The history and future of mind-expanding technology</em>. The MIT Press, 2000.</div>
+</div>
+<div class="csl-entry">
+<div class="csl-left-margin">[7] </div><div class="csl-right-inline">Mejía M. and J. Incera, <span>“Introducción a la computación,”</span> Gómez de Silva A. and I. Ania, Eds. Cengage Learning, 2007, pp. 193–214.</div>
+</div>
+<div class="csl-entry">
+<div class="csl-left-margin">[8] </div><div class="csl-right-inline">R. Metcalfe and D. Boggs, <span>“Ethernet: Distributed packet switching for local computer networks,”</span> <em>Communications of the ACM</em>, vol. 19, no. 5, pp. 395–405, 1976.</div>
+</div>
+<div class="csl-entry">
+<div class="csl-left-margin">[9] </div><div class="csl-right-inline">R. Schneidermar, <span>“Wireless personal communications. : The future of talk,”</span> <em>IEEE Press</em>, 1994.</div>
+</div>
+<div class="csl-entry">
+<div class="csl-left-margin">[10] </div><div class="csl-right-inline">D. Bantz and F. Bauchot, <span>“Wireless LAN design alternatives,”</span> <em>IEEE Network</em>, vol. 5, no. 2, pp. 43–53, 1994.</div>
+</div>
+<div class="csl-entry">
+<div class="csl-left-margin">[11] </div><div class="csl-right-inline">C. Links, W. Diepstraten, and V. Hayes, <span>“Universal wreless LANs,”</span> <em>Byte</em>, 1994.</div>
+</div>
+<div class="csl-entry">
+<div class="csl-left-margin">[12] </div><div class="csl-right-inline">K. Chen, <span>“Medium access control of wireless LANs for mobile computing network,”</span> <em>IEEE Network</em>, 1994.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="17">
+<li id="fn17"><p>Más adelante veremos que esto no es estrictamente cierto con el uso de direcciones privadas<a href="capa-de-red.html#fnref17" class="footnote-back">↩︎</a></p></li>
+<li id="fn18"><p>De hecho, estos enlaces no necesitan de direcciones IP porque no son fuente ni destino de mensajes. Algunos fabricantes permiten configurarlos sin direcciones IP. A esas interfaces se les conoce como interfaces anónimas<a href="capa-de-red.html#fnref18" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="redes-locales.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/04-CapaRed.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown_RedesComputadoras.pdf", "bookdown_RedesComputadoras.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

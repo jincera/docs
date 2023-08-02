@@ -1,0 +1,2333 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 2 Redes locales | Redes de Computadoras</title>
+  <meta name="description" content="Notas del curso Redes de Computadoras en HTML." />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 2 Redes locales | Redes de Computadoras" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Notas del curso Redes de Computadoras en HTML." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 2 Redes locales | Redes de Computadoras" />
+  
+  <meta name="twitter:description" content="Notas del curso Redes de Computadoras en HTML." />
+  
+
+<meta name="author" content="José Incera" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="capa-de-red.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Redes de Computadoras. Notas de Curso</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#resumen"><i class="fa fa-check"></i>Resumen</a></li>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#requisitos"><i class="fa fa-check"></i><b>1.1</b> Conceptos básicos</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#sistemas-de-comunicaciones"><i class="fa fa-check"></i><b>1.1.1</b> Sistemas de comunicaciones</a></li>
+<li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#redes-de-telecomunicaciones"><i class="fa fa-check"></i><b>1.1.2</b> Redes de telecomunicaciones</a></li>
+<li class="chapter" data-level="1.1.3" data-path="intro.html"><a href="intro.html#señal"><i class="fa fa-check"></i><b>1.1.3</b> Señal</a></li>
+<li class="chapter" data-level="1.1.4" data-path="intro.html"><a href="intro.html#conversión-analógica-a-digital-ad"><i class="fa fa-check"></i><b>1.1.4</b> Conversión analógica a digital (A/D)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#conmutación"><i class="fa fa-check"></i><b>1.2</b> Conmutación</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#conmutación-de-mensajes"><i class="fa fa-check"></i><b>1.2.1</b> Conmutación de mensajes</a></li>
+<li class="chapter" data-level="1.2.2" data-path="intro.html"><a href="intro.html#conmutación-de-circuitos"><i class="fa fa-check"></i><b>1.2.2</b> Conmutación de circuitos</a></li>
+<li class="chapter" data-level="1.2.3" data-path="intro.html"><a href="intro.html#conmutación-de-paquetes"><i class="fa fa-check"></i><b>1.2.3</b> Conmutación de paquetes</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#multiplexaje"><i class="fa fa-check"></i><b>1.3</b> Multiplexaje</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#multiplexaje-en-el-tiempo"><i class="fa fa-check"></i><b>1.3.1</b> Multiplexaje en el tiempo</a></li>
+<li class="chapter" data-level="1.3.2" data-path="intro.html"><a href="intro.html#multiplexaje-en-frecuencia"><i class="fa fa-check"></i><b>1.3.2</b> Multiplexaje en frecuencia</a></li>
+<li class="chapter" data-level="1.3.3" data-path="intro.html"><a href="intro.html#cdm"><i class="fa fa-check"></i><b>1.3.3</b> Multiplexaje por división de código</a></li>
+<li class="chapter" data-level="1.3.4" data-path="intro.html"><a href="intro.html#multiplexaje-espacial"><i class="fa fa-check"></i><b>1.3.4</b> Multiplexaje espacial</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#arquitecturas-de-red"><i class="fa fa-check"></i><b>1.4</b> Arquitecturas de red</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#modelo-isoosi"><i class="fa fa-check"></i><b>1.4.1</b> Modelo ISO/OSI</a></li>
+<li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#modelo-tcpip"><i class="fa fa-check"></i><b>1.4.2</b> Modelo TCP/IP</a></li>
+<li class="chapter" data-level="1.4.3" data-path="intro.html"><a href="intro.html#encapsulamiento"><i class="fa fa-check"></i><b>1.4.3</b> Encapsulamiento</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#taxonomía"><i class="fa fa-check"></i><b>1.5</b> Taxonomía</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#problemas"><i class="fa fa-check"></i><b>1.6</b> Problemas</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="redes-locales.html"><a href="redes-locales.html"><i class="fa fa-check"></i><b>2</b> Redes locales</a>
+<ul>
+<li class="chapter" data-level="" data-path="redes-locales.html"><a href="redes-locales.html#resumen-1"><i class="fa fa-check"></i>Resumen</a></li>
+<li class="chapter" data-level="2.1" data-path="redes-locales.html"><a href="redes-locales.html#introducción"><i class="fa fa-check"></i><b>2.1</b> Introducción</a></li>
+<li class="chapter" data-level="2.2" data-path="redes-locales.html"><a href="redes-locales.html#ethernetieee-802.3"><i class="fa fa-check"></i><b>2.2</b> Ethernet/IEEE 802.3</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="redes-locales.html"><a href="redes-locales.html#csmacd"><i class="fa fa-check"></i><b>2.2.1</b> CSMA/CD</a></li>
+<li class="chapter" data-level="2.2.2" data-path="redes-locales.html"><a href="redes-locales.html#formato-de-la-trama"><i class="fa fa-check"></i><b>2.2.2</b> Formato de la trama</a></li>
+<li class="chapter" data-level="2.2.3" data-path="redes-locales.html"><a href="redes-locales.html#implementaciones"><i class="fa fa-check"></i><b>2.2.3</b> Implementaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="redes-locales.html"><a href="redes-locales.html#redes-locales-inalámbricas"><i class="fa fa-check"></i><b>2.3</b> Redes locales inalámbricas</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="redes-locales.html"><a href="redes-locales.html#protocolo-de-acceso"><i class="fa fa-check"></i><b>2.3.1</b> Protocolo de Acceso</a></li>
+<li class="chapter" data-level="2.3.2" data-path="redes-locales.html"><a href="redes-locales.html#implementaciones-1"><i class="fa fa-check"></i><b>2.3.2</b> Implementaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="redes-locales.html"><a href="redes-locales.html#conmutacion"><i class="fa fa-check"></i><b>2.4</b> Conmutacion</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="redes-locales.html"><a href="redes-locales.html#principio-de-operación"><i class="fa fa-check"></i><b>2.4.1</b> Principio de operación</a></li>
+<li class="chapter" data-level="2.4.2" data-path="redes-locales.html"><a href="redes-locales.html#conmutadores-transparentes---operación"><i class="fa fa-check"></i><b>2.4.2</b> Conmutadores transparentes - operación</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="redes-locales.html"><a href="redes-locales.html#protocolo-spanning-tree"><i class="fa fa-check"></i><b>2.5</b> Protocolo Spanning Tree</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="redes-locales.html"><a href="redes-locales.html#protocolo-spanning-tree-1"><i class="fa fa-check"></i><b>2.5.1</b> Protocolo Spanning Tree</a></li>
+<li class="chapter" data-level="" data-path="redes-locales.html"><a href="redes-locales.html#asignación-del-puente-raíz"><i class="fa fa-check"></i>Asignación del Puente Raíz</a></li>
+<li class="chapter" data-level="" data-path="redes-locales.html"><a href="redes-locales.html#temporizadores-y-reconfiguración-de-la-topología"><i class="fa fa-check"></i>Temporizadores y reconfiguración de la topología</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="redes-locales.html"><a href="redes-locales.html#rapid-stp"><i class="fa fa-check"></i><b>2.6</b> Rapid STP</a></li>
+<li class="chapter" data-level="2.7" data-path="redes-locales.html"><a href="redes-locales.html#agregación-de-enlaces"><i class="fa fa-check"></i><b>2.7</b> Agregación de enlaces</a></li>
+<li class="chapter" data-level="2.8" data-path="redes-locales.html"><a href="redes-locales.html#redes-locales-virtuales"><i class="fa fa-check"></i><b>2.8</b> Redes locales virtuales</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="redes-locales.html"><a href="redes-locales.html#criterios-de-membresía"><i class="fa fa-check"></i><b>2.8.1</b> Criterios de membresía</a></li>
+<li class="chapter" data-level="2.8.2" data-path="redes-locales.html"><a href="redes-locales.html#etiquetado-de-vlan"><i class="fa fa-check"></i><b>2.8.2</b> Etiquetado de VLAN</a></li>
+<li class="chapter" data-level="2.8.3" data-path="redes-locales.html"><a href="redes-locales.html#puertos-de-acceso-y-de-trunking"><i class="fa fa-check"></i><b>2.8.3</b> Puertos de acceso y de trunking</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="redes-locales.html"><a href="redes-locales.html#problemas-1"><i class="fa fa-check"></i><b>2.9</b> Problemas</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="capa-de-red.html"><a href="capa-de-red.html"><i class="fa fa-check"></i><b>3</b> Capa de Red</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="capa-de-red.html"><a href="capa-de-red.html#introducción-1"><i class="fa fa-check"></i><b>3.1</b> Introducción</a></li>
+<li class="chapter" data-level="3.2" data-path="capa-de-red.html"><a href="capa-de-red.html#protocolo-ip"><i class="fa fa-check"></i><b>3.2</b> Protocolo IP</a></li>
+<li class="chapter" data-level="3.3" data-path="capa-de-red.html"><a href="capa-de-red.html#esquema-de-direccionamiento"><i class="fa fa-check"></i><b>3.3</b> Esquema de direccionamiento</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="capa-de-red.html"><a href="capa-de-red.html#clases-de-direcciones-ip"><i class="fa fa-check"></i><b>3.3.1</b> Clases de direcciones IP</a></li>
+<li class="chapter" data-level="3.3.2" data-path="capa-de-red.html"><a href="capa-de-red.html#subredes-ip-y-enmascaramiento"><i class="fa fa-check"></i><b>3.3.2</b> Subredes IP y Enmascaramiento</a></li>
+<li class="chapter" data-level="3.3.3" data-path="capa-de-red.html"><a href="capa-de-red.html#direccionamiento"><i class="fa fa-check"></i><b>3.3.3</b> Direccionamiento</a></li>
+<li class="chapter" data-level="3.3.4" data-path="capa-de-red.html"><a href="capa-de-red.html#máscaras-de-longitud-variable"><i class="fa fa-check"></i><b>3.3.4</b> Máscaras de longitud variable</a></li>
+<li class="chapter" data-level="3.3.5" data-path="capa-de-red.html"><a href="capa-de-red.html#cidr"><i class="fa fa-check"></i><b>3.3.5</b> CIDR</a></li>
+<li class="chapter" data-level="3.3.6" data-path="capa-de-red.html"><a href="capa-de-red.html#asignación-de-direcciones-a-dispositivos"><i class="fa fa-check"></i><b>3.3.6</b> Asignación de direcciones a dispositivos</a></li>
+<li class="chapter" data-level="3.3.7" data-path="capa-de-red.html"><a href="capa-de-red.html#direcciones-privadas"><i class="fa fa-check"></i><b>3.3.7</b> Direcciones privadas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="capa-de-red.html"><a href="capa-de-red.html#protocolos-auxiliares"><i class="fa fa-check"></i><b>3.4</b> Protocolos auxiliares</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="capa-de-red.html"><a href="capa-de-red.html#icmp"><i class="fa fa-check"></i><b>3.4.1</b> ICMP</a></li>
+<li class="chapter" data-level="3.4.2" data-path="capa-de-red.html"><a href="capa-de-red.html#arp"><i class="fa fa-check"></i><b>3.4.2</b> ARP</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="capa-de-red.html"><a href="capa-de-red.html#ipv6"><i class="fa fa-check"></i><b>3.5</b> IPv6</a></li>
+<li class="chapter" data-level="3.6" data-path="capa-de-red.html"><a href="capa-de-red.html#enrutamiento"><i class="fa fa-check"></i><b>3.6</b> Enrutamiento</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="capa-de-red.html"><a href="capa-de-red.html#enrutamiento-estático"><i class="fa fa-check"></i><b>3.6.1</b> Enrutamiento estático</a></li>
+<li class="chapter" data-level="3.6.2" data-path="capa-de-red.html"><a href="capa-de-red.html#enrutamiento-dinámico--vector-de-distancias"><i class="fa fa-check"></i><b>3.6.2</b> Enrutamiento dinámico- Vector de distancias</a></li>
+<li class="chapter" data-level="3.6.3" data-path="capa-de-red.html"><a href="capa-de-red.html#enrutamiento-dinámico---estado-de-enlace"><i class="fa fa-check"></i><b>3.6.3</b> Enrutamiento dinámico - Estado de enlace</a></li>
+<li class="chapter" data-level="3.6.4" data-path="capa-de-red.html"><a href="capa-de-red.html#enrutamiento-externo"><i class="fa fa-check"></i><b>3.6.4</b> Enrutamiento externo</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Redes de Computadoras</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="redes-locales" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Capítulo 2</span> Redes locales<a href="redes-locales.html#redes-locales" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="resumen-1" class="section level2 unnumbered hasAnchor">
+<h2>Resumen<a href="redes-locales.html#resumen-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Una red local está formada por un conjunto de computadoras y otros
+dispositivos interconectados dentro de un área geográfica limitada con
+el fin de compartir recursos internos (como discos e impresoras) e
+intercambiar información.</p>
+<p>En las redes en las que la interconexión se hace a través de cables
+eléctricos (y ópticos), la tecnología dominante ha sido Ethernet/IEEE
+802.3. Por su parte, las redes locales en las que la intercomunicación
+se hace a través de señales electromagnéticas, la tecnología que impera
+es WiFi/IEEE 802.11.</p>
+<p>En este capítulo se presentan brevemente las principales características
+de Ethernet, su protocolo de acceso al medio CSMA/CD y una síntesis de
+la evolución de esta tecnología. Así mismo, se describen brevemente los
+principios de operación de IEEE 802.11, el protocolo CSMA/CA y su
+evolución.</p>
+<p>El capítulo también aborda el Spanning Tree Protocol (STP) y el Rapid Spanning Tree Protocol (RSTP). Estos protocolos se utilizan para evitar bucles en las topologías de red y garantizar una comunicación eficiente. Se explican los conceptos básicos de cómo funcionan estos protocolos y su importancia en la configuración de redes locales.</p>
+<p>Por último, se introduce el concepto de VLANs (Virtual LANs), que permiten dividir una red física en múltiples redes lógicas. Se explica cómo las VLANs pueden ayudar a mejorar la seguridad y la eficiencia de una red, al permitir la segmentación y el control de acceso a diferentes grupos de dispositivos.</p>
+</div>
+<div id="introducción" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Introducción<a href="redes-locales.html#introducción" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Con el progreso tecnológico, aparecen en los años 70 equipos de cómputo
+mucho más poderosos que los desarrollados en la década anterior y mucho
+más económicos. Es la transición del mainframe a la minicomputadora.
+Esta transición permite que muchas más organizaciones puedan adquirir su
+propia computadora; de hecho, organizaciones grandes y medianas podían
+adquirir varias computadoras para sus distintas unidades de negocio.</p>
+<p>Surge entonces la necesidad de interconectar las computadoras dentro de
+la organización entre sí, y con los equipos periféricos como terminales,
+impresoras y dispositivos de almacenamiento externo, los cuales también
+se empiezan a desplegar masivamente en las organizaciones. Así nacen las redes locales (LAN, <em>Local Area Network</em>), encargadas de interconectar los dispositivos de cómputo en un área geográfica acotada a unos cuantos cientos de metros.</p>
+<p>Prácticamente todos los fabricantes de equipo de cómputo tenían soluciones propietarias para desplegar LANs. El grupo de trabajo 802 del IEEE (<em>Institute of Electrical and Electronic Engineers</em>) en Estados Unidos, retuvo y estandarizó las tecnologías que más potencial tenían para ser implementadas, como Token Bus (IEEE 802.4) popular en medios industriales, Token Ring (IEEE 802.5), derivada principalmente de tecnologías desarrolladas por IBM y
+muy utilizada en el sector financiero de la época, y Ethernet (IEEE 802.3) la cual terminó siendo, por mucho, la tecnología dominante en LANs cableadas.</p>
+<p>Un requisito muy importante para el despliegue de las LAN en aquella
+época, era que fueran relativamente fáciles de implementar y de bajo
+costo. Como se ha mencionado en capítulos anteriores, los costos pueden
+reducirse sustancialmente si se comparten recursos. En las redes locales
+se comparte el canal de comunicación (“el medio”) y deben definirse
+claramente las reglas bajo las cuales este canal se comparte. Estas
+reglas son los Protocolos de control de acceso al medio (MAC, <em>Media
+Access Control</em>).</p>
+<p>Los equipos de cómputo acceden al medio compartido a través de la
+tarjeta de red (NIC, <em>Network Interface Card</em>). Cada tarjeta tiene un
+identificador conocido como la dirección MAC. En general se asume que un
+dispositivo tiene solo una tarjeta de red (al menos solo una tarjeta de
+red activa), por lo que suele decirse (incorrectamente) que la dirección
+MAC es un identificador del dispositivo conectado a la red.</p>
+<p>En IEEE 802, las direcciónes MAC están formadas por seis bytes<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> (48
+bits) con el formato que se muestra en la
+figura <a href="redes-locales.html#fig:DirIEEE">2.1</a>.
+Si el penúltimo bit del primer byte es cero, la dirección MAC es única
+universalmente. En este caso, como se muestra en la figura, los primeros
+3 bytes son un identificador único asignado al fabricante de la tarjeta
+de red y los últimos 3 bytes son un número de serie de tarjeta. Se el
+bit vale uno, entonces la dirección es única dentro de la red local. La
+dirección MAC es administrada localmente, lo cual prácticamente nunca
+ocurre.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:DirIEEE"></span>
+<img src="figuras/c3/DirIEEE.jpg" alt="*Formato de una dirección IEEE de 48 bits.*" width="70%" />
+<p class="caption">
+Figura 2.1: <em>Formato de una dirección IEEE de 48 bits.</em>
+</p>
+</div>
+<p>Si el bit menos significativo del primer byte es cero, se trata de una
+dirección <em>unicast</em>, es decir una dirección de una tarjeta de red. Si su
+valor es uno, la dirección es de grupo (<em>multicast</em>) y la trama está dirigida a varios dispositivos (a varias tarjetas NIC) conectados a la red local. Si todos los bits son “1”, se trata de una dirección de difusión (<em>broadcast</em>) y la trama está dirigida a todos los dispositivos en la red local.</p>
+</div>
+<div id="ethernetieee-802.3" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Ethernet/IEEE 802.3<a href="redes-locales.html#ethernetieee-802.3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Ethernet fue desarrollada a principios de los años 70 por Robert
+Metcalfe en los laboratorios de Xerox en California y, con muy pequeñas
+modificaciones, es la base del estándar IEEE 802.3. Ethernet toma su
+nombre como recuerdo de aquella teoría del siglo XIX según la cual el
+universo estaba suspendido en una especie de éter por el que las ondas
+electromagnéticas podían propagarse.</p>
+<p>En las primeras versiones de Ethernet el canal compartido era un cable
+coaxial al que se conectaban los dispositivos. Cuando una computadora
+desea mandar información a otro dispositivo, simplemente forma un
+mensaje (una trama) con la información a enviar, las direcciones (MAC)
+del emisor (la fuente) y el receptor (el destino) y algunos campos
+adicionales que se describen más adelante. Una vez formada la trama,
+ésta se envía en serie (es decir, bit a bit) por el cable como una
+secuencia de señales eléctricas.</p>
+<p>Estas señales se propagan por el cable por lo que todos los dispositivos
+conectados a él pueden percibir que hay actividad en el medio. Los
+dispositivos toman la trama, revisan la dirección destino y si ésta no
+es su propia dirección o una dirección de difusión, simplemente
+descartan la trama; de lo contrario, se valida la integridad de la trama
+y si ésta no contiene errores, la información se entrega al proceso
+correspondiente, típicamente, el encargado de procesar el paquete en la
+capa superior (capa 3 de OSI).</p>
+<p>Al tener un canal compartido, en estas redes pueden existir colisiones,
+es decir, transmisiones simultáneas de dos o más dispositivos que
+interfieren entre sí. Para regular la forma de acceder al medio,
+Metcalfe concibió el protocolo CSMA/CD (<em>Carrier Sense Multiple Access
+with Collision Detection</em>), que establece cuándo se puede intentar
+transmitir, cómo detectar una colisión y, si ésta ocurre, qué hacer para
+enviar nuevamente una trama.</p>
+<div id="csmacd" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> CSMA/CD<a href="redes-locales.html#csmacd" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Existen varios dispositivos conectados a la red que desean comunicarse
+(“MA”, <em>Multiple Access</em>); cuando una estación desea transmitir una
+trama, escucha primero si detecta una señal en el medio (“CS”, <em>Carrier
+Sense</em>). Si el canal está libre, envía la trama; de lo contrario, espera
+a que se desocupe y transmite inmediatamente la trama. Sin embargo, con
+el comportamiento anterior, es fácil imaginar el siguiente escenario:</p>
+<blockquote>
+<p>La computadora <span class="math inline">\(A\)</span> desea enviar una trama, sensa el medio, lo
+encuentra libre e inicia la transmisión. Poco después, <span class="math inline">\(B\)</span> desea
+enviar una trama pero encuentra el medio ocupado y espera a que se
+libere. Más adelante, <span class="math inline">\(C\)</span> desea enviar una trama; como <span class="math inline">\(A\)</span> no ha
+terminado con su transmisión, <span class="math inline">\(C\)</span> también se pone en espera de que se
+libere el medio.</p>
+<p>Cuando <span class="math inline">\(A\)</span> termina de transmitir, <span class="math inline">\(B\)</span> y <span class="math inline">\(C\)</span> detectan que el medio está
+libre e inician la transmisión de sus propias tramas. Por supuesto,
+las señales de estas tramas van a interferir entre sí. Como la
+potencia de las dos señales es relativamente igual, no se podrá
+recuperar la información de ninguna de las dos tramas. Ha ocurrido una
+colisión.</p>
+</blockquote>
+<p>En CSMA/CD el dispositivo que transmite debe “escuchar” el medio durante
+la emisión de la trama y verificar que lo que escucha es igual a lo que
+está enviando. De no ser así, la trama ha sido dañada por una colisión
+(“CD”, <em>Colission Detection</em>). En ese momento, el emisor aborta la
+transmisión de la trama y en su lugar envía una pequeña señal para
+reforzar la colisión (<em>jamming signal</em>) y garantizar que los demás
+dispositivos involucrados en la interferencia también puedan detectarla.
+Después de enviar esta señal el emisor espera un tiempo aleatorio y
+vuelve a intentar transmitir la trama empezando por sensar si el medio
+está libre.</p>
+<p>El tiempo que debe esperar un dispositivo antes de intentar
+retransmitir su trama se calcula mediante el algoritmo conocido como
+<strong>espera exponencial binaria truncada</strong>):</p>
+<span class="math display">\[\begin{aligned}
+&amp;k = min(\text{Número de intentos}, 10)\\
+&amp;r = \text{Valor aleatorio}\,\,[0, 2^k)\\
+&amp;\text{Tiempo de espera}\,\,= r * 2\tau
+\end{aligned}\]</span>
+<p>Los intervalos de espera son múltiplos de <span class="math inline">\(\tau\)</span>, conocido como la
+ventana de colisión o ranura de tiempo de colisión la cual se describe
+más adelante. El intervalo de espera aumenta exponencialmente en
+potencias de 2 a cada intento fallido de transmisión. Entre más grande
+es este intervalo, menor es la probabilidad de que los dispositivos que
+han colisionado, elijan el mismo tiempo de espera y colisionen
+nuevamente.</p>
+<p>Considere el caso de una red con poca carga en el que las tramas de dos
+dispositivos colisionan por primera vez. Cada una calcula el intervalo
+de espera que puede ser cero o un <span class="math inline">\(\tau\)</span>. Con solo dos valores, la
+probabilidad de que el tiempo de espera sea el mismo, es de 50%. Si en
+el segundo intento colisionan nuevamente, el rango se amplía de 0 a 3,
+por lo que se reduce a 25% la probabilidad de calcular el mismo tiempo
+de espera, y así sucesivamente. El intervalo máximo de espera es
+<span class="math inline">\(2^{10}=1024\,\tau\)</span>.</p>
+<p>Después de 16 intentos fallidos, se asume que la red está demasiado
+cargada o que hay un defecto en la capa física, por lo que se aborta el
+intento de transmisión y se señala un error hacia las capas superiores.</p>
+<p>Con este protocolo MAC, Ethernet permite la entrega inmediata de tramas
+cuando hay poco tráfico en la red; la probabilidad de colisión y por
+consiguiente el tiempo de espera aumenta conforme se va incrementando el
+tráfico. En redes con alta carga, el tiempo de espera puede ser muy
+largo, pero sobre todo, no predecible (no determinista).</p>
+<div id="la-ventana-de-colisión" class="section level4 unnumbered hasAnchor">
+<h4>La ventana de colisión<a href="redes-locales.html#la-ventana-de-colisión" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>La ventana de colisión se define como el tiempo máximo que puede
+transcurrir antes de detectar una colisión. Su valor depende de varios
+factores, como la velocidad de transmisión, la longitud de la red y la
+velocidad de propagación de las señales en el medio de transmisión. Para
+entender más claramente este concepto, considere la
+figura <a href="redes-locales.html#fig:colision">2.2</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:colision"></span>
+<img src="figuras/c3/Colision.jpg" alt="*Formato de una dirección IEEE de 48 bits.*" width="70%" />
+<p class="caption">
+Figura 2.2: <em>Formato de una dirección IEEE de 48 bits.</em>
+</p>
+</div>
+<p>El peor caso ocurre cuando hay conflicto entre las dos estaciones más
+extremas conectadas a la red. Son las estaciones <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> en la
+figura <a href="redes-locales.html#fig:colision">2.2</a>}. En <span class="math inline">\(t_0\)</span> <span class="math inline">\(A\)</span> inicia su transmisión y la señal
+se propaga por el cable. El tiempo que le toma a la señal propagarse por
+todo el cable es <span class="math inline">\(t_p\)</span>, el tiempo o retardo de propagación. Justo antes
+de llegar al extremo opuesto, en <span class="math inline">\(t_p-\delta\)</span>, <span class="math inline">\(B\)</span> desea transmitir,
+sensa el medio, lo encuentra libre e inicia su transmisión. <span class="math inline">\(B\)</span> detecta
+inmediatamente la colisión, en <span class="math inline">\(t_p\)</span>, pero ésta debe propagarse de
+regreso hasta <span class="math inline">\(A\)</span>, lo que ocurrirá en <span class="math inline">\(2t_p\)</span>.</p>
+<p>Así, la ventana de colisión queda definida como <span class="math inline">\(2t_p\)</span>, dos veces el
+retardo de propagación de la señal, de un extremo a otro de la red. Esta
+ventana de colisión fue fijada en <span class="math inline">\(51.2\mu \text{seg}\)</span> y determina muchos de los
+aspectos fundamentales de las redes Ethernet/IEEE 802.3, como son:</p>
+<dl>
+<dt>El diámetro máximo de la red.</dt>
+<dd>
+<p>Claramente, <span class="math inline">\(2t_p \leq 51.2\mu \text{seg}\)</span>. En la primera especificación de
+IEEE 802.3, esto corresponde al retardo de ida y vuelta de una red
+formada por cinco segmentos de 500 m c/u interconectados por cuatro
+repetidores<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>, por lo que el diámetro máximo de la red local es de
+2,500 m.</p>
+</dd>
+<dt>El tamaño mínimo de la trama.</dt>
+<dd>
+<p>Dado que la estación emisora (<span class="math inline">\(A\)</span> en la
+figura <a href="redes-locales.html#fig:colision">2.2</a>) debe ser capaz de detectar que ha
+ocurrido una colisión, ésta debe estar inyectando bits durante al
+menos <span class="math inline">\(51.2\mu \text{seg}\)</span>. En este tiempo se pueden emitir 512 bits (64
+bytes) si éstos son transmitidos a 10 Mbps, la velocidad definida en
+la primea especificación de IEEE 802.3.</p>
+</dd>
+<dt>El tiempo máximo en que puede detectarse una colisión.</dt>
+<dd>
+<p>Efectivamente, este intervalo es la definición de la ventana de
+colisión y muestra, en el peor escenario, la cantidad de información
+que una estación estaría emitiendo inútilmente pues parte de la
+trama ha sido afectada por la colisión.</p>
+</dd>
+<dt>La unidad de tiempo utilizada en el algoritmo de retransmisión.</dt>
+<dd>
+<p>Como se recordará, el algoritmo de espera exponencial truncado
+utiliza un parámetro <span class="math inline">\(\tau\)</span> cuyo valor es, justamente, <span class="math inline">\(51.2 \mu \text{seg}\)</span>.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div id="formato-de-la-trama" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Formato de la trama<a href="redes-locales.html#formato-de-la-trama" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El formato de la trama Ethernet/IEEE 802.3 se muestra en la
+figura <a href="redes-locales.html#fig:TramaEth">2.4</a>. Los campos que la conforman se describen más
+adelante. Estrictamente hablando, el preámbulo y el delimitador de
+inicio de trama no forman parte de la trama en IEEE 802.3<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> sino que
+se utilizan para sincronización, pero es muy frecuente incluirlos al
+presentar el formato de las tramas.</p>
+<p>Como la red debía ser de bajo costo, las tarjetas de red no podían tener
+relojes de muy alta precisión. Para asegurar que los dispositivos se
+mantendrían sincronizados durante la transmisión de una trama, las
+primeras versiones de Ethernet utilizan una técnica de señalización
+llamada codificación Manchester. La señal tiene dos niveles (bajo y
+alto) y los bits a transmitir se codifican como una transición entre
+estos niveles al centro de la duración del bit: Un “1” se codifica como una transición del nivel bajo al alto, y un “0” como una transición del nivel alto al bajo (ver
+figura <a href="redes-locales.html#fig:CodManchester">2.3</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:CodManchester"></span>
+<img src="figuras/c3/CodManchester.jpg" alt="*Codificación Manchester utilizada en Ethernet a 10 Mbps,*" width="50%" />
+<p class="caption">
+Figura 2.3: <em>Codificación Manchester utilizada en Ethernet a 10 Mbps,</em>
+</p>
+</div>
+<p>Como se recordará, las tramas deben tener una longitud mínima de 64
+bytes para garantizar que se pueden detectar colisiones en redes con el
+diámetro máximo de 2500 metros. También se especifica un tamaño máximo de
+1518 bytes (1500 de información) para evitar que un dispositivo se
+apropie del medio de transmisión por un período de tiempo muy largo. Efectivamente, al
+limitar el tamaño máximo de trama, se asegura que el emisor liberará el
+canal tras un periodo corto bien definido.</p>
+<p>Además, entre la emisión de una trama y otra, un dispositivo debe dejar
+un intervalo de por lo menos 12 bytes. A este intervalo se el conoce
+como IFG, <em>Interframe gap</em> y permite que otros dispositivos esperando
+acceder al medio, puedan hacerlo.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:TramaEth"></span>
+<img src="figuras/c3/TramaEth.jpg" alt="*Formato de una trama Ethernet/IEEE 802.3.*" width="70%" />
+<p class="caption">
+Figura 2.4: <em>Formato de una trama Ethernet/IEEE 802.3.</em>
+</p>
+</div>
+<dl>
+<dt>Preámbulo.</dt>
+<dd>
+<p>La codificación Manchester garantiza que siempre habrá una
+transición a la mitad de un intervalo de bit y con ayuda de estas
+transiciones se mantiene la sincronización en los dispositivos. Sin
+embargo, al inicio de la transmisión de la trama el proceso de
+sincronización es más complejo pues se debe asegurar una referencia
+inicial.</p>
+<p>Esa es la función del preámbulo que manda 7 bytes (56 bits) con el
+patrón “10101010”. Al detectar una señal en el medio, los
+dispositivos van ajustando sus relojes hasta reconocer el patrón
+alternante de “1” y “0”.</p>
+</dd>
+<dt>Delimitador de inicio de trama.</dt>
+<dd>
+<p>(SFD, <em>Start Frame Delimiter</em>) es un byte formado por el patrón
+“10101011”. El último par de bits interrumpe la secuencia alternante
+de “1” y “0” formada por el preámbulo e indica que a partir de los
+siguientes bits se encuentran los campos de la trama.</p>
+</dd>
+<dt>Dirección destino.</dt>
+<dd>
+<p>Contiene el identificador del dispositivo a quien va dirigida la
+trama. Como se recordará de la
+figura <a href="redes-locales.html#fig:DirIEEE">2.1</a>, si el bit menos significativo del primer
+byte es “1”, la trama está dirigida a varios (inclusive a todos)
+equipos en la red. IEEE 802.3 permite direcciones de 2 bytes, aunque
+su uso es prácticamente nulo.</p>
+</dd>
+<dt>Dirección fuente.</dt>
+<dd>
+<p>Contiene el identificador del emisor de la trama. Por supuesto, no
+tiene sentido que este campo tenga una dirección de difusión, debe
+ser una dirección <em>unicast</em>.</p>
+</dd>
+<dt>Longitud o tipo de trama.</dt>
+<dd>
+<p>Para Ethernet, este campo contiene el tipo de trama, es decir, es un
+identificador para poder reconocer qué tipo de datos están siendo
+transportados por la trama. Por ejemplo si este campo contiene el
+valor 08 00, el campo de información contiene un paquete IP,
+mientras que si es 08 05, se trata de un paquete X25.</p>
+<p>En IEEE 802.3 este campo indica la longitud del campo de información
+de la trama. Bajo el estándar IEEE 802.3, el tipo de información
+siempre es una trama IEEE 802.2.</p>
+<p>Así, este campo permite distinguir entre tramas Ethernet e IEEE
+802.3: Si el valor es menor a 1500, se está especificando una
+longitud y por lo tanto se trata de una trama IEEE 802.3.</p>
+</dd>
+<dt>Información.</dt>
+<dd>
+<p>En este campo, también llamado carga útil (<em>payload</em>), viajan los datos transportados por la trama de un dispositivo a otro. Como el tamaño máximo de trama es de 1518 bytes y se ocupan 18 para los demás campos (dirección destino, dirección
+fuente, tipo o longitud y FCS), la cantidad máxima de datos que
+pueden ser transportados en una trama, es de 1500 bytes.</p>
+<p>Como el tamaño mínimo de la trama es de 64 bytes, el tamaño mínimo
+del campo de información debe ser de 46 bytes. Si se desean mandar
+menos datos, se deben agregar bytes de relleno (<em>padding</em>) para
+completar el tamaño mínimo.</p>
+</dd>
+<dt>Secuencia de verificación.</dt>
+<dd>
+<p>(FCS, <em>Frame Check Sequence</em>) Es un campo formado con un código
+cíclico redundante (CRC) para verificar
+la integridad de la trama. El emisor calcula el CRC y lo agrega a
+este campo. A la recepción de la trama el destinatario hace lo mismo
+y compara el CRC calculado contra el recibido. Si son diferentes, se
+puede asegurar que la trama ha sido alterada y debe descartarse. Si
+son iguales, se tiene una muy alta probabilidad de que la trama ha
+llegado sin error.</p>
+</dd>
+</dl>
+</div>
+<div id="implementaciones" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Implementaciones<a href="redes-locales.html#implementaciones" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Como se mencionó en la sección anterior, la especificación original de
+Ethernet define una velocidad de transmisión de 10 Mbps y utiliza como
+medio segmentos de cable coaxial con impedancia de 50 ohms. Este cable
+tiene un grosor aproximado de un centímetro y una longitud máxima de 500
+metros.</p>
+<p>El alcance y las capacidades de la red pueden aumentarse conectado dos
+segmentos a través de repetidores. Puede haber varios segmentos de 500
+metros, pero entre dos computadoras cualesquiera en la red, la distancia
+máxima permitida es de 5 segmentos (2,500 metros) de los cuales, solo tres
+pueden tener dispositivos de cómputo. La red de la
+figura <a href="redes-locales.html#fig:red10Base5">2.5</a> muestra un ejemplo de un despliegue válido.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:red10Base5"></span>
+<img src="figuras/c3/red10Base5.jpg" alt="*Un despliegue de red 10Base5.*" width="70%" />
+<p class="caption">
+Figura 2.5: <em>Un despliegue de red 10Base5.</em>
+</p>
+</div>
+<p>Se han venido desarrollando variantes a la norma original para responder
+a nuevos requerimientos; así ha surgido una gama de tecnologías que han
+sido incorporadas en actualizaciones de la norma IEEE 802.3.</p>
+<p>Para poder identificar rápidamente una implementación particular, se
+estableció una notación especial formada por tres parámetros: La
+velocidad de transmisión, la técnica de señalización y el tamaño del
+segmento o el tipo de medio. Por ejemplo, la especificación original
+descrita en los párrafos anteriores, es conocida como <strong>10Base5</strong>: Opera
+a 10 Mbps, con señalización en banda base<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> y el tamaño de segmento es
+de 500 metros (5 * 100).</p>
+<p>La tabla <a href="redes-locales.html#tab:ejem802.3" reference-type="ref" reference="tab:ejem802.3">2</a>. resume algunos ejemplos de variantes que se
+han hecho a la norma.</p>
+<div id="tab:ejem802.3">
+<table>
+<caption>Algunos ejemplos de implementaciones de redes locales</caption>
+<tbody>
+<tr class="odd">
+<td align="center">Norma</td>
+<td align="center">Medio</td>
+<td align="center">Señalización</td>
+<td align="center">Velocidad</td>
+<td align="center">Tam. segmento</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">(Mbps)</td>
+<td align="center">(metros)</td>
+</tr>
+<tr class="odd">
+<td align="center">10Base5</td>
+<td align="center">Cable coaxial grueso</td>
+<td align="center">Manchester</td>
+<td align="center">10</td>
+<td align="center">500</td>
+</tr>
+<tr class="even">
+<td align="center">10Base2</td>
+<td align="center">Cable coaxial delgado</td>
+<td align="center">Manchester</td>
+<td align="center">10</td>
+<td align="center">185</td>
+</tr>
+<tr class="odd">
+<td align="center">10Borad36</td>
+<td align="center">Cable coaxial 75 ohm</td>
+<td align="center">DPSK Modulado</td>
+<td align="center">10</td>
+<td align="center">1800</td>
+</tr>
+<tr class="even">
+<td align="center">10BaseT</td>
+<td align="center">Par trenzado UTP</td>
+<td align="center">Manchester</td>
+<td align="center">10</td>
+<td align="center">100</td>
+</tr>
+<tr class="odd">
+<td align="center">100BaseTX</td>
+<td align="center">Par trenzado UTP</td>
+<td align="center">4B5B-MLT3</td>
+<td align="center">100</td>
+<td align="center">100</td>
+</tr>
+<tr class="even">
+<td align="center">1000BaseSX</td>
+<td align="center">Fibra óptica multimodal</td>
+<td align="center">8B10B-NRZ</td>
+<td align="center">100</td>
+<td align="center">550</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="base5" class="section level4 unnumbered hasAnchor">
+<h4>10Base5<a href="redes-locales.html#base5" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>El grosor de un centímetro del cable, hace que éste sea muy inflexible.
+Típicamente el cable corre por el piso o el plafón falso. Un dispositivo
+que se quiere conectar a la red necesita de un adaptador formado por un
+cable de 15 pares de hilos y un dispositivo llamado unidad de
+acoplamiento al medio (MAU, <em>Medium Attachment Unit</em>) que perfora el
+recubrimiento del cable coaxial para entrar en contacto con el núcleo
+(ver figura <a href="redes-locales.html#fig:MAU">2.6</a>. La longitud máxima del cable de interfaz es de 50 metros.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:MAU"></span>
+<img src="figuras/c3/mau.jpg" alt="Unidad de acoplamiento conectada a cable coaxial grueso (10Base5)." width="30%" />
+<p class="caption">
+Figura 2.6: Unidad de acoplamiento conectada a cable coaxial grueso (10Base5).
+</p>
+</div>
+</div>
+<div id="base2" class="section level4 unnumbered hasAnchor">
+<h4>10Base2<a href="redes-locales.html#base2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Esta implementación, también conocida como <em>cheapernet</em> o de cable
+delgado, utiliza un cable coaxial de 5mm de diámetro. Fue concebida como
+una alternativa más económica a 10Base 5.</p>
+<p>Como el cable delgado es más propenso al ruido, la longitud máxima de
+los segmentos se redujo a 185 metros. Por otro lado, el cable es más
+flexible, por lo que éste puede llegar al dispositivo que se quiere
+conectar sin necesidad de la interfaz MAU. Por lo general, en estas
+redes se utilizaba un acoplamiento al cable con un con un conector BNC
+tipo T como se muestra en la figura <a href="redes-locales.html#fig:ConectorT">2.7</a>.</p>
+<p>La velocidad de transmisión, la técnica de señalización, el número de
+segmentos y repetidores se mantienen igual que en 10Base5. De hecho, se
+pueden combinar en una misma red segmentos con las dos tecnologías.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ConectorT"></span>
+<img src="figuras/c3/conectorT.jpg" alt="Conector T para redes 10Base2." width="40%" />
+<p class="caption">
+Figura 2.7: Conector T para redes 10Base2.
+</p>
+</div>
+</div>
+<div id="broad36" class="section level4 unnumbered hasAnchor">
+<h4>10Broad36<a href="redes-locales.html#broad36" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Desarrollado a mediados de los años 80, esta norma se concibió para
+transmisión de datos en la infraestructura de las redes de televisión
+por cable que utilizan un cable coaxial con impedancia de 75 ohms. Su
+velocidad también era de 10 Mbps pero utilizaba una codificación DPSK en
+una portadora para desplazar la señal a otra banda de frecuencia. Así,
+se podrían tener en el mismo cable señales de televisión y transferencia
+de datos simultáneamente.</p>
+<p>Las señales viajaban en una sola dirección hacia un dispositivo en el
+extremo del cable (<em>head end</em>) a una distancia hasta de 1800 metros, que
+enviaba la señal de regreso en otra frecuencia o en otro cable. En
+total, la trama viajaría hasta 3600 metros (de ahí el 36 de la
+notación).</p>
+<p>Por la complejidad y el costo de los componentes, esta tecnología tuvo
+muy poca aceptación.</p>
+</div>
+<div id="baset" class="section level4 unnumbered hasAnchor">
+<h4>10BaseT<a href="redes-locales.html#baset" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Esta implementación utiliza como medio de transporte, pares de cobre
+trenzados no blindados (UTP, <em>unshielded Twisted Pair</em>) muy similares a
+los que se ocupan en la red telefónica. De esta manera, se puede
+aprovechar el tendido de cable trenzado en ductos y regletas que se
+realiza durante la construcción del edificio, llamado cableado
+estructurado. La “T” en la notación corresponde al “twisted pair”.</p>
+<p>Este cable llega a paneles de distribución donde se habilitan servicios
+de voz (conexiones al conmutador telefónico) o servicios de datos
+(conexiones a la red local). Para este último caso, la tarjeta del
+dispositivo tiene un conector RJ-45 (ver
+figura <a href="redes-locales.html#fig:conectorRJ45">2.8</a>) al que se conecta un cable de par
+trenzado. El otro extremo del cable se conecta a una roseta que forma
+parte del cableado estructurado.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:conectorRJ45"></span>
+<img src="figuras/c3/conectorRJ45.jpg" alt="*Cable UTP con conector RJ-45 para red 10BaseT.*" width="40%" />
+<p class="caption">
+Figura 2.8: <em>Cable UTP con conector RJ-45 para red 10BaseT.</em>
+</p>
+</div>
+<p>En el panel de distribución, se hace una segunda conexión hacia un
+dispositivo (un concentrador) que habilita los servicios de red
+(figura <a href="redes-locales.html#fig:hubPatch">2.9</a>). Se trata de un repetidor con múltiples
+puertos: Cuando recibe una señal por uno de sus puertos, la regenera y
+reenvía por todos los demás. Si recibe señales simultáneamente por
+varios puertos, el repetidor asume que se ha generado una colisión y
+envía una señal especial para que todas las estaciones conectadas a él
+la detecten y se active el mecanismo de espera y reintento.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:hubPatch"></span>
+<img src="figuras/c3/hubPatch.jpg" alt="*Concentrador 10BaseT en panel de distribución.*" width="40%" />
+<p class="caption">
+Figura 2.9: <em>Concentrador 10BaseT en panel de distribución.</em>
+</p>
+</div>
+<p>Dado que el par trenzado no blindado es mucho más vulnerable a las
+interferencias electromagnéticas que el cable coaxial, en 10BaseT la
+distancia máxima entre una estación y el concentrador es de solo 100
+metros.</p>
+<p>Sin embargo, la “limpieza” del cableado estructurado, la comodidad de
+poder habilitar o reconfigurar servicios en el panel de distribución, la
+posibilidad de aprovechar el cable telefónico en vez de tener que hacer
+nuevos tendidos, y la facilidad de administrar centralmente desde el
+concentrador los flujos de las estaciones, hicieron que esta tecnología
+fuera muy bien aceptada por los usuarios.</p>
+</div>
+<div id="basetx" class="section level4 unnumbered hasAnchor">
+<h4>10BaseTX<a href="redes-locales.html#basetx" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A mediados de los años 90 se hizo evidente la necesidad de contar con
+redes locales de mayor velocidad y surgió una variante de IEEE 802.3 a
+100 Mbps, también llamada <em>FastEthernet</em>. Su implementación más popular
+es 100BaseTX: La red a 100 Mbps en banda base que utiliza dos pares
+trenzados no blindados de categoría 5 o superior<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>. Un par se utiliza
+para transmitir y el otro para recibir.</p>
+<p>La configuración de estas redes es igual a la de 10BaseT: Los
+dispositivos se conectan a través del cableado estructurado a un
+concentrador (en la actualidad, se conectan a un conmutador) en el panel de
+distribución.</p>
+<p>Para ofrecer velocidades de 100 Mbps en UTP, esta tecnología utiliza una
+codificación 4B5B-MLT3. Sin entrar en muchos detalles, esta técnica
+reconoce tres niveles de voltaje (positivo, cero o negativo) por lo que
+se puede mantener una velocidad alta con un baudaje notablemente más
+bajo: 30 MHz en este caso.</p>
+</div>
+<div id="basesx" class="section level4 unnumbered hasAnchor">
+<h4>10BaseSX<a href="redes-locales.html#basesx" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>La demanda por más capacidad en las redes locales se empezó a acelerar
+en el presente milenio. Rápidamente surgieron implementaciones para
+ofrecer servicios a 1 Gbps, 10 Gbps y se han establecido normas a 40 y
+100 Gbps. Muchos despliegues de estas tecnologías utilizan enlaces de
+fibra óptica. En particular, 1000Base-SX es una red a 1 Gbps con
+señalización en banda base, que transmite su información en una fibra
+óptica multimodal, por lo que su cobertura es corta (SX significa <em>short
+range</em>), de solo 550 metros mientras que despliegues con fibra monomodal
+pueden alcanzar varios kilómetros.</p>
+<p>En prácticamente todas estas redes las estaciones están conectadas a
+puertos dedicados en un conmutador donde las colisiones ya no se
+generan. Sin embargo, se mantienen los parámetros de la red como los
+tamaños máximo y mínimo de trama.</p>
+</div>
+</div>
+</div>
+<div id="redes-locales-inalámbricas" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Redes locales inalámbricas<a href="redes-locales.html#redes-locales-inalámbricas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Las redes locales inalámbricas (WLAN, <em>Wireless Local Area Network</em>)
+permiten resolver varias de las restricciones derivadas de utilizar un
+punto de contacto en las redes locales convencionales. La evolución de
+equipos de cómputo portátiles asociados a una red local, permite por
+ejemplo, que un empleado pueda desplazarse por la empresa sin perder el
+contacto con la red local (y por tanto, con la información que
+necesita).</p>
+<p>Entre las principales razones que han motivado el uso de WLANs podemos
+mencionar la gran flexibilidad que estas redes ofrecen: es posible
+reubicar los equipos de cómputo sin tener que modificar el cableado de
+la red; asimismo, crear una nueva red o bien agregar nodos a una red ya
+existente, puede hacerse de inmediato sin tener que modificar la
+infraestructura de comunicación. En los úlitmos años se observa un
+crecimiento exponencial en el despliegue de estas redes, sobre todo de
+aquellas basadas en la norma IEEE 802.11, también conocida como WiFi.</p>
+<p>Aunque se han desarrollado redes inalámbricas con señales infrarrojas,
+prácticamente todas las redes actuales utilizan para su comunicación
+señales electromagnéticas en algunas de las bandas del espectro que no
+requieren autorización para su uso. Son las llamadas bandas para
+aplicaciones industriales, científicas y médicas (ICM); en WiFi se
+utilizan las frecuencias en el bloque ICM de 2.4 GHz y de 5 GHz.</p>
+<p>Algunas de estas frecuencias están siendo extensamente utilizadas por
+otros dispositivos como teléfonos inalámbricos, controles remotos, dispositivos de manos libres, sensores inalámbricos, etc., por lo que las redes inalámbricas
+que operan en estas bandas deben ser diseñadas para trabajar bajo
+interferencias considerables. Por ello, estas redes utilizan la técnica
+de espectro disperso presentada en la sección <a href="intro.html#cdm">1.3.3</a>.</p>
+<p>Todos los elementos de las redes locales inalámbricas basadas en
+espectro disperso utilizan el mismo código de dispersión junto con
+alguno de los mecanismos de control de acceso que se mencionan en la
+sección siguiente. El hecho de utilizar un código de dispersión único,
+permite que esa red coexista con otras redes o con otros sistemas en la
+misma banda de frecuencias <span class="citation">[9], [10]</span>.</p>
+<p>La mayor parte de las WLAN puede configurarse en la actualidad de una de
+dos maneras: Redes AdHoc y redes basadas en
+infraestructura <span class="citation">[11], [12]</span>. En las primeras, también
+llamadas redes entre pares, varios dispositivos conforman una red para
+intercambiar información sin contar con el apoyo de elementos auxiliares
+(ver figura <a href="redes-locales.html#fig:AdHoc">2.10</a>). Este tipo de red es muy conveniente para
+conformar grupos de trabajo temporales en reuniones, conferencias, etc.
+En la norma IEEE, una configuración AdHoc es llamada IBSS (<em>Independent
+Basic Service Set</em>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:AdHoc"></span>
+<img src="figuras/c3/AdHoc.jpg" alt="*Red inalámbrica AdHoc o IBSS.*" width="50%" />
+<p class="caption">
+Figura 2.10: <em>Red inalámbrica AdHoc o IBSS.</em>
+</p>
+</div>
+<p>En la segunda configuración (mucho más popular en la actualidad), las
+WLAN se utilizan como una extensión a la infraestructura de red basada
+en cable con que ya cuenta la organización donde se instala la red. En
+esta configuración, es frecuente que los nodos inalámbricos, llamados
+estaciones remotas, solicitan servicios e información a través de puntos
+de acceso (AP, <em>Access point</em>) llamados estaciones base. Un AP dando
+servicio a varias estaciones remotas se conoce como BSS (<em>Basic Service
+Set</em>); varios APs conectados entre sí de forma cableada o inalámbrica,
+conforman un ESS (<em>Extended SS</em>), como el que se muestra en la
+figura <a href="redes-locales.html#fig:BSS">2.11</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:BSS"></span>
+<img src="figuras/c3/BSS.png" alt="*Red inalámbrica basada en infraestructura*" width="65%" />
+<p class="caption">
+Figura 2.11: <em>Red inalámbrica basada en infraestructura</em>
+</p>
+</div>
+<div id="protocolo-de-acceso" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Protocolo de Acceso<a href="redes-locales.html#protocolo-de-acceso" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Diseñar un protocolo de acceso para WLANs resulta mucho más complejo que
+hacerlo para redes locales basadas en cable por varias razones: se deben
+considerar distintas configuraciones como las redes AdHoc y aquellas
+basadas en infraestructura; perturbaciones ambientales como
+interferencias y variaciones en la potencia de la señal, introducen
+variaciones severas en el tiempo de acceso y en la tasa de errores de
+transmisión; al contar con equipos móviles se pueden presentar
+conexiones y desconexiones repentinas en la red; debe contarse con un
+mecanismo de relevo entre celdas para atender a nodos móviles que pasan
+del área de cobertura de una celda a otra (<em>roaming</em>), etcétera.</p>
+<p>En IEEE 802.11 se optó por un protocolo de control de acceso que es una
+variación de CSMA/CD utilizado en Ethernet/IEEE 802.3. Se trata de
+CSMA/CA (<em>Carrier Sense Multiple Access with Colision Avoidance</em>). Al
+igual que en CSMA/CD, cuando una estación desea transmitir, primero
+verifica que el medio de comunicación esté libre (es decir, sensa la
+portadora). Si éste está libre, transmite su información y si no, espera
+a que se libere el medio y transmite.</p>
+<p>Sin embargo, en las redes inalámbricas, esto no garantiza que no haya
+colisiones y éstas no pueden detectarse debido, entre otros factores, al
+problema conocido como de la terminal oculta: un dispositivo inalámbrico
+puede transmitir con la potencia suficiente para que sea escuchado por
+el AP, pero no por otra estación que también desea transmitir y que por
+tanto no detecta la transmisión. En la figura <a href="redes-locales.html#fig:termOculta">2.12</a>, la estación B desea transmitir, sensa el medio y no es capaz de detectar la energía de la trama que en ese momento está generando la estación A. La colisión se produce cerca del
+AP.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:termOculta"></span>
+<img src="figuras/c3/termOculta.jpg" alt="*El problema de la terminal oculta en WLANs.*" width="60%" />
+<p class="caption">
+Figura 2.12: <em>El problema de la terminal oculta en WLANs.</em>
+</p>
+</div>
+<p>Para resolver este problema, se propuso añadir al protocolo de acceso un
+mecanismo de intercambio de mensajes con reconocimiento positivo el cual se muestra en la figura <a href="redes-locales.html#fig:colavoid">2.13</a>. Cuando
+una estación está lista para transmitir, primero envía una solicitud al
+punto de acceso (RTS, <em>Request to Send</em>) que incluye una estimación del
+tiempo que estará ocupando el medio para su transmisión. El AP responde
+con una autorización (CTS, <em>Clear to Send</em>) con la estimación de tiempo
+que el canal estará ocupado. Como todas las estaciones remotas escuchan
+las señales del AP, sabrán que no pueden transmitir durante ese
+intervalo de tiempo, buscando así evitar las colisiones.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:colavoid"></span>
+<img src="figuras/c3/colavoid.jpg" alt="*Mecanismo para evitar colisiones.*" width="30%" />
+<p class="caption">
+Figura 2.13: <em>Mecanismo para evitar colisiones.</em>
+</p>
+</div>
+</div>
+<div id="implementaciones-1" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Implementaciones<a href="redes-locales.html#implementaciones-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El subcomité 802.11 de la IEEE fue creado en septiembre de 1990 con el
+fin de producir una especificación de red local inalámbrica capaz de
+fransmitir información a velocidades de entre 1 y 10 Mbps y que pudiese
+adecuarse a gran cantidad de ambientes, desde extensiones de redes
+locales basadas en cable hasta conexiones entre pares y automatización
+industrial y desde transferencia de archivos hasta soporte a con
+versaciones de voz y control de procesos en tiempo real.</p>
+<p>El estándar utiliza un modelo de referencia multi capas en el que las
+capas más bajas corresponden a las especificaciones de capa física y
+aspectos dependientes del medio particular utilizado (infrarrojo,
+espectro disperso en la banda de 2.4 GHz y en la de 5 GHz, etc.) La
+siguiente capa corresponde al protocolo de acceso al medio y es común a
+todas las redes independientemente del medio físico utilizado,
+presentando así una visión unificada a las capas superiores. El
+subcomité 802.11 seleccionó el protocolo DFWMAC (<em>Distributed Foundation
+Wireless Medium Access Control</em>), como la base del estándar para esta
+capa.</p>
+<div id="t:802.11">
+<table>
+<caption>Evolución de la norma IEEE 802.11</caption>
+<thead>
+<tr class="header">
+<th align="center">Norma</th>
+<th align="center">Velocidad</th>
+<th align="center">Banda/Característica</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">802.11</td>
+<td align="center">1 y 2 Mbps</td>
+<td align="center">2.4 GHz</td>
+</tr>
+<tr class="even">
+<td align="center">802.11b</td>
+<td align="center">11 Mbps</td>
+<td align="center">2.4 GHz</td>
+</tr>
+<tr class="odd">
+<td align="center">802.11a</td>
+<td align="center">54 Mbps</td>
+<td align="center">5 GHz</td>
+</tr>
+<tr class="even">
+<td align="center">802.11g</td>
+<td align="center">22 y 54 Mbps</td>
+<td align="center">2.4 GHz</td>
+</tr>
+<tr class="odd">
+<td align="center">802.11e</td>
+<td align="center">22 Mbps con Calidad de servicio</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">802.11i</td>
+<td align="center">Mejoras a mecanismo de seguridad</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">802.11n</td>
+<td align="center">540 Mbps (100-200 Mbps efectivo)</td>
+<td align="center">5 y 2.4 GHz</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La norma permite distinguir entre tráfico de datos y tráfico sensible a
+retardos, como las conversaciones de voz y sesiones de video. También
+permite asignar distintas prioridades al tráfico mediante un elegante
+esquema que permite variar el periodo de espera entre el término de
+transmisión de una trama y la emisión de la siguiente: Tramas de alta
+prioridad tendrán un intervalo de espera (IFS, <em>Interframe space</em>) menor
+que las tramas de prioridad normal.</p>
+<p>La duración de los intervalos de espera depende de varios factores;
+entre ellos, la banda de frecuencia y la técnica de modulación. La
+tabla <a href="redes-locales.html#t:ifs">3</a>{reference-type=“ref” @ref(t:ifs”} muestra los
+valores típicos para SIFS (para tramas de control), PIFS (tramas
+prioritarias) y DIFS (tramas de datos sin prioridad):</p>
+<p><span id="t:ifs" label="t:ifs"></span></p>
+<div id="t:ifs">
+<table>
+<caption>Duración de referencia para los intervalos entre segmentos IFS</caption>
+<thead>
+<tr class="header">
+<th align="center">PHY</th>
+<th align="center">SIFS</th>
+<th align="center">PIFS</th>
+<th align="center">DIFS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">DSSS 802.11b</td>
+<td align="center"><span class="math inline">\(10\,\mu s\)</span></td>
+<td align="center"><span class="math inline">\(30\,\mu s\)</span></td>
+<td align="center"><span class="math inline">\(50\,\mu s\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">ERP 802.11g</td>
+<td align="center"><span class="math inline">\(10\,\mu s\)</span></td>
+<td align="center">Long=<span class="math inline">\(30\,\mu s\)</span></td>
+<td align="center">Long=<span class="math inline">\(50\,\mu s\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">Short=<span class="math inline">\(19\,\mu s\)</span></td>
+<td align="center">Short=<span class="math inline">\(28\,\mu s\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">OFDM 802.11a</td>
+<td align="center"><span class="math inline">\(16\,\mu s\)</span></td>
+<td align="center"><span class="math inline">\(25\,\mu s\)</span></td>
+<td align="center"><span class="math inline">\(34\,\mu s\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">HT 802.11n</td>
+<td align="center"><span class="math inline">\(30\,\mu s\)</span> @ 2.4 GHz</td>
+<td align="center">Long=<span class="math inline">\(20\,\mu s\)</span> @ 2.4 GHz</td>
+<td align="center">Long=<span class="math inline">\(50\,\mu s\)</span> @ 2.4 GHz</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center"><span class="math inline">\(16\,\mu s\)</span> @ 5 GHz</td>
+<td align="center">Short=<span class="math inline">\(19\,\mu s\)</span> @ 2.4 GHz</td>
+<td align="center">Short=<span class="math inline">\(28\,\mu s\)</span> @ 2.4 GHz</td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(25\,\mu s\)</span> @ 5 GHz</td>
+<td align="center"><span class="math inline">\(34\,\mu s\)</span> @ 5 GHz</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>La norma también ha evolucionado para aumentar las tasas de
+transferencia, operar en distintas bandas de frecuencia y atender los
+requerimientos de seguridad, entre otros. Las versiones más <span class="math inline">\(50\,\mu s\)</span>
+de esta norma se presentan en la
+tabla <a href="redes-locales.html#t:802.11">2</a>{reference-type=“ref” @ref(t:802.11”}.</p>
+</div>
+</div>
+<div id="conmutacion" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Conmutacion<a href="redes-locales.html#conmutacion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para extender la cobertura de la red, se pueden conectar dos o más redes
+locales a través de un puente o conmutador. Este dispositivo es capaz de
+conocer, a partir de sus direcciones MAC, qué estaciones se encuentran
+en cada uno de sus puertos. Utiliza tablas de conmutación para encaminar
+tramas únicamente hacia el puerto en el que se encuentra la estación
+destinataria y filtrar aquéllas que no deben ser encaminadas. De esta
+forma, el puente o conmutador “rompe” los dominios de colisión, es
+decir, los segmentos en los que se puede propagar una colisión entre
+estaciones, como se muestra en la
+figura <a href="redes-locales.html#fig:domcol">2.14</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:domcol"></span>
+<img src="figuras/c3/domcol.jpg" alt="*Una LAN es un dominio de difusión. El conmutador la puede fragmentar en distintos dominios de colisión.*" width="70%" />
+<p class="caption">
+Figura 2.14: <em>Una LAN es un dominio de difusión. El conmutador la puede fragmentar en distintos dominios de colisión.</em>
+</p>
+</div>
+<p>Lo anterior resulta en un incremento del desempeño de la red ya que la
+segmentación de capa 2 reduce el número de estaciones que compiten por
+el acceso al medio.</p>
+<p>Es importante notar que los dominios individuales de colisión creados
+por el conmutador siguen siendo miembros del mismo dominio de difusión,
+es decir, una trama con dirección destino de difusión (broadcast o
+multicast) será enviada a todos los puertos (a todos los dominios de
+colisión). Para propósitos de estas notas, frecuentemente consideraremos <em>una LAN como un dominio de difusión</em>.</p>
+<p>Eventualmente los costos de la tecnología hicieron posible fabricar
+conmutadores en los que cada puerto se asigna no a un segmento de red,
+sino a un dispositivo en particular, como se muestra en la
+figura <a href="redes-locales.html#fig:switch">2.15</a>. Así, cada dispositivo tiene un enlace punto a
+punto a un puerto del conmutador; al no tener que competir por acceder a
+este medio, las colisiones desaparecen.</p>
+<p>Debido a que la conmutación se
+realiza a muy alta velocidad, se pueden tener comunicaciones entre
+distintos puertos simultáneamente, aumentando de esta manera el
+desempeño total de la red. Prácticamente todas las redes locales basadas
+en cableado estructurado han abandonado los concentradores y los
+servicios de red se habilitan a través de un conmutador.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:switch"></span>
+<img src="figuras/c3/switch.jpg" alt="*Actualmente, la tecnología permite que cada dispositivo pueda asociarse a un puerto en un conmutador.*" width="40%" />
+<p class="caption">
+Figura 2.15: <em>Actualmente, la tecnología permite que cada dispositivo pueda asociarse a un puerto en un conmutador.</em>
+</p>
+</div>
+<div id="principio-de-operación" class="section level3 hasAnchor" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Principio de operación<a href="redes-locales.html#principio-de-operación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Los conmutadores a los que nos referimos operan a nivel de la capa de
+enlace de datos del modelo de referencia OSI. En términos generales,
+cuentan con una tabla de conmutación que les permite decidir hacia qué
+puerto encaminar (reenviar) las tramas con base en su dirección destino.</p>
+<p>Por ejemplo, en la figura <a href="redes-locales.html#fig:sw1">2.16</a>, la trama que llega por el puerto 1 tiene como destinatario la dirección @A, que está asociada al puerto 5 en la tabla
+de conmutación, por lo que trama es encaminada a ese puerto. De manera
+similar, la trama que entra por el puerto 3, tiene como dirección
+destino @B que está asociada al puerto 4, hacia donde es encaminada la
+trama.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:sw1"></span>
+<img src="figuras/c3/sw1.jpg" alt="*Principio de operación con tablas de conmutación.*" width="50%" />
+<p class="caption">
+Figura 2.16: <em>Principio de operación con tablas de conmutación.</em>
+</p>
+</div>
+<p>El tamaño de las tablas de conmutación varía de un fabricante a otro y
+de un modelo a otro. Representa un criterio importante de diseño sobre
+todo para redes grandes, con miles de nodos <a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>.</p>
+<p>Otro criterio a tomar en cuenta, es el mecanismo de conmutación qeu
+utiliza el dispositivo. Puede dividirse en dos grandes categorías:
+<em>Store-and-forward</em> y <em>Cut-through</em>.</p>
+<p>El conmutador Store and forward (figura <a href="redes-locales.html#fig:swsf">2.17</a>) espera recibir la trama completa, verifica que los datos no tengan error (verificación del CRC), consulta la tabla de conmutación con la dirección destino y redirige la trama al puerto correspondiente.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:swsf"></span>
+<img src="figuras/c3/swsf.jpg" alt="*Store and forward.*" width="50%" />
+<p class="caption">
+Figura 2.17: <em>Store and forward.</em>
+</p>
+</div>
+<p>La principal ventaja de este mecanismo es que garantiza la integridad de
+las tramas, y al detectar una dañada, no lo propaga innecesariamente a
+otros segmentos. Esto es particularmente útil en redes Ethernet con
+segmentos compartidos y una carga relativamente alta pues las tramas
+fragmentadas porque que han colisionado (<em>runt frames</em>), pueden ser
+detectadas y eliminadas.</p>
+<p>Otra ventaja importante de este mecanismo, es que puede interconectar
+redes de diferentes velocidades, aunque para ello se requiere buffers
+capaces de absorber ráfagas de tramas al acoplar velocidades.</p>
+<p>Por su parte, los conmutadores Cut-through (figura <a href="redes-locales.html#fig:swct">2.18</a>), también llamados <em>wormhole</em>, no validan la integridad de las tramas cuando cruzan el conmutador. La retransmisión de las tramas se inicia tan pronto se lee la dirección destino. Lo que se busca, por supuesto, es mejorar el desempeño al disminuir el retardo de procesamiento (retardo de conmutación, en este caso) de las tramas.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:swct"></span>
+<img src="figuras/c3/swct.jpg" alt="*Cut-through o *wormhole*.*" width="50%" />
+<p class="caption">
+Figura 2.18: <em>Cut-through o </em>wormhole<em>.</em>
+</p>
+</div>
+<p>En los conmutadores Cut-through también se requiere de buffers, pues
+puede ocurrir que varias tramas tengan que salir a su destino por el
+mismo puerto, aunque típicamente, el tamaño de los buffers en estos
+conmutadores es menor que en los Store and forward.</p>
+</div>
+<div id="conmutadores-transparentes---operación" class="section level3 hasAnchor" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Conmutadores transparentes - operación<a href="redes-locales.html#conmutadores-transparentes---operación" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Los conmutadores a los que nos referimos en este curso se llaman puentes
+transparentes pues son “invisibles” a los dispositivos y equipos
+terminales. Una computadora simplemente coloca una trama en la red y ésta
+es encaminada a su destino sin que la computadora sepa si para ello
+tuvieron que participar los conmutadores. Existe otro tipo de
+conmutadores (típicamente en las redes locales <em>Token Ring</em>) en los que
+es el dispositivo emisor (la fuente) quien determina la trayectoria que
+deben recorrer las tramas para llegar a su destino.</p>
+<p>En los conmutadores transparentes, las tablas de conmutación se crean y
+actualizan dinámicamente, y con base en ellas, los conmutadores
+encaminan o descartan las tramas.</p>
+<p>Un conmutador transparente tiene
+cuatro funciones: APRENDIZAJE, FILTRADO, REENVÍO, INUNDACIÓN. Para
+explicarlas, utilizaremos como referencia la red de la
+figura <a href="redes-locales.html#fig:opsw">2.19</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:opsw"></span>
+<img src="figuras/c3/opsw.jpg" alt="*Red local para describir las funciones de un conmutador*" width="50%" />
+<p class="caption">
+Figura 2.19: <em>Red local para describir las funciones de un conmutador</em>
+</p>
+</div>
+<div class="columns">
+<div class="column">
+<p>Inicialmente, las tablas del conmutador están vacías. La computadora A
+envía una trama a D. El conmutador revisa la <em>dirección fuente</em> y asocia
+esta dirección al puerto por donde la recibió, en nuestro caso, el
+puerto 1. Esta es la función de <strong>Aprendizaje</strong> (<em>Learning</em>). Las
+entradas en las tablas tienen una duración determinada (por default,
+cinco minutos). Cada vez que llega una trama, se actualiza el temporizador;
+si éste llega a cero, la entrada en la tabla se elimina, garantizando la
+depuración automática de las tablas de conmutación. La tabla de
+conmutación hasta ahora estaría como se muestra al lado.</p>
+</div><div class="column">
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Dirección</th>
+<th align="left">Puerto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">@A</td>
+<td align="left">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column">
+<p>Como el conmutador no conoce en qué puerto se encuentra la computadora
+D, envía la trama por todos los puertos menos por el que la recibió
+(Pto2 y Pto 3 en nuestro ejemplo). Esta es la función de <strong>Inundación</strong>
+(<em>Flooding</em>). Siempre que reciba una trama para la que se desconoce el
+destino o cuando el destino sea una dirección de difusión, se efectúa
+esta “inundación”.</p>
+<p>Es de esperar que eventualmente D envíe una respuesta a A. En ese
+momento, el conmutador vincula la dirección D al puerto 3 (<em>learning</em>) y
+como encuentra la dirección A asociada al puerto 1, <strong>Reenvía</strong>
+(<em>forward</em>) la trama únicamente a ese puerto. Ahora tenemos la tabla que se muestra al lado:</p>
+</div><div class="column">
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th align="center">Dirección</th>
+<th align="center">Puerto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">@A</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center">@D</td>
+<td align="center">3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column">
+<p>Ahora imaginemos que la computadora B le envía una trama a A. Por
+función de aprendizaje, el conmutador asocia la dirección B al puerto 1
+y al consultar la dirección destino, sabe que A también está en el
+puerto 1 y sencillamente ignora la trama. Esta es la función de
+<strong>Fitrado</strong> (<em>Filtering</em>). La tabla de conmutación queda así:</p>
+</div><div class="column">
+<div class="center">
+<table>
+<thead>
+<tr class="header">
+<th align="center">Dirección</th>
+<th align="center">Puerto</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">@A</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="center">@B</td>
+<td align="center">1</td>
+</tr>
+<tr class="odd">
+<td align="center">@D</td>
+<td align="center">3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Esta función de filtrado es la que permite expandir la cobertura de la
+red local que se mencionó al inicio de esta sección y aumentar el
+desempeño de la red. El tráfico local queda aislado en su propio
+<em>dominio de colisión</em> y sólo es reenviado a otro segmento (a otro
+dominio de colisión) cuando es estrictamente necesario.</p>
+<p>Para finalizar, podemos sintetizar la operación de un conmutador
+transparente en el diagrama de flujo de la
+figura <a href="redes-locales.html#fig:diagflujosw">2.20</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:diagflujosw"></span>
+<img src="figuras/c3/diagflujosw.jpg" alt="*Operación de un puente (o conmutador) transparente*" width="70%" />
+<p class="caption">
+Figura 2.20: <em>Operación de un puente (o conmutador) transparente</em>
+</p>
+</div>
+</div>
+</div>
+<div id="protocolo-spanning-tree" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Protocolo Spanning Tree<a href="redes-locales.html#protocolo-spanning-tree" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En las redes empresariales, es muy importante tener equipos redundantes
+y rutas alternas para mantener la continuidad de la operación en caso de
+fallos. Por ejemplo, la figura<a href="redes-locales.html#fig:topored">2.21</a> muestra topología genérica de una red local de una organización. Se pueden notar enlaces redundantes en todos
+los conmutadores.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:topored"></span>
+<img src="figuras/c3/topored.jpg" alt="*Topología con enlaces y conmutadores redundantes*" width="70%" />
+<p class="caption">
+Figura 2.21: <em>Topología con enlaces y conmutadores redundantes</em>
+</p>
+</div>
+<p>Sin embargo, por la forma en que operan los conmutadores, esto genera un
+severo problema conocido como de <em>lazos activos</em> o <em>tormenta de tramas</em>.
+Es un problema que ocurre naturalmente en las tramas de difusión, pero
+también puede ocurrir con tramas dirigidas a un solo destinatario
+(tramas unicast).</p>
+<div id="lazos-activos-en-trama-de-difusión" class="section level4 unnumbered hasAnchor">
+<h4>Lazos activos en trama de difusión<a href="redes-locales.html#lazos-activos-en-trama-de-difusión" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>En la imagen de la izquierda de la figura <a href="#fig:loopdifusion"><strong>??</strong></a> se presenta el efecto de la tormenta de tramas de difusión. Los dos conmutadores están conectados a los segmentos donde se encuentran las computadoras Nodo A (segmento 1) y
+Nodo B (segmento 2), generando un lazo o bucle en la topología.</p>
+<p>Suponga que A emite una trama de difusión (dirección destino
+FF-FF-FF-FF-FF). La trama de difusión se propaga por el segmento 1 y es
+procesada por los conmutadores sw1 y sw2. Dado que se trata de una trama
+de difusión, cada uno la reenviará al segmento 2 por sus respectivos
+puertos “Pto2”.</p>
+<p>Ahora tenemos dos tramas de difusión en el segmento 2. La trama emitida
+por sw1 en su puerto Pto2 es tomada por sw2 (en su puerto Pto2) y, como
+es una trama de difusión, sw2 la reenvía al segmento 1, donde sw1 la
+vuelve a recibir por su puerto Pto1 y la reenvía al segmento 2. Lo mismo
+ocurre con la trama emitida por sw2 en el segmento 2, que es tomada por
+sw1 y reenviada al segmento 1. Tenemos dos tramas circulando
+indefinidamente por los dos segmentos.</p>
+<p>Esta es la <em>tormenta de tramas</em>. En la figura <a href="#fig:loopdifusion"><strong>??</strong></a> sólo se muestran dos conmutadores. En una red realista como la de la figura <a href="redes-locales.html#fig:topored">2.21</a>, donde hay múltiples lazos, estas tormentas de tramas dejan a la red completamente congestionada e inoperable en unos cuantos segundos.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:xxaa"></span>
+<img src="figuras/c3/loopdifusion.jpg" alt="El problema de lazos activos. (a) Tormenta de tramas broadcast; (b) Tormenta de tramas unicast" width="48%" /><img src="figuras/c3/loopunicast.jpg" alt="El problema de lazos activos. (a) Tormenta de tramas broadcast; (b) Tormenta de tramas unicast" width="48%" />
+<p class="caption">
+Figura 2.22: El problema de lazos activos. (a) Tormenta de tramas broadcast; (b) Tormenta de tramas unicast
+</p>
+</div>
+</div>
+<div id="lazos-activos-con-tramas-unicast." class="section level4 unnumbered hasAnchor">
+<h4>Lazos activos con tramas unicast.<a href="redes-locales.html#lazos-activos-con-tramas-unicast." class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>En la imagen de la derecha de la figura figura <a href="#fig:loopunicast"><strong>??</strong></a> se muestra cómo se genera una tormenta de tramas unicast. El nodo A envía una trama hacia el nodo B
+la cual se difunde en el segmento 1. Tanto sw1 como sw2 reciben la trama y revisan la dirección destino. Asumiendo que la tabla de conmutación está vacía, los dos conmutadores asocian la dirección de A a su respectivo puerto “Pto1” y realizan la
+función de inundación, reenviando cada uno la trama al segmento 2.</p>
+<p>Ahora inicia la tormenta de tramas: sw2 recibe por su Pto2, la trama
+reenviada por sw1 (y, por supuesto, sw1 recibe la enviada por sw2). Como
+no tiene registrada la dirección de B, toma esa trama y la envía
+nuevamente al segmento 1, pero además, ahora sw2 asume que el nodo A
+está en el segmento 2 pues desde ese segmento recibe una trama con
+dirección fuente A, por lo que actualiza su tabla de conmutación. ¡Lo
+mismo ocurre con sw1 al recibir la trama enviada por sw2 en el segmento
+2! Esta actualización de las tablas también ocurre con las tramas de
+difusión.</p>
+<p>Hay un efecto adicional. Si B responde y por casualidad las tablas de
+conmutación tienen la dirección A asociada correctamente al segmento 1,
+tendremos una red con tramas duplicadas, pero al menos se estabiliza la
+tormenta de tramas. Si B responde y por casualidad la dirección A está
+asociada a los Pto2 (al segmento 2), esa trama será filtrada por los dos
+conmutadores y la comunicación entre A y B no tendrá lugar. Pero si B no
+está disponible (por ejemplo, porque está apagado, desconectado de la
+red, o simplemente la dirección destino es errónea), la tormenta de
+tramas duplicadas por sw1 y sw2 se mantendrá indefinidamente.</p>
+</div>
+<div id="protocolo-spanning-tree-1" class="section level3 hasAnchor" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Protocolo Spanning Tree<a href="redes-locales.html#protocolo-spanning-tree-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para resolver el problema de lazos activos, se implementa en los
+conmutadores un algoritmo llamado Spanning Tree (árbol expandido) el
+cual tiene como objetivo el que exista un único camino activo
+entre dos segmentos cualquiera. El algoritmo fue estandarizado en la
+norma IEEE 802.1D y actualizado en la norma IEEE 802.1t.</p>
+<p>Los conmutadores (o puentes) intercambian mensajes entre sí para crear
+una una topología lógica libre de ciclos en la red local. La trayectoria
+creada busca ser óptima con base en un criterio de <em>costo</em> que se
+relaciona con la velocidad de las interfaces de red.</p>
+<p>El protocolo hace que las trayectorias redundantes estén desactivadas hasta que se detecta un problema. Si ocurre, la topología lógica se reconfigura para crear trayectorias alternas.</p>
+<p>Los conmutadores intercambian mensajes conocidos como <strong>BPDU,</strong> <em>Bridge Protocol
+Data Unit</em>. Son tramas LLC con identificador SAP 0x42 enviadas a la
+<strong>dirección de difusión restringida 01-80-c2-00-00-00</strong>.</p>
+<p>El protocolo Spanning Tree basa gran parte de su operación en dos
+conceptos: Identificador del Puente (BID, <em>Bridge Id</em>) y Costo de la Trayectoria.</p>
+<p>El <strong>BID</strong> es un valor de 8 bytes compuesto por un campo de Prioridad de
+2 bytes (rango de 0 a 65,535, con valor por omisión de 32,768) y un campo
+de 6 bytes obtenido de la dirección MAC del conmutador (generalmente
+tomado del backplane o de la tarjeta de administración). Ver figura <a href="redes-locales.html#fig:bid">2.23</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bid"></span>
+<img src="figuras/c3/bid.jpg" alt="*Formato del *Bridge Id, BID*" width="50%" />
+<p class="caption">
+Figura 2.23: <em>Formato del </em>Bridge Id, BID*
+</p>
+</div>
+<p>En la norma IEEE 802.1t se establece que los 12 bits menos
+significativos del campo de prioridad tienen valor 0, por lo que los
+valores de Prioridad se dan en incrementos de 4,096. Esto quiere decir
+que solamente se tienen 16 valores posibles de Prioridad.</p>
+<p>El <strong>costo de la trayectoria</strong> se calcula como la suma del costo de los
+enlaces para llegar a un conmutador particular llamado el Puente Raíz. A
+cada puerto se le asigna un costo que depende de su velocidad de
+transmisión. En la norma 802.1D se recomendaba calcular el costo como
+1000 Mbps dividido por la capacidad del enlace; sin embargo, con el
+surgimeiento de redes de Gbps se observó que esta regla pronto sería
+obsoleta. La norma IEEE 802.1t recomienda dividir 20 Tbps entre la capacidad,
+como se muestra en la tabla siguiente:</p>
+<div id="t:costopto">
+<table>
+<caption>Costos sugeridos para los puertos en STP</caption>
+<thead>
+<tr class="header">
+<th align="center">Velocidad</th>
+<th align="center">802.1D</th>
+<th align="center">802.1t</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">4 Mbps</td>
+<td align="center">250</td>
+<td align="center">-</td>
+</tr>
+<tr class="even">
+<td align="center">10 Mbps</td>
+<td align="center">100</td>
+<td align="center">2,000,000</td>
+</tr>
+<tr class="odd">
+<td align="center">16 Mbps</td>
+<td align="center">62</td>
+<td align="center">–</td>
+</tr>
+<tr class="even">
+<td align="center">100 Mbps</td>
+<td align="center">19</td>
+<td align="center">200,000</td>
+</tr>
+<tr class="odd">
+<td align="center">1 Gbps</td>
+<td align="center">4</td>
+<td align="center">20,000</td>
+</tr>
+<tr class="even">
+<td align="center">10 Gbps</td>
+<td align="center">2</td>
+<td align="center">2,000</td>
+</tr>
+<tr class="odd">
+<td align="center">100 Gbps</td>
+<td align="center">–</td>
+<td align="center">200</td>
+</tr>
+<tr class="even">
+<td align="center">1 Tbps</td>
+<td align="center">–</td>
+<td align="center">20</td>
+</tr>
+<tr class="odd">
+<td align="center">10 Tbps</td>
+<td align="center">–</td>
+<td align="center">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>El administrador de la red puede utilizar cualquiera de las normas o
+elegir otros criterios y otros valores. Sin embargo, es MUY IMPORTANTE
+que sea consistente y configure los mismos valores en todos los
+conmutadores de la red; de lo contrario, se crearán topologías sumamente
+ineficientes.</p>
+<p>Se debe tener especial cuidado al desplegar y administrar redes que
+tienen equipos de distintos fabricantes (como Cisco, Huawei, Extreme,
+Juniper) pues los costos por omisión que éstos asignan a sus equipos
+suelen ser distintos.</p>
+<div id="establecimiento-de-la-topología" class="section level4 unnumbered hasAnchor">
+<h4>Establecimiento de la topología<a href="redes-locales.html#establecimiento-de-la-topología" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Como se ha mencionado, lo que se busca es establecer una topología de
+“costo mínimo” y libre de lazos para llegar a un nodo particular (el
+Puente Raíz). La métrica de costo es la velocidad de los enlaces.</p>
+<p>Antes de explicar cómo funciona el protocolo debemos definir algunos
+conceptos:</p>
+<dl>
+<dt>Puente raíz.</dt>
+<dd>
+Es el conmutador a partir del cual se construye la topología lógica.
+Se elige como aquél que tiene el menor BID.
+</dd>
+<dt>Puerto raíz.</dt>
+<dd>
+<p>Es el puerto en un conmutador que lo conecta al puente raíz por la
+mejor trayectoria (la de menor costo).</p>
+</dd>
+<dt>Puente designado.</dt>
+<dd>
+<p>Si a un segmento están conectados varios conmutadores (lo cual es de
+esperar, pues es precisamente por eso que se pueden formar lazos en
+la topología), el puente designado es el encargado de encaminar las
+tramas hacia y desde el puente raíz.</p>
+</dd>
+<dt>Puerto designado.</dt>
+<dd>
+<p>Es el puerto del puente designado que encamina las tramas del
+segmento. Se trata del puerto con el menor costo hacia la raíz.</p>
+</dd>
+<dt>Puerto bloqueado.</dt>
+<dd>
+<p>Son los otros puertos en un segmento que no encaminan tramas, pero
+pueden escuchar BPDUs para reconfigurar la topología en caso de
+fallos.</p>
+</dd>
+</dl>
+<p>Para establecer la topología, los conmutadores intercambian las tramas
+BPDU que pueden ser de dos tipos: Configuración y TCN (<em>Topology Change
+Notification</em>). Las BPDU tienen muchos campos; por ahora únicamente nos
+concentraremos en los cuatro que se muestran en la figura <a href="redes-locales.html#fig:bid">2.23</a>: El BID del puente raíz, el costo para llegar a la raíz, el BID del conmutador que la emite y el identificador del puerto donde se emitió:</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bpdu"></span>
+<img src="figuras/c3/bpdu.jpg" alt="*Formato del *Los campos más importantes de una BPDU*" width="60%" />
+<p class="caption">
+Figura 2.24: <em>Formato del </em>Los campos más importantes de una BPDU*
+</p>
+</div>
+<p>La topología se establece en tres pasos: Selección del puente raíz;
+selección de los puertos raíz; selección de los puertos designados. Los
+puertos que no son raíz ni designados, quedan bloqueados. Para
+ejemplificar el protocolo, utilizaremos la pequeña red que se muestra en
+la figura <a href="redes-locales.html#fig:refstp">2.25</a>. Todos los enlaces son FastEthernet (100 Mbps) y
+supondremos una tabla de costos 802.1D; es decir, los enlaces tienen un
+costo de 19.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:refstp"></span>
+<img src="figuras/c3/refstp.jpg" alt="*Red para ejemplificar STP*" width="80%" />
+<p class="caption">
+Figura 2.25: <em>Red para ejemplificar STP</em>
+</p>
+</div>
+</div>
+<div id="selección-del-puente-raíz" class="section level4 unnumbered hasAnchor">
+<h4>1. Selección del puente raíz<a href="redes-locales.html#selección-del-puente-raíz" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>El primer paso es seleccionar el puente raíz, el cual será el puente a
+partir de donde se formarán las ramas del árbol. Al inicio, cada
+conmutador se considera el puente raíz y envía por todos los puertos una
+BPDU con el BID de raíz igual a su propio ID y con un costo de 0 para
+llegar a la raíz. Por ejemplo, Sw3 enviará una BPDU como la siguiente
+por sus puertos Pto1 y Pto2:</p>
+<p><img src="figuras/c3/bpdu1.JPG" width="70%" style="display: block; margin: auto;" /></p>
+<p>Sw1 recibe las BPDU de Sw2 y Sw3, compara los BID con el propio, y
+concluye que él es la raíz. De forma similar, cuando Sw2 y Sw3 reciben
+las BPDU de Sw1 ambos concluyen que no son la raíz, dejan de emitir
+BPDUs <em>por el puerto por el que recibieron la notificación de un mejor
+candidato raíz</em> y efectúan el siguiente paso: Selección de los puertos
+raíz.</p>
+</div>
+<div id="selección-de-los-puertos" class="section level4 unnumbered hasAnchor">
+<h4>2. Selección de los puertos<a href="redes-locales.html#selección-de-los-puertos" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Todos los conmutadores menos la raíz, deben seleccionar uno de sus
+puertos como el puerto raíz. Se elige el puerto que tenga el costo menor
+(a veces llamado “distancia menor”) a la raíz. Observe la
+figura <a href="redes-locales.html#fig:refptoraiz">2.26</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:refptoraiz"></span>
+<img src="figuras/c3/refptoraiz.jpg" alt="*Selección del puerto raíz.*" width="70%" />
+<p class="caption">
+Figura 2.26: <em>Selección del puerto raíz.</em>
+</p>
+</div>
+<p>El puente raíz (Sw1) emite periódicamente BPDUs con un costo igual a 0.
+Los conmutadores 2 y 3 reciben estas BPDU por sus respectivos Pto1 en
+una interfaz FastEthernet, por lo que suman el costo correspondiente
+(19) y generan una BPDU con ese costo y la emiten por sus respectivos
+Pto2. Por ejemplo, la BPDU emitida por Sw2 es la siguiente:</p>
+<p><img src="figuras/c3/bpdu2.JPG" width="70%" style="display: block; margin: auto;" /></p>
+<p>Cuando Sw3 recibe esta trama, le suma el costo de la interfaz y estima
+que llegar a la raíz por su Pto2 tiene un costo de 38, mientras que por
+su Pto1 el costo es de 19. Por ello, selecciona Pto1 como su puerto
+raíz. Lo mismo hace Sw2 con la BPDU que recibió de Sw3 y elige como raíz
+su propio Pto1.</p>
+</div>
+<div id="selección-de-los-puertos-designados" class="section level4 unnumbered hasAnchor">
+<h4>3. Selección de los Puertos Designados<a href="redes-locales.html#selección-de-los-puertos-designados" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Finalmente, los conmutadores seleccionan los puertos designados. Los
+puertos designados son aquellos que en operación normal están
+habilitados, es decir, reenvían tramas. Solo podrá existir un puerto
+designado por cada segmento. Todos los conmutadores que no tengan su
+puerto designado para un determinado segmento, pondrán sus puertos en
+estado de bloqueo para operación normal, sin embargo, sí reciben BPDUs
+para poder participar en una reconfiguración de la topología en caso de
+ser necesario.</p>
+<p>Para definir qué conmutador es el designado en el segmento 3, hay un
+intercambio de BPDUs entre los conmutadores 2 y 3 en ese segmento. Como
+ambos BPDUs tienen el mismo costo hacia el puente raíz, entonces se
+utiliza el segundo criterio de desempate, que es el conmutador con el
+menor BID. En nuestro ejemplo, el conmutador 2 es seleccionado y
+habilita su puerto 2, mientras que el conmutador 3 bloquea su puerto 2,
+con lo que la topología lógica resultante es la que se muestra en la
+figura <a href="redes-locales.html#fig:topfinal">2.27</a>.</p>
+<p>El conmutador 3 sigue recibiendo BPDUs por su puerto bloqueado; en el
+momento en que deja de recibir dichos BPDUs, habilita su puerto,
+proporcionando de esta manera la redundancia esperada.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:topfinal"></span>
+<img src="figuras/c3/topfinal.jpg" alt="*Topología lógica resultante*" width="70%" />
+<p class="caption">
+Figura 2.27: <em>Topología lógica resultante</em>
+</p>
+</div>
+<p>Es posible que dos puertos en el mismo conmutador tengan el mismo costo
+a la raíz. El ejemplo más común es cuando se tienen enlaces redundantes
+de igual velocidad a la raíz (a otro conmutador en la trayectoria hacia
+la raíz) como se muestra en la figura <a href="redes-locales.html#fig:linkagg">2.30</a>. En este caso, para definir al puerto designado se aplica un tercer criterio de desempate, que es el Identificador de
+Puerto: el puerto con el menor identificador será el puerto designado.</p>
+<p>Cabe mencionar que las interfaces de los conmutadores también tienen un
+valor de prioridad, que es 128 por omisión. Si un administrador desea
+asegurar que un puerto particular sea el puerto designado, puede
+disminuir ese valor de prioridad, asegurando así que tendrá el valor
+menor.</p>
+</div>
+</div>
+<div id="asignación-del-puente-raíz" class="section level3 unnumbered hasAnchor">
+<h3>Asignación del Puente Raíz<a href="redes-locales.html#asignación-del-puente-raíz" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En redes locales de mediana complejidad, es importante que el
+administrador tenga la posibilidad de establecer cuál es el puente raíz,
+lo que se consigue modificando el campo de prioridad en el BID. Como a
+partir de él se genera la topología, debe ser un muy robusto (por
+ejemplo, con redundancia en las fuentes de alimentación de corriente) y
+con una alta velocidad de conmutación.</p>
+<p>Además, puede tener un impacto importante en el <em>diámentro de la red</em>,
+es decir, la distancia máxima entre dos segmentos en la red local, como
+se muestra en la figura <a href="redes-locales.html#fig:seltopo">2.28</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:seltopo"></span>
+<img src="figuras/c3/seltopo.jpg" alt="*La importancia de poder elegir el puente raíz.*" width="90%" />
+<p class="caption">
+Figura 2.28: <em>La importancia de poder elegir el puente raíz.</em>
+</p>
+</div>
+<p>En la primer topología vemos una arquitectura de conmutadores con
+múltiples trayectorias entre dos conmutadores cualesquiera. El segundo
+diagrama muestra la topología lógica del Spanning Tree si el conmutador
+4 fuera el puente raíz. Al estar más o menos al centro de la red, el
+díametro de ésta es pequeño.
+El último diagrama muestra qué pasaría si el conmutador Sw1 fuera el
+puente raíz: la comunicación entre nodos casi vecinos (ej. A y B)
+tendría que recorrer prácticamente todos los conmutadores de la red.</p>
+<p>Aunque las versiones modernas de STP soportan conmutadores raíz
+redundantes, una configuración apropiada de los valores de prioridad en
+cada uno de los conmutadores permite establecer cuáles serían los
+conmutadores de respaldo en caso de que el puente raíz seleccionado
+falle.</p>
+</div>
+<div id="temporizadores-y-reconfiguración-de-la-topología" class="section level3 unnumbered hasAnchor">
+<h3>Temporizadores y reconfiguración de la topología<a href="redes-locales.html#temporizadores-y-reconfiguración-de-la-topología" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La configuración y mantenimiento de la topología en Spanning Tree está
+controlada por tres temporizadores que determinan el estado de los
+puertos y el envío de las BPDU. Estos son:</p>
+<dl>
+<dt>Hello Time.</dt>
+<dd>
+<p>Determina el intervalo de tiempo de envío de BPDUs de configuración
+desde la raíz. La norma 802.1D sugiere un valor por omisión de 2
+segundos; puede tomar valores de 1 a 10 segundos.</p>
+</dd>
+<dt>Forward Delay.</dt>
+<dd>
+<p>Es el tiempo en que un puerto permanece en los estados de Listening
+y Learning (ver más adelante). El valor por omisión es de 15 segundos
+y puede tomar valores en el rango 4 a 30 segundos.</p>
+</dd>
+<dt>Max Age.</dt>
+<dd>
+<p>Es el tiempo que un puente almacena una BPDU antes de descartarla.
+Cada puerto guarda una copia de la mejor BPDU que ha recibido. Si
+ésta no se refresca después de Max Age segundos, la copia se
+descarta y el conmutador asume que ha habido un cambio en la
+topología, por lo que el protocolo STP debe reactivarse. El valor
+por omisión es de 20 segundos y puede ser configurado en el rango 6
+a 40 segundos.</p>
+</dd>
+</dl>
+<p>Se tiene un cuarto parámentro relacionado con los temporizadores:
+<strong>Message age</strong>. Pretende estimar el tiempo transcurrido desde que la BPDU
+se emitió por el puente raíz. En realidad, la BPDU parte de la raíz con
+un valor 0 y se incrementa por cada conmutador que atraviesa. Así, este
+campo indica qué tan “lejos” se está de la raíz.</p>
+<p>Los valores por omisión fueron estimados considerando una red con un
+diámetro máximo de siete conmutadores. Es muy importante no cambiarlos,
+o cambiarlos exactamente igual en todos los conmutadores; de lo
+contrario, se puede provocar una pérdida de sincronía entre los puentes.</p>
+<p>Los puertos pueden estar en alguno de los cinco estados que se muestran
+en la figura <a href="redes-locales.html#fig:edosstp">2.29</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:edosstp"></span>
+<img src="figuras/c3/edosstp.jpg" alt="*Diagrama de estados de los puertos en STP.*" width="50%" />
+<p class="caption">
+Figura 2.29: <em>Diagrama de estados de los puertos en STP.</em>
+</p>
+</div>
+<p>Un puerto inicia deshabilitado hasta que se active el protocolo o porque
+se considera no operacional. En este estado, no es capaz de reenviar
+tramas ni de recibir BPDUs.</p>
+<p>Al activar STP, los puertos del conmutador pasan al estado <em>Blocking</em>
+durante el proceso de elección del puente raíz. Como se ha comentado,
+también pasan a este estado si no son puerto raíz o puerto designado.</p>
+<p>Un puerto bloqueado no reenvía tramas pero sí escucha BPDUs. Después de
+un tiempo (20 segundos por omisión) de no recibir BPDUs, pasa al estado
+<em>Listening</em>.</p>
+<p>Llegan al estado <em>Listening</em> los puertos raíz y puerto designado. Los
+demás quedan en <em>Blocked</em> (a menos que dejen de escuchar BPDUs). En este
+estado el puerto descarta todas las tramas: tanto las que recibe del
+segmento, como las que recibe de otros puertos. Sólo escucha BPDUs. Este
+estado ofrece un tiempo de estabilización para evitar entrar en
+configuraciones innecesarias. Por omisión, los puertos permanecen en
+este estado durante 15 segundos.</p>
+<p>Posteriormente, el puerto pasa a <em>Learning</em>. El puerto escucha las
+tramas en el segmento para actualizar la tabla de conmutación, pero
+todavía no reenvía tramas. Esto permite evitar inundación innecesaria de
+tramas. También escucha y procesa BPDUs. Permanece en este estado 15
+segundos por omisión.</p>
+<p>Finalmente, el puerto llega a estado <em>Forwarding</em> en el que realiza las funciones normales de reenvío, filtrado, inundación y aprendizaje que se
+presentaron al inicio de esta sección.</p>
+<p>Si bien los cambios en la topología no son muy frecuentes, esta es una
+de las principales críticas del protocolo Spanning Tree 802.1D: Cuando
+se da un cambio en la topología, la reconfiguración de un puerto tarda
+al menos 50 segundos: 20 para salir de <em>Blocking</em>, 15 en <em>Listening</em> y
+15 en <em>Learning</em>. Como veremos más adelante, Rapid STP permite
+reconfiguraciones en un tiempo mucho menor.</p>
+<div id="la-trama-bpdu" class="section level4 unnumbered hasAnchor">
+<h4>La trama BPDU<a href="redes-locales.html#la-trama-bpdu" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Para terminar esta sección veamos los campos de una trama BPDU. Podemos
+considerar que está formada por tres secciones:</p>
+<div id="características-del-protocolo" class="section level5 unnumbered hasAnchor">
+<h5>Características del protocolo<a href="redes-locales.html#características-del-protocolo" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<blockquote>
+<p><strong>PID</strong>. Identificador del protocolo. 2 Bytes, tiene un valor de 0x0000
+para STP 802.1D</p>
+<p><strong>PIV</strong>. Versión. 1 Byte, tiene un valor 0x00</p>
+<p><strong>Message type</strong>. 1 Byte, tipo de BPDU: Configuration o TCN (Topology change
+notificaton)</p>
+<p><strong>Flags</strong>. 1 Byte, sólo es relevante para tramas TCN e indica si es una
+notificación de cambio (TCN) o un acuse de recepción (TCA)</p>
+</blockquote>
+</div>
+<div id="campos-stp" class="section level5 unnumbered hasAnchor">
+<h5>Campos STP<a href="redes-locales.html#campos-stp" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<blockquote>
+<p><strong>Root ID</strong>. BID del puente raíz. 8 Bytes: 2 de prioridad y 6 de su
+dirección MAC</p>
+<p><strong>Root Path Cost</strong>. 4 Bytes, costo de la trayectoria para llegar a la raíz a
+través de ese puerto.</p>
+<p><strong>Bridge ID</strong>. BID del emisor. 8 Bytes: 2 de prioridad y 6 de su dirección MAC</p>
+<p><strong>Port ID</strong>. Identificador del puerto por el que se emitió la BPDU. 2 Bytes</p>
+</blockquote>
+</div>
+<div id="temporizadores" class="section level5 unnumbered hasAnchor">
+<h5>Temporizadores<a href="redes-locales.html#temporizadores" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<blockquote>
+<p><strong>Message Age</strong> 2 Bytes</p>
+<p><strong>Maximum Age</strong> 2 Bytes</p>
+<p><strong>Hello Time</strong> 2 Bytes</p>
+<p><strong>Forward Delay</strong> 2 Bytes</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+<div id="rapid-stp" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Rapid STP<a href="redes-locales.html#rapid-stp" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Como se ha mencionado anteriormente, el <strong>tiempo de convergencia</strong>, es
+decir, el tiempo en el que se estabiliza la red en caso de que la
+topología deba reconfigurarse, es demasiado grande en Spanning Tree: de
+30 a 50 segundos.</p>
+<p>Rapid Spanning Tree, definido en la norma IEEE 802.1w permite una
+convergencia mucho más rápida: típicamente de 6 segundos en caso de que
+falle el puente raíz, y de unos cuantos milisegundos en caso de que que
+falle algún enlace.</p>
+<p>Por una parte, se asume una falla en el puente raíz si no se han
+recibido BPDUs después de 3 Hello times. Como este temporizador tiene un
+valor por omisión de 2 segundos, a los 6 segundos se inicia el proceso
+de reconfiguración.</p>
+<p>Por otra parte, se eliminan los estados Blocked y Listening. Los puertos
+están en Discarding o en Learning, para pasar muy rápidamente a
+Forwarding. Además, los puertos que no están en Forwarding (los
+bloqueados) pueden tener dos roles: Backup y Alternate. En el primero,
+en cuanto se detecta un fallo en el puerto designado, el de respaldo
+toma su lugar. El segundo indica una ruta alternativa para llegar a la
+raíz.</p>
+<p>Finalmente, los conmutadores no solamente reenvían BPDUs raiz (con un
+ajuste de costo). Al dejar de recibir los de la raíz, ellos pueden
+generar sus propios BPDUs “proposal” proponiéndose como raíz en vez de
+esperar los 30 segundos de STP. Si el vecino acepta la propuesta,
+responde con un “agreement”. En estos casos, las tablas de conmutación
+se borran de inmediato, por eso los puertos pasan de Discarding a
+Learning.</p>
+</div>
+<div id="agregación-de-enlaces" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Agregación de enlaces<a href="redes-locales.html#agregación-de-enlaces" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El protocolo Spanning Tree evita la creación de lazos, pero esto
+tiene un efecto secundario indeseable. Considere la red de la
+figura <a href="redes-locales.html#fig:linkagg">2.30</a>.
+Si entre los dos conmutadores hay un solo enlace de 1 Gbps pero éste
+resulta insuficiente para soportar la carga de tramas intercambiada
+entre los equipos conectados a ellos, con STP la única alternativa es
+cambiar el enlace de 1 Gbps por uno de 10 Gbps. Esto excede las
+necesidades de la red, pero sobre todo, puede resultar demasiado
+costoso.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:linkagg"></span>
+<img src="figuras/c3/linkagg.jpg" alt="*Topología con cuatro enlaces redundantes entre conmutadores*" width="70%" />
+<p class="caption">
+Figura 2.30: <em>Topología con cuatro enlaces redundantes entre conmutadores</em>
+</p>
+</div>
+<p>Es posible que los conmutadores tengan otros puertos de 1 Gbps libres y
+sería atractivo poner enlaces adicionales como los que se muestran en la
+figura para ofrecer una capacidad de 4 Gbps. Sin embargo, STP vería
+estos enlaces como redundantes que crean lazos entre los dos
+conmutadores, por lo que bloquearía tres de ellos y dejaría activo sólo
+uno.</p>
+<p>La norma IEEE 802.3ad (posteriormente integrado a la norma 802.1AX)
+define el protocolo <em>Link Aggregation Control Protocol</em> para que los
+cuatro enlaces físicos sean agrupados y vistos como uno solo lógico por
+STP. A este concepto de agregación también se le conoce como <em>trunking,
+bundling, bonding o teaming</em> por distintos fabricantes.</p>
+<p>La agregación de los enlaces sólo es válida bajo varias condiciones, por
+ejemplo:</p>
+<ul>
+<li><p>Todos los enlaces deben ser de la misma velocidad</p></li>
+<li><p>Deben ser enlaces dedicados</p></li>
+<li><p>La agregación sólo se permite para un número pequeño de enlaces,
+típicamente 2 a 8</p></li>
+<li><p>Para algunos fabricantes, sólo se permite agregar enlaces que estén
+en puertos contiguos y en la misma tarjeta.</p></li>
+</ul>
+<p>La dirección MAC de la interfaz lógica puede ser configurada manualmente
+o de manera automática, en cuyo caso se toma la dirección más pequeña de
+los enlaces agrupados.</p>
+<p>El balanceo de carga entre los enlaces también es configurable. Puede
+establecerse que los paquetes de un mismo flujo (misma fuente y mismo
+destino, entre otros criterios) siempre salgan por el mismo enlace, o
+que los paquetes se distribuyan secuencialmente (en round robin) entre
+los enlaces.</p>
+<p>LACP fue establecido después de que la mayoría de los principales
+fabricantes ya habían desplegado soluciones propietarias similares. Por
+ello, se tienen muchas restricciones al integrar este mecanismo entre
+equipos de distintos fabricantes.</p>
+</div>
+<div id="redes-locales-virtuales" class="section level2 hasAnchor" number="2.8">
+<h2><span class="header-section-number">2.8</span> Redes locales virtuales<a href="redes-locales.html#redes-locales-virtuales" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En la sección anterior se mostró que los conmutadores ofrecen muchas ventajas a las redes locales; la más notable, el aumento en el desempeño al aislar los
+segmentos compartidos de red, es decir, al “romper los dominios de
+colisión”.</p>
+<p>Sin embargo, siguen presentando algunas limitaciones sobre todo conforme
+va creciendo el número de equipos conectados a la red local (lo cual, es
+lógico que ocurra pues en las redes conmutadas ya no tenemos las
+limitaciones de diámetro inherentes al protocolo CSMA/CD en los
+segmentos compartidos).</p>
+<p>En primer lugar sigue habiendo un problema de desempeño de la red local
+pues si bien los puertos de un conmutador aíslan los dominios de
+colisión, toda la red local forma un solo “dominio de difusión”.
+Efectivamente, recordemos que cuando se recibe una trama con una
+dirección destino de difusión (<em>multicast</em> o <em>broadcast</em>), ésta se
+reenvía a todos los demás puertos (lo que llamamos inundación en la
+sección anterior). Desgraciadamente, son muchos los protocolos de red
+que utilizan tramas de difusión: STP es uno de ellos y más adelante en
+el curso conoceremos otros.</p>
+<p>En segundo lugar, se mantiene un problema de seguridad. Aunque en
+principio si cada computadora puede estar conectada a su propio puerto y
+desaparecen, o disminuyen drásticamente los segmentos compartidos en los
+que un usuario malintencionado puede instalar un analizador de
+protocolos para observar el tráfico en la red, el hecho es que ese
+usuario podrá recibir todas las tramas de difusión, conocer la dirección
+MAC de las computadoras que las generaron, y posteriormente dirigir
+tramas hacia ellas, con la intención de explotar alguna vulnerabilidad.
+Esto es así porque los conmutadores no tienen ningún mecanismo de
+filtrado; simplemnte descartan o reenvían tramas con base en su tabla de
+conmutación.</p>
+<p>Por otra parte, tenemos un problema de flexibilidad y de gestión de la
+red, pues nuestra concepción de red local está relacionada con la conexión
+física de un dispositivo a un conmutador. Por ejemplo, la computadora de
+Ana, que se encuentra en el cubículo 2 del piso 1 del edificio 3, está
+asociada a la red de ese edificio (o piso) y está conectada al puerto 10
+del conmutador Sw1. En esa misma red local están conectados algunos
+servidores (como los servidores de archivos y de autenticación) que Ana
+accede regularmente. Si por alguna razón Ana tiene que moverse de su
+oficina (quizás porque están reparando su cubículo o simplemente porque
+es convocada a una reunión de trabajo en una sala de juntas) y se lleva
+su computadora, digamos, al piso 2 del edificio 1, Ana estaría
+conectando su computadora <em>a otra red</em>, sin la posibilidad de acceder a
+sus servidores de archivos a menos que se tenga la tecnología que
+permita la <em>interconexión de redes</em>, lo cual será tratado brevemente más
+adelante y a gran profundidad en el
+capítulo siguiente.</p>
+<p>Las redes conmutadas de gran escala presentan muchos otros problemas,
+pero con los expuestos hasta ahora es suficiente para justificar la
+aparición de las Redes de Área Local Virtuales, <strong>VLANs</strong>, <em>Virtual
+Local Area Networks</em>.</p>
+<p>Una VLAN es una agrupación lógica de dispositivos en una misma
+infraestructura de red local. Es decir, permite crear redes que son
+virtualmente independientes entre sí (cada red es un dominio de difusión
+independiente) aunque se encuentren en la misma red física (los
+dispositivos conectados a distintos puertos de los mismos conmutadores).
+Por ejemplo, en la red de la figura <a href="redes-locales.html#fig:vlanfis">2.31</a>, todas las
+computadoras y servidores están <em>físicamente</em> conectados a la misma red
+local, pero con el mecanismo de VLANs, podemos aislar los dispositivos
+en tres redes diferentes (identificadas por el color en la figura), como
+se muestra en la imagen de la izquierda.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:vlanfis"></span>
+<img src="figuras/c3/vlanfis.jpg" alt="*El concepto de VLAN: (a) Topología física; (b) Topología lógica*" width="47%" /><img src="figuras/c3/vlanlog.jpg" alt="*El concepto de VLAN: (a) Topología física; (b) Topología lógica*" width="47%" />
+<p class="caption">
+Figura 2.31: <em>El concepto de VLAN: (a) Topología física; (b) Topología lógica</em>
+</p>
+</div>
+<p>Con la segmentación por VLANs, las tramas de difusión generadas por los
+dispositivos de una VLAN, por ejemplo la VLAN azul, sólo serán visibles
+por los dispositivos de ESA VLAN. Los nodos de las otras VLAN nunca
+recibirán esas tramas. Al mismo tiempo, no hay forma de que una
+computadora de la red amarilla pueda acceder al servidor (o a otras
+computadoras) de las redes roja y azul, a menos que exista un enrutador
+(o un conmutador capa 3) y la configuración necesaria para enrutar
+tráfico entre ellas.</p>
+<div id="criterios-de-membresía" class="section level3 hasAnchor" number="2.8.1">
+<h3><span class="header-section-number">2.8.1</span> Criterios de membresía<a href="redes-locales.html#criterios-de-membresía" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En una VLAN la comunicación solo puede darse entre los usuarios y
+servicios que pertenecen a la misma VLAN. De esta manera, el
+administrador de la red puede definir qué usuarios tienen acceso a qué
+recursos. Los criterios de membresía son los mecanismos con los que se
+puede configurar la pertenencia de un dispositivo a una VLAN
+determinada. Entre los más comunes se tienen:</p>
+<ul>
+<li><p>Generación 1 (básicos)</p>
+<ul>
+<li><p>1. Puerto</p></li>
+<li><p>2. Dirección MAC</p></li>
+</ul></li>
+<li><p>Generación 2 (conectividad)</p>
+<ul>
+<li><p>3. Protocolo de capa superior</p></li>
+<li><p>4. Dirección de red</p></li>
+</ul></li>
+<li><p>Generación 3 (aplicación)</p>
+<ul>
+<li><p>5. Dirección multicast</p></li>
+<li><p>6. Definido por el usuario</p></li>
+</ul></li>
+<li><p>Generación 4 (seguridad)</p>
+<ul>
+<li>7. Autenticación (Acceso y Auditoría)</li>
+</ul></li>
+</ul>
+<p>En la práctica, los criterios pueden combinarse de tal forma que a una
+VLAN puedan pertenecer múltiples nodos que han cumplido con diversas
+reglas o políticas. Sin embargo, hay que tener cuidado al combinar las
+reglas para asegurar que los dispositivos quedan asociados únicamente a
+las VLAN autorizadas.</p>
+<div id="vlan-por-puerto" class="section level5 unnumbered hasAnchor">
+<h5>VLAN por puerto<a href="redes-locales.html#vlan-por-puerto" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Esta es la forma más sencilla de definir un criterio de membresía: Los
+puertos del conmutador se asocian a una determinada VLAN (o, como
+veremos más adelante, a la VLAN1 por omisión) y los dispositivos que se
+conectan a ese puerto se asocian a la VLAN correspondiente, como se
+observa en la imagen izquierda de la figura <a href="redes-locales.html#fig:vlanptomac">2.32</a> en la que se representan dos VLAN: la azul y la roja.</p>
+<p>Si bien esta forma de determinar la membresía es muy sencilla, resulta
+muy laboriosa y propensa a errores al implementarla en redes de tamaño
+medio pues por un lado, la configuración de los puertos debe hacerse de
+forma manual, y por el otro, debe tenerse mucho cuidado de conectar el
+dispostivo al puerto apropiado.</p>
+<p>Cabe resaltar en la figura que si en alguna parte de la red se tienen
+segmentos compartidos (representados por los concentradores del lado
+izquierdo), <em>en principio</em> todas las computadoras en ese segmento deben
+pertenecer a la misma VLAN, pues el concentrador está conectado a un
+puerto específico en el conmutador. Enfatizamos “en principio” ya que es
+posible que ese puerto sea <strong>de trunking</strong> y que las computadoras en el
+segmento compartido tengan capacidad de <strong>etiquetado</strong>.</p>
+<p>Observe los conmutadores al centro de la red. Están conectados a los
+conmutadores en la periferia por un puerto determinado que debe ser
+capaz enviar y recibir tramas de varias VLAN distintas. Estos son los
+puertos llamados troncales o de trunking.</p>
+<p>Cuando se recibe una trama de difusión o con una dirección fuente
+todavía no registrada en las tablas de conmutación, el conmutador debe
+saber a qué puertos reenviarla: A aquellos donde hay dispositivos que
+pertenecen a la misma VLAN. Por ello, es necesario que las tramas tengan
+un identificador o etiqueta de la VLAN a la que pertenecen. En un
+momento profundizaremos en este tema. Por ahora, es importante señalar
+que el proceso de etiquetado típicamente ocurre en los conmutadores, y
+los dispositivos terminales lo desconocen por completo.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:vlanptomac"></span>
+<img src="figuras/c3/vlanpto.jpg" alt="*Criterios de membresía: (a) VLAN por puerto; (b) VLAN por dirección MAC.*" width="47%" /><img src="figuras/c3/vlanmac.jpg" alt="*Criterios de membresía: (a) VLAN por puerto; (b) VLAN por dirección MAC.*" width="47%" />
+<p class="caption">
+Figura 2.32: <em>Criterios de membresía: (a) VLAN por puerto; (b) VLAN por dirección MAC.</em>
+</p>
+</div>
+</div>
+<div id="vlan-por-mac" class="section level5 unnumbered hasAnchor">
+<h5>VLAN por MAC<a href="redes-locales.html#vlan-por-mac" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>En estas VLAN, el administrador de la red define el conjunto de
+direcciones MAC asignadas a cada VLAN. Este criterio de membresía ofrece
+un enorme grado de seguridad pues sabemos que las direcciones MAC son
+únicas universalmente <a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a></p>
+<p>Este criterio de membresía ofrece mucho mayor libertad de “movimiento”,
+es decir de poder conectar cualquier equipo a cualquier puerto en
+cualquier conmutador de la red. Sin embargo la configuración es
+sumamente molesta y propensa a errores, pues hay que introducir las
+direcciones MAC manualmente. Adicionalmente, resta flexibilidad a los
+usuarios, pues si éstos cambian de equipo (lo que ocurre con creciente
+frecuencia con el uso de laptops y notebooks), ya no tendrán acceso a la
+red hasta que el administrador registre la nueva dirección MAC.</p>
+</div>
+<div id="vlan-por-protocolo" class="section level5 unnumbered hasAnchor">
+<h5>VLAN por protocolo<a href="redes-locales.html#vlan-por-protocolo" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Este tipo de membresía permite al administrador agrupar los nodos con
+base en el tipo de protocolo de capa superior (típicamente, capa de red)
+definido en la trama (ver imagen izquierda de la figura <a href="redes-locales.html#fig:vlanprotosubred">2.33</a>). Permite la separación lógica de los protocolos para que aquellos protocolos orientados a difusión no afecten a toda la red.</p>
+<p>Las VLAN definidas por protocolo son efectivas para pilas de redes como
+IP o SNA (protocolo propietario de IBM), pero no para protocolos que no
+definen subredes como por ejemplo NetBIOS.</p>
+</div>
+<div id="vlan-por-subred" class="section level5 unnumbered hasAnchor">
+<h5>VLAN por subred<a href="redes-locales.html#vlan-por-subred" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>En redes que utilizan la pila de protocolos TCP/IP, como es la dominante
+mayoría de las redes en la actualidad, este criterio de membresía es el
+más utilizado. Es un tipo de VLAN muy flexible y fácil de administrar:
+Al momento de asignar las direcciones de red (las direcciones IP), lo
+cual típicamente se hace con una política organizacional, el dispositivo
+queda vinculado a la VLAN que le corresponde, como se muestra en la imagen derecha de la figura <a href="redes-locales.html#fig:vlanprotosubred">2.33</a>.</p>
+<p>A pesar de que el conmutador ve la información de capa 3 para su
+asignación a la correspondiente VLAN, la transferencia de información se
+sigue haciendo a nivel de la capa 2.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:vlanprotosubred"></span>
+<img src="figuras/c3/vlanproto.jpg" alt="*Criterios de membresía: (a) VLAN por protocolo; (b) VLAN por subred.*" width="45%" /><img src="figuras/c3/vlanip.jpg" alt="*Criterios de membresía: (a) VLAN por protocolo; (b) VLAN por subred.*" width="45%" />
+<p class="caption">
+Figura 2.33: <em>Criterios de membresía: (a) VLAN por protocolo; (b) VLAN por subred.</em>
+</p>
+</div>
+</div>
+<div id="vlan-autenticadas" class="section level5 unnumbered hasAnchor">
+<h5>VLAN autenticadas<a href="redes-locales.html#vlan-autenticadas" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Las VLAN autenticadas proveen un alto nivel de seguridad requiriendo a
+los usuarios que se identifiquen (autentiquen) ante un servidor para
+ganar acceso a los recursos de la red. Con base en la autenticación, el
+servidor asignará el dispositivo a una VLAN determinada, lo que limita
+el acceso a los recursos de la organización. Adicionalmente, es
+frecuentemente que se monitoree la actividad del usuario al acceder a
+esos recursos, cumpliendo con las funciones de seguridad AAA
+(Authentication, Authorization, Accounting).</p>
+<p>De manera muy sencilla, el proceso es el siguiente:</p>
+<ol style="list-style-type: decimal">
+<li><p>Los puertos del conmutador son configurados para autenticación</p></li>
+<li><p>El cliente solicita una petición segura de ingreso mediante un
+“login”</p></li>
+<li><p>El conmutador reenvía la petición a un servidor de autenticación
+(Radius, LDAP, etc.)</p></li>
+<li><p>El servidor autentica y autoriza avisando al conmutador a qué VLAN
+debe asociarse el dispositivo</p></li>
+<li><p>El conmutador asigna al cliente a la VLAN correspondiente (etiqueta
+su tramas con el valor que corresponda)</p></li>
+</ol>
+</div>
+<div id="criterios-para-asignación" class="section level5 unnumbered hasAnchor">
+<h5>Criterios para asignación<a href="redes-locales.html#criterios-para-asignación" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Los criterios para decidir qué usuarios (o sus dispositivos) deben
+asociarse una VLAN determinada, dependen de las políticas de la
+organización, pero en términos generales suelen distinguirse dos grupos:
+Una asociación con base en las <strong>áreas funcionales</strong>, o bien con base en
+los <strong>servicios de red</strong>.</p>
+<p>En el primer caso, se define una VLAN para cada área funcional o unidad
+de negocio (por ejemplo, ventas, contabilidad, recursos humanos). Como
+es frecuente que el personal en estas unidades de negocio esté
+físicamente en un área cercana, a estas políticas de asignación también
+se les llama VLAN por infraestructura.</p>
+<p>Cada unidad funcional tiene acceso a sus propios servidores. Por
+supuesto, se presenta una situación en la que los empleados de distintas
+VLAN deben acceder a los servidores institucionales (por ejemplo el
+servidor de correo o de Web). En estos casos, esos servidores estáran
+conectados a puertos de trunking que acepten el envío de tramas de las
+distintas VLAN que han sido definidas.</p>
+<p>Los criterios de asignación por servicios de red son menos frecuentes y
+requieren de herramientas de gestión más sofisticadas, pero ofrecen un
+mejor control qué usuarios pueden acceder a qué recursos. Aquí, los
+usuarios pertenecen a múltiples VLANs: aquellas para las que las
+políticas de la organización le dan acceso.</p>
+<p>Bajo este esquema el administrador puede asignar niveles de servicio a
+cada usuario, bloquear servicios e incluso establecer esquemas de
+tarificación por acceso. Como podrá haberlo deducido, las VLAN
+autenticadas son un buen ejemplo de políticas de asignación basadas en
+servicios.</p>
+</div>
+</div>
+<div id="etiquetado-de-vlan" class="section level3 hasAnchor" number="2.8.2">
+<h3><span class="header-section-number">2.8.2</span> Etiquetado de VLAN<a href="redes-locales.html#etiquetado-de-vlan" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Los primeros mecanismos para el despliegue de VLANs eran propietarios e
+incompatibles entre sí. Esto acarreaba muchísimos problemas de gestión y
+creaba dependencias con los proveedores. Todo esto se corrigió con el
+surgimiento del protocolo <strong>IEEE 802.1Q</strong>, a veces llamado 802.1p/Q para
+enfatizar que en esta norma también se incluye un esquema de
+priorización de tramas.</p>
+<p>Como se muestra en la figura <a href="redes-locales.html#fig:vlantag">2.34</a>, esta norma agrega un campo de 4 octetos a la trama Ethernet entre la dirección fuente y el tipo de protocolo para
+indicar con un identificador de VLAN, entre otros campos, la VLAN a la que pertenece la trama.</p>
+<p>Observe que las tramas Ethernet con etiqueta de VLAN <em>pueden violar las
+restricciones de tamaño máximo de trama</em>. Efectivamente, una trama
+etiquetada, puede alcanzar un tamaño máximo de 1,522 bytes. Algunos
+dispositivos viejos pueden rechazar estar tramas. En este caso, las
+capas superiores deben asegurarse de enviar segmentos de datos no
+mayores a 1,496 bytes. La mayoría de los conmutadores modernos aceptarán
+estas tramas, y, de hecho, la norma IEEE 802.3 modifica el tamaño máximo
+de tramas Ethernet a 1,522 bytes.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:vlantag"></span>
+<img src="figuras/c3/vlantag.JPG" alt="*Etiquetado de VLAN 802.1D*" width="70%" />
+<p class="caption">
+Figura 2.34: <em>Etiquetado de VLAN 802.1D</em>
+</p>
+</div>
+<p>Los primeros dos bytes contienen el campo TPID (<em>Tag protocol
+Identifier</em>), que tiene el valor 0x8100 y sirve para indicar a los
+conmutadores que esta trama tiene una etiqueta de VLAN. Se han
+registrado otros TPID, como 0x88ad (en IEEE 802.1ad) para VLANs
+apiladas, y 0x9100 (propietario), los cuales rebasan el alcance de estas
+notas.</p>
+<p>Los siguientes dos bytes contienen el TCI (<em>Tag Control Information</em>)
+formado a su vez por tres campos:</p>
+<ul>
+<li><p><em>Priority code point</em>. Es un campo de tres bits que permite mapear
+clases de servicio (un concepto que trataremos en el capítulo de
+Calidad de Servicio) con hasta ocho niveles de prioridad, siguiendo
+los lineamientos del grupo de trabajo IEEE 802.1p.</p></li>
+<li><p><em>Drop Eligible Indicator</em>. Es un campo de un bit que indica aquellas
+tramas que son elegibles a descartar en caso de congestión. Este
+concepto también será tratado en el capítulo de Calidad de Servicio.</p>
+<p>Anteriormente, este campo se conocía como <em>canónico</em> y trataba de
+facilitar la integración de redes Token Ring y Ethernet. En términos
+generales, si el campo tenía un valor “1”, indicaba una que en el
+campo de datos había información adicional relacionada con el
+enrutamiento fuente que se utiliza en Token Ring.</p></li>
+<li><p><em>VLAN identifier</em>. Los últimos 12 bits corresponden a la etiqueta o
+identificador de VLAN, lo que permite identificar hasta 4,096 VLANs,
+aunque algunos valores (0x000, 0xFFF) están reservados.</p></li>
+</ul>
+<p>La etiqueta 0x000 indica que en realidad no se tiene un VID pero los
+campos PCP y DEI son válidos. Es decir, este valor se utiliza para
+asignar una prioridad a tramas que no están asociadas a una VLAN en
+particular. Se le conoce como <em>priority tag</em>.</p>
+<p>La etiqueta 0x001 es la etiqueta por omisión. Debe tratarse con cuidado
+pues si bien la mayoría de los fabricantes asignan todos los
+dispositivos a la VLAN1, otros lo asignan a tráfico de gestión de la
+red.</p>
+<p>Los 4,093 identificadores restantes, se pueden utilizar libremente. Sin
+embargo, en la práctica existen muchos conmutadores de gama media y baja
+que soportan un número mucho más reducido de VLANs.</p>
+</div>
+<div id="puertos-de-acceso-y-de-trunking" class="section level3 hasAnchor" number="2.8.3">
+<h3><span class="header-section-number">2.8.3</span> Puertos de acceso y de trunking<a href="redes-locales.html#puertos-de-acceso-y-de-trunking" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>En un conmutador que soporta VLANs, todos los puertos tienen un
+identificador de VLAN (PVID) que es VLAN1 por omisión. El administrador
+de la red configura los puertos con el PVID correspondiente al
+configurar las VLAN. Independientemente de su PVID, los puertos pueden
+ser de acceso o de trunking.</p>
+<div id="puertos-de-acceso" class="section level4 unnumbered hasAnchor">
+<h4>Puertos de acceso<a href="redes-locales.html#puertos-de-acceso" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Normalmente, el tráfico generado (y recibido) por los equipos
+terminales, no tiene y no puede gestionar el campo de etiqueta de VLAN;
+sólo envía y recibe tramas Ethernet (o IEEE 802.3) ordinarias.</p>
+<p>Estos dispositivos se conectan a un puerto de acceso. Cuando el puerto
+recibe una trama sin etiquetar, agrega a la trama el campo de etiqueta
+con el VID del puerto. De forma similar, cuando debe enviar una trama
+etiquetada, retira la etiqueta y entrega una trama Ethernet ordinaria.
+Así, es el conmutador quien se encarga de etiquetar las tramas y de
+retirar la etiqueta en su destino final.</p>
+<p>Un puerto de acceso puede recibir tramas etiquetadas, pero si éstas no
+corresponden con el PVID del puerto, éstas son descartadas.</p>
+</div>
+<div id="puertos-de-trunking" class="section level4 unnumbered hasAnchor">
+<h4>Puertos de trunking<a href="redes-locales.html#puertos-de-trunking" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Como ya hemos mencionado, estos puertos pueden recibir y enviar tramas
+etiquetadas. Típicamente se utilizan para la interconexión entre
+conmutadores que soportan varias VLANs, así como para conectar
+dispositivos (servidores) que pertenecen a varias VLAN y que tienen la
+capacidad de gestionar el etiquetado de VLANs.</p>
+<p>Estos puertos pertenecen a varias VLANs y sólo aceptarán tramas con los
+identficadores correspondientes.</p>
+<p>Existe un tercer tipo de puerto llamado híbrido. Normalmente opera como
+un puerto de trunking, pero puede recibir tramas no etiquetadas a las
+que les añadirá una etiqueta con su PVID. En la práctica, se desaconseja
+utilizar puertos híbridos.</p>
+</div>
+</div>
+</div>
+<div id="problemas-1" class="section level2 hasAnchor" number="2.9">
+<h2><span class="header-section-number">2.9</span> Problemas<a href="redes-locales.html#problemas-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="exercise">
+<p><span id="exr:c31" class="exercise"><strong>Problema 2.1  </strong></span>¿Pueden configurarse los puertos de un concentrador en modo full-dúplex?
+Justifique brevemente.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:c32" class="exercise"><strong>Problema 2.2  </strong></span>¿Pueden configurarse los puertos de un conmutador en modo full-dúplex?
+Justifique brevemente.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:c33" class="exercise"><strong>Problema 2.3  </strong></span>¿Porqué y cómo se sincroniza una trama ethernet?</p>
+</div>
+<div class="exercise">
+<p><span id="exr:c34" class="exercise"><strong>Problema 2.4  </strong></span>En IEEE 802.3/Ethernet, se acota la distancia máxima de la red local.</p>
+<ul>
+<li><p>¿Cuál es esa distancia en 10Base5?</p></li>
+<li><p>¿Por qué, al utilizar puentes o conmutadores la distancia máxima
+puede incrementarse?</p></li>
+</ul>
+</div>
+<div class="exercise">
+<p><span id="exr:c35" class="exercise"><strong>Problema 2.5  </strong></span>¿Cómo se determinan las direcciones de difusión en 802.3?</p>
+</div>
+<div class="exercise">
+<p><span id="exr:c36" class="exercise"><strong>Problema 2.6  </strong></span>Responda cierto o falso</p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td align="left">El <em>throughput</em> total en una ethernet conmutada debería ser mayor que en una basada en concentradores</td>
+</tr>
+<tr class="even">
+<td></td>
+<td align="left">CSMA/CD es un componente crítico de las redes Ethernet en half y full-dúplex</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td align="left">En una trama E1 cada bit dura 488 nano segundos</td>
+</tr>
+<tr class="even">
+<td></td>
+<td align="left">En Aloha ranurado la probabilidad de colisión es mayor que en Aloha puro</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td align="left">En 10Base5 los transceivers (vampiros) deben estar al menos a 2.5 metros de distancia</td>
+</tr>
+<tr class="even">
+<td></td>
+<td align="left">La codificación Manchester garantiza la sincronización de bits</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td align="left">La energía de un bit en 10Base2 se propaga básicamente la misma distancia que la energía de un bit en 10BaseT</td>
+</tr>
+<tr class="even">
+<td></td>
+<td align="left">En 8b6T se reconocen tres niveles de voltaje</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="exercise">
+<p><span id="exr:c37" class="exercise"><strong>Problema 2.7  </strong></span>¿Para qué sirve el IFG en Ethernet?</p>
+<p>¿Cuánto tiempo dura en una red a 1 Gb/s?</p>
+<p>( <span class="math inline">\(96\,ms\)</span>;  <span class="math inline">\(120\,ms\)</span>;  <span class="math inline">\(512\,ms\)</span>;  <span class="math inline">\(96\,\mu s\)</span>;  <span class="math inline">\(120\,\mu s\)</span>;  <span class="math inline">\(512\,\mu s\)</span>;  <span class="math inline">\(96\,ns\)</span>;  <span class="math inline">\(120\,ns\)</span>;  <span class="math inline">\(512\,ns\)</span>)</p>
+</div>
+<div class="exercise">
+<p><span id="exr:c8" class="exercise"><strong>Problema 2.8  </strong></span>¿Por qué en redes locales inalámbricas IEEE 802.11 el protocolo de
+control de acceso es CSMA/CA en vez de ser CSMA/CD como en IEEE 802.3?</p>
+</div>
+<div class="exercise">
+<p><span id="exr:c39" class="exercise"><strong>Problema 2.9  </strong></span>¿Qué protocolo MAC se utiliza en IEEE 802.11g?</p>
+</div>
+<div class="exercise">
+<p><span id="exr:c310" class="exercise"><strong>Problema 2.10  </strong></span>Describa brevemente cómo es que los mecanismos RTS/CTS contribuyen a
+reducir drásticamente el problema de terminal oculta en 802.11.</p>
+</div>
+<div id="notas" class="section level5 unnumbered hasAnchor">
+<h5>Notas<a href="redes-locales.html#notas" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="10">
+<li id="fn10"><p>IEEE también define un espacio de direcciones de ocho bytes bajo
+el formato EUI-64, pero éstas todavía son muy poco utilizadas.<a href="redes-locales.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>Los repetidores se encargan de tomar la señal por una de sus
+interfaces, regenerarla, amplificarla y reenviarla por las demás<a href="redes-locales.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>pero sí en la especificación de Ethernet original<a href="redes-locales.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>Es decir, la señal no está modulada: se transmite en exclusividad
+con la técnica de codificación apropiada - Manchester en este caso.<a href="redes-locales.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>Las categorías entre los distintos tipos de cable UTP tienen
+varias diferencias; una de las más notables, es que una categoría
+superior tiene mayor inmunidad a la interferencia. Entre las
+categorías 3 y 5 esto se consigue con un mayor número de vueltas por
+metro, lo que provoca una mejor cancelación de la radiación en cada
+par de hilos.<a href="redes-locales.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p>Como veremos más adelante, se recomienda fragmentar una red con
+VLANs o subredes para no tener tantos nodos. Sin embargo, en la
+actualidad, con el surgimiento de dispositivos móviles y objetos
+inteligentes, es muy factible volver a tener redes lcoales con miles
+de dispositivos<a href="redes-locales.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<li id="fn16"><p>En realidad, es posible y relativamente sencillo usurpar una
+dirección MAC; la seguridad proporcionada por esta membresía depende
+en parte del cuidado que se tenga en impedir o dificultar que un
+hacker pueda conocer las direcciones MAC de equipos sensibles.<a href="redes-locales.html#fnref16" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="capa-de-red.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/03-RedesLocales.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown_RedesComputadoras.pdf", "bookdown_RedesComputadoras.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

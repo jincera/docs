@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 3 Capa de enlace de datos | Redes de Computadoras</title>
+  <meta name="description" content="Notas del curso Redes de Computadoras en HTML." />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 3 Capa de enlace de datos | Redes de Computadoras" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Notas del curso Redes de Computadoras en HTML." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 3 Capa de enlace de datos | Redes de Computadoras" />
+  
+  <meta name="twitter:description" content="Notas del curso Redes de Computadoras en HTML." />
+  
+
+<meta name="author" content="José Incera" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="capa-física.html"/>
+<link rel="next" href="redes-locales.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Redes de Computadoras. Notas de Curso</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Presentación</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#resumen"><i class="fa fa-check"></i>Resumen</a></li>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#requisitos"><i class="fa fa-check"></i><b>1.1</b> Conceptos básicos</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#sistemas-de-comunicaciones"><i class="fa fa-check"></i><b>1.1.1</b> Sistemas de comunicaciones</a></li>
+<li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#redes-de-telecomunicaciones"><i class="fa fa-check"></i><b>1.1.2</b> Redes de telecomunicaciones</a></li>
+<li class="chapter" data-level="1.1.3" data-path="intro.html"><a href="intro.html#señal"><i class="fa fa-check"></i><b>1.1.3</b> Señal</a></li>
+<li class="chapter" data-level="1.1.4" data-path="intro.html"><a href="intro.html#conversión-analógica-a-digital-ad"><i class="fa fa-check"></i><b>1.1.4</b> Conversión analógica a digital (A/D)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#conmutación"><i class="fa fa-check"></i><b>1.2</b> Conmutación</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#conmutación-de-mensajes"><i class="fa fa-check"></i><b>1.2.1</b> Conmutación de mensajes</a></li>
+<li class="chapter" data-level="1.2.2" data-path="intro.html"><a href="intro.html#conmutación-de-circuitos"><i class="fa fa-check"></i><b>1.2.2</b> Conmutación de circuitos</a></li>
+<li class="chapter" data-level="1.2.3" data-path="intro.html"><a href="intro.html#conmutación-de-paquetes"><i class="fa fa-check"></i><b>1.2.3</b> Conmutación de paquetes</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#multiplexaje"><i class="fa fa-check"></i><b>1.3</b> Multiplexaje</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#multiplexaje-en-el-tiempo"><i class="fa fa-check"></i><b>1.3.1</b> Multiplexaje en el tiempo</a></li>
+<li class="chapter" data-level="1.3.2" data-path="intro.html"><a href="intro.html#multiplexaje-en-frecuencia"><i class="fa fa-check"></i><b>1.3.2</b> Multiplexaje en frecuencia</a></li>
+<li class="chapter" data-level="1.3.3" data-path="intro.html"><a href="intro.html#cdm"><i class="fa fa-check"></i><b>1.3.3</b> Multiplexaje por división de código</a></li>
+<li class="chapter" data-level="1.3.4" data-path="intro.html"><a href="intro.html#multiplexaje-espacial"><i class="fa fa-check"></i><b>1.3.4</b> Multiplexaje espacial</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#arquitecturas-de-red"><i class="fa fa-check"></i><b>1.4</b> Arquitecturas de red</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#modelo-isoosi"><i class="fa fa-check"></i><b>1.4.1</b> Modelo ISO/OSI</a></li>
+<li class="chapter" data-level="1.4.2" data-path="intro.html"><a href="intro.html#modelo-tcpip"><i class="fa fa-check"></i><b>1.4.2</b> Modelo TCP/IP</a></li>
+<li class="chapter" data-level="1.4.3" data-path="intro.html"><a href="intro.html#encapsulamiento"><i class="fa fa-check"></i><b>1.4.3</b> Encapsulamiento</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#taxonomía"><i class="fa fa-check"></i><b>1.5</b> Taxonomía</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#problemas"><i class="fa fa-check"></i><b>1.6</b> Problemas</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="capa-física.html"><a href="capa-física.html"><i class="fa fa-check"></i><b>2</b> Capa física</a>
+<ul>
+<li class="chapter" data-level="" data-path="capa-física.html"><a href="capa-física.html#resumen-1"><i class="fa fa-check"></i>Resumen</a></li>
+<li class="chapter" data-level="2.1" data-path="capa-física.html"><a href="capa-física.html#medios-de-transmisión"><i class="fa fa-check"></i><b>2.1</b> Medios de transmisión</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="capa-física.html"><a href="capa-física.html#introducción"><i class="fa fa-check"></i><b>2.1.1</b> Introducción</a></li>
+<li class="chapter" data-level="" data-path="capa-física.html"><a href="capa-física.html#baudaje-y-velocidad-de-transmisión"><i class="fa fa-check"></i>Baudaje y velocidad de transmisión</a></li>
+<li class="chapter" data-level="2.1.2" data-path="capa-física.html"><a href="capa-física.html#medios-guiados"><i class="fa fa-check"></i><b>2.1.2</b> Medios guiados</a></li>
+<li class="chapter" data-level="" data-path="capa-física.html"><a href="capa-física.html#par-trenzado"><i class="fa fa-check"></i>Par trenzado</a></li>
+<li class="chapter" data-level="" data-path="capa-física.html"><a href="capa-física.html#cable-coaxial"><i class="fa fa-check"></i>Cable coaxial</a></li>
+<li class="chapter" data-level="" data-path="capa-física.html"><a href="capa-física.html#fibra-óptica"><i class="fa fa-check"></i>Fibra óptica</a></li>
+<li class="chapter" data-level="2.1.3" data-path="capa-física.html"><a href="capa-física.html#medios-no-guiados"><i class="fa fa-check"></i><b>2.1.3</b> Medios no guiados</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="capa-física.html"><a href="capa-física.html#sistemas-de-comunicaciones-1"><i class="fa fa-check"></i><b>2.2</b> Sistemas de comunicaciones</a></li>
+<li class="chapter" data-level="2.3" data-path="capa-física.html"><a href="capa-física.html#codificaciones"><i class="fa fa-check"></i><b>2.3</b> Codificaciones</a></li>
+<li class="chapter" data-level="2.4" data-path="capa-física.html"><a href="capa-física.html#problemas-1"><i class="fa fa-check"></i><b>2.4</b> Problemas</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="capa-de-enlace-de-datos.html"><a href="capa-de-enlace-de-datos.html"><i class="fa fa-check"></i><b>3</b> Capa de enlace de datos</a>
+<ul>
+<li class="chapter" data-level="" data-path="capa-de-enlace-de-datos.html"><a href="capa-de-enlace-de-datos.html#resumen-2"><i class="fa fa-check"></i>Resumen</a></li>
+<li class="chapter" data-level="3.1" data-path="capa-de-enlace-de-datos.html"><a href="capa-de-enlace-de-datos.html#introducción-1"><i class="fa fa-check"></i><b>3.1</b> Introducción</a></li>
+<li class="chapter" data-level="3.2" data-path="capa-de-enlace-de-datos.html"><a href="capa-de-enlace-de-datos.html#control-de-errores"><i class="fa fa-check"></i><b>3.2</b> Control de errores</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="capa-de-enlace-de-datos.html"><a href="capa-de-enlace-de-datos.html#detección-de-errores"><i class="fa fa-check"></i><b>3.2.1</b> Detección de errores</a></li>
+<li class="chapter" data-level="3.2.2" data-path="capa-de-enlace-de-datos.html"><a href="capa-de-enlace-de-datos.html#auto-corrección-de-errores"><i class="fa fa-check"></i><b>3.2.2</b> Auto-corrección de errores</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="capa-de-enlace-de-datos.html"><a href="capa-de-enlace-de-datos.html#protocolos-para-corrección-de-errores"><i class="fa fa-check"></i><b>3.3</b> Protocolos para corrección de errores</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="capa-de-enlace-de-datos.html"><a href="capa-de-enlace-de-datos.html#protocolo-stop-and-wait"><i class="fa fa-check"></i><b>3.3.1</b> Protocolo Stop and Wait</a></li>
+<li class="chapter" data-level="3.3.2" data-path="capa-de-enlace-de-datos.html"><a href="capa-de-enlace-de-datos.html#protocolo-de-bit-alternado"><i class="fa fa-check"></i><b>3.3.2</b> Protocolo de bit alternado</a></li>
+<li class="chapter" data-level="3.3.3" data-path="capa-de-enlace-de-datos.html"><a href="capa-de-enlace-de-datos.html#protocolos-de-ventanas-deslizantes"><i class="fa fa-check"></i><b>3.3.3</b> Protocolos de ventanas deslizantes</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="redes-locales.html"><a href="redes-locales.html"><i class="fa fa-check"></i><b>4</b> Redes locales</a>
+<ul>
+<li class="chapter" data-level="" data-path="redes-locales.html"><a href="redes-locales.html#resumen-3"><i class="fa fa-check"></i>Resumen</a></li>
+<li class="chapter" data-level="4.1" data-path="redes-locales.html"><a href="redes-locales.html#introducción-2"><i class="fa fa-check"></i><b>4.1</b> Introducción</a></li>
+<li class="chapter" data-level="4.2" data-path="redes-locales.html"><a href="redes-locales.html#ethernetieee-802.3"><i class="fa fa-check"></i><b>4.2</b> Ethernet/IEEE 802.3</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="redes-locales.html"><a href="redes-locales.html#csmacd"><i class="fa fa-check"></i><b>4.2.1</b> CSMA/CD</a></li>
+<li class="chapter" data-level="4.2.2" data-path="redes-locales.html"><a href="redes-locales.html#formato-de-la-trama"><i class="fa fa-check"></i><b>4.2.2</b> Formato de la trama</a></li>
+<li class="chapter" data-level="4.2.3" data-path="redes-locales.html"><a href="redes-locales.html#implementaciones"><i class="fa fa-check"></i><b>4.2.3</b> Implementaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="redes-locales.html"><a href="redes-locales.html#redes-locales-inalámbricas"><i class="fa fa-check"></i><b>4.3</b> Redes locales inalámbricas</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="redes-locales.html"><a href="redes-locales.html#protocolo-de-acceso"><i class="fa fa-check"></i><b>4.3.1</b> Protocolo de Acceso</a></li>
+<li class="chapter" data-level="4.3.2" data-path="redes-locales.html"><a href="redes-locales.html#implementaciones-1"><i class="fa fa-check"></i><b>4.3.2</b> Implementaciones</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="redes-locales.html"><a href="redes-locales.html#conmutacion"><i class="fa fa-check"></i><b>4.4</b> Conmutacion</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="redes-locales.html"><a href="redes-locales.html#principio-de-operación"><i class="fa fa-check"></i><b>4.4.1</b> Principio de operación</a></li>
+<li class="chapter" data-level="4.4.2" data-path="redes-locales.html"><a href="redes-locales.html#conmutadores-transparentes---operación"><i class="fa fa-check"></i><b>4.4.2</b> Conmutadores transparentes - operación</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="redes-locales.html"><a href="redes-locales.html#protocolo-spanning-tree"><i class="fa fa-check"></i><b>4.5</b> Protocolo Spanning Tree</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="redes-locales.html"><a href="redes-locales.html#protocolo-spanning-tree-1"><i class="fa fa-check"></i><b>4.5.1</b> Protocolo Spanning Tree</a></li>
+<li class="chapter" data-level="" data-path="redes-locales.html"><a href="redes-locales.html#asignación-del-puente-raíz"><i class="fa fa-check"></i>Asignación del Puente Raíz</a></li>
+<li class="chapter" data-level="" data-path="redes-locales.html"><a href="redes-locales.html#temporizadores-y-reconfiguración-de-la-topología"><i class="fa fa-check"></i>Temporizadores y reconfiguración de la topología</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="redes-locales.html"><a href="redes-locales.html#rapid-stp"><i class="fa fa-check"></i><b>4.6</b> Rapid STP</a></li>
+<li class="chapter" data-level="4.7" data-path="redes-locales.html"><a href="redes-locales.html#agregación-de-enlaces"><i class="fa fa-check"></i><b>4.7</b> Agregación de enlaces</a></li>
+<li class="chapter" data-level="4.8" data-path="redes-locales.html"><a href="redes-locales.html#redes-locales-virtuales"><i class="fa fa-check"></i><b>4.8</b> Redes locales virtuales</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="redes-locales.html"><a href="redes-locales.html#criterios-de-membresía"><i class="fa fa-check"></i><b>4.8.1</b> Criterios de membresía</a></li>
+<li class="chapter" data-level="4.8.2" data-path="redes-locales.html"><a href="redes-locales.html#etiquetado-de-vlan"><i class="fa fa-check"></i><b>4.8.2</b> Etiquetado de VLAN</a></li>
+<li class="chapter" data-level="4.8.3" data-path="redes-locales.html"><a href="redes-locales.html#puertos-de-acceso-y-de-trunking"><i class="fa fa-check"></i><b>4.8.3</b> Puertos de acceso y de trunking</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="redes-locales.html"><a href="redes-locales.html#problemas-2"><i class="fa fa-check"></i><b>4.9</b> Problemas</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Redes de Computadoras</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="capa-de-enlace-de-datos" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Capítulo 3</span> Capa de enlace de datos<a href="capa-de-enlace-de-datos.html#capa-de-enlace-de-datos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="resumen-2" class="section level2 unnumbered hasAnchor">
+<h2>Resumen<a href="capa-de-enlace-de-datos.html#resumen-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La capa de enlace de datos se encarga de enviar una secuencia de datos
+acotada (una PDU, <em>Protocol Data Unit</em>) entre dos dispositivos a través
+de un canal de comunicación o enlace. Los dispositivos pueden ser un
+equipo terminal y un nodo de conmutación o dos nodos de conmutación
+intermedios (también pueden ser dos equipos terminales, pero en este
+caso, no tenemos propiamente una red). A la secuencia de datos suele
+llamársele trama en esta capa.</p>
+<p>Además de formar la trama, esta capa suele encargarse de verificar que llega al siguiente dispositivo sin errores, o por lo menos de
+detectar que ha ocurrido un error durante la transmisión. Los principios
+básicos utilizados para la detección de errores (y la eventual
+retransmisión en caso de que ocurran) se presentan en este
+capítulo. Estos conceptos se retoman y amplían en el capítulo
+correspondiente a la Capa de Transporte, donde se verifica la integridad
+de la información de extremo a extremo, es decir, entre equipos
+terminales.</p>
+</div>
+<div id="introducción-1" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Introducción<a href="capa-de-enlace-de-datos.html#introducción-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Como se ha comentado en capítulos anteriores, las señales que se
+propagan por un canal de comunicaciones están sujetas a una serie de
+afectaciones, como distorsión, atenuación e interferencia, por lo que
+siempre hay una probabilidad (a veces alta) de que lo que se recibe sea
+distinto a lo que se envía, es decir, que haya ocurrido un error.</p>
+<p>La función principal de la capa de enlace de datos, es precisamente
+detectar la ocurrencia de esos errores y, en ocasiones, recuperarse de
+esos errores ya sea porque la información se retransmite o, como veremos
+en un momento, porque se envían datos adicionales (redundantes) que
+permiten la auto-corrección.</p>
+<p>Esta detección de errores se da entre equipos o nodos conectados
+directamente. Estos pueden ser un equipo terminal (como una computadora,
+un servidor de archivos, una impresora) y un equipo intermedio (como un
+modem, un <em>Access Point</em>, un conmutador, un enrutador) o entre equipos
+intermedios.</p>
+<p>Por razones históricas, los equipos terminales se conocen como DTE
+(<em>Data terminal equipment</em>) y son las fuentes o destinatarios de los
+datos a intercambiar. Entre ellos y la red, debe haber un dispositivo
+que adapta los datos a las características del servicio ofrecido por la
+red (imagine actualmente un proveedor de acceso a Internet). A ese
+dispositivo se le conoce como DCE (<em>Data circuit-terminating equipment o
+data communications equipment</em>). La figura <a href="capa-de-enlace-de-datos.html#fig:dtedce">3.1</a> muestra dónde se ubican los DTE y DCE en un <em>circuito de datos</em>, la trayectoria entre dos DCE conectados a equipos terminales.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:dtedce"></span>
+<img src="figuras/c2/dtedce.jpg" alt="*Circuito de datos.*" width="70%" />
+<p class="caption">
+Figura 3.1: <em>Circuito de datos.</em>
+</p>
+</div>
+<p>En términos del modelo de OSI, la capa de enlace de datos ofrece sus
+servicios a la capa de red. Recibe de y le entrega a ésta una unidad de
+datos (un SDU) que, recordemos, en la capa de red se llama datagrama o
+paquete. Para ofrecer el servicio de detección (y posiblemente
+corrección) de errores, es que se requiere de un protocolo en la capa de
+enlace de datos, como se aprecia en la figura <a href="capa-de-enlace-de-datos.html#fig:svcl2">3.2</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:svcl2"></span>
+<img src="figuras/c2/svcl2.jpg" alt="*La capa de enlace de datos presta sus servicios a la capa de red.*" width="70%" />
+<p class="caption">
+Figura 3.2: <em>La capa de enlace de datos presta sus servicios a la capa de red.</em>
+</p>
+</div>
+<p>En el emisor, esta capa recibe un datagrama de su capa superior y, en
+principio, debe entregar uno prácticamente idéntico a la capa superior
+del receptor. Pero para detectar errores, se debe enviar información
+adicional, por ejemplo, un campo con información redundante. Asimismo,
+debe haber un mecanismo a través del cual el receptor pueda notificar si
+hubo o no un error en la transmisión.</p>
+<p>Por otra parte, es necesario identificar al emisor y receptor de la
+información en este nivel, ya sea porque el medio es compartido, o
+porque el mismo enlace (de datos), puede estar transportando flujos de
+información de distintas fuentes. Además, en algunas tecnologías de red,
+se debe indicar dónde comienza y dónde termina el PDU en esta capa
+(delimitadores de inicio y fin de trama. Es por ello que al datagrama
+que viene de la capa superior, se le debe añadir información adicional,
+representada por los campos <em>header</em> y <em>trailer</em> de la figura <a href="capa-de-enlace-de-datos.html#fig:svcl2">3.2</a>.</p>
+<p><em>El armado de esta trama</em> es la primer función de la capa de enlace de
+datos. Se añaden campos adicionales que iremos descubriendo a lo largo
+de este capítulo, y el datagrama de la capa de red es simplemente el
+<strong>campo de datos</strong> o carga útil de la trama.</p>
+</div>
+<div id="control-de-errores" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Control de errores<a href="capa-de-enlace-de-datos.html#control-de-errores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En la actualidad la mayoría de los medios físicos cableados son muy
+confiables (en el caso de la fibra óptica, extremadamente confiables),
+mientras que por muy diversos factores, las comunicaciones inalámbricas
+suelen tener una probabilidad no despreciable de que las tramas se dañen
+(o corrompan).</p>
+<p>En cualquier caso, es muy importante poder detectar que una trama se ha
+dañado. A esto se le conoce como <em>detección de errores</em>. Si la
+probabilidad de error es muy baja, como en las redes locales y en los
+enlaces de fibra óptica, una trama dañada simplemente se descarta, y se
+deja a las capas superiores (en particular, a la capa de transporte),
+que se ocupe de “recuperarla”.</p>
+<p>En otros casos, como ocurría en las primeras redes de computadoras,
+correspondía a la capa de enlace de datos solicitar la retransmisión de
+una trama que llegó con error, o de una que simplemente no llegó. Así
+como puede ser que una trama no llegue (por ejemplo, el caso en el que
+en el nodo anterior el buffer estaba lleno y tuvo que ser descartada, o
+lo que se dañó fue el identificador del destinatario), puede ocurrir que
+la trama llegue duplicada (como veremos más adelante, esto suele ocurrir
+porque el emisor retransmite indebidamente una trama). Por estos casos,
+será necesario agregar un <strong>número de secuencia</strong> a las tramas con el
+cual nos será posible identificarlas.</p>
+<div id="detección-de-errores" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Detección de errores<a href="capa-de-enlace-de-datos.html#detección-de-errores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para detectar un error lo que se hace es agregar a la trama información
+adicional generada tanto en el emisor como en el receptor. Con base en ello, el receptor puede determinar con alta probabilidad, si hubo o no un error en la transmisión.
+Hay muchas técnicas para ello y varían, justamente, en la precisión (la capacidad de no dejar pasar errores inadvertidos) y de la complejidad. En esta
+sección veremos algunos ejemplos.</p>
+<div id="detección-de-paridad" class="section level4 unnumbered hasAnchor">
+<h4>Detección de paridad<a href="capa-de-enlace-de-datos.html#detección-de-paridad" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>La detección de errores por bit de paridad es sumamente conocida en
+computación pues así es como se solía verificar la integridad de las
+palabras de memoria RAM. También era popular para la transmisión de
+caracteres ASCII en algunos protocolos de comunicación.</p>
+<p>La idea básica es añadir un bit llamado de paridad a cada octeto o
+palabra, de manera que la suma de todos los bits, incluyendo el de
+paridad, sea par (paridad par) o impar (paridad non). Por ejemplo, si el
+octeto tiene un valor 00110110 y se quiere verificar la integridad con
+paridad non, el bit de paridad tendría un valor de “1”.</p>
+<p>Este es un mecanismo muy sencillo y de bajo costo, pero únicamente puede
+detectar un número impar de errores en una palabra. En comunicaciones
+esto no es apropiado, pues cuando hay errores por interferencia, éstos
+suelen afectar una secuencia de bits, por lo que este método tiene
+únicamente una fiabilidad de 50%.</p>
+<p>Una pequeña mejora consiste en agrupar una secuencia de palabras a
+transmitir como una matriz, y calcular tanto la paridad de cada palabra,
+llamada VRC, <em>Vertical Redundancy Check</em>, como la de cada renglón,
+llamada LRC, <em>Longitudinal Redundancy Check</em>. En la tabla de la figura <a href="capa-de-enlace-de-datos.html#fig:paridad">3.3</a> se muestra un ejemplo de este método para la palabra “Hola”. Cada columna representa el código ASCII de la letra correspondiente y se está utilizando paridad non. En la transmisión se suele enviar cada letra con su bit de paridad y posteriormente el patrón correspondiente al valor
+LRC calculado, pero se permiten otras variantes siempre y cuando
+transmisor y receptor sigan las mismas reglas.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:paridad"></span>
+<img src="tablas/paridad.JPG" alt="*Ejemplo para la generación de bits verificadores LRC y VRC.*" width="40%" />
+<p class="caption">
+Figura 3.3: <em>Ejemplo para la generación de bits verificadores LRC y VRC.</em>
+</p>
+</div>
+<p>La combinación VRC/LRC es un poco más confiable. Permite detectar
+errores en pequeñas secuencias y, en caso de errores individuales, hasta
+pueden corregirse automáticamente. El problema, en su aplicación
+práctica, es que no se puede saber si efectivamente ha habido error en
+un solo bit, o combinaciones de errores en parejas de bits, que pasan
+inadvertidas.</p>
+</div>
+<div id="checksum" class="section level4 unnumbered hasAnchor">
+<h4>Checksum<a href="capa-de-enlace-de-datos.html#checksum" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>La detección de errores por validación de suma o Checksum también es un
+método muy sencillo y un poco más confiable que la verificación por
+paridad VRC/LRC. Consiste en considerar todos los octetos en la trama como
+números binarios sin signo y calcular la suma típicamente en complemento
+a 1, lo que significa que si hay un acarreo de salida, se incrementa en
+uno el resultado. El valor resultante, que es de la misma longitud (un
+octeto o una palabra), se complementa a unos y se agrega al final de la
+trama.</p>
+<p>El receptor hace una operación similar, incluyendo el campo de checksum
+recibido. El complemento a unos de la suma en el receptor debe ser cero;
+de lo contrario, se tiene la certeza de que la trama tuvo un error y
+debe ser descartada.</p>
+<p>En la figura <a href="capa-de-enlace-de-datos.html#fig:checksum">3.4</a> se muestra un ejemplo del cálculo de checksum
+para el mensaje “Hola” en el transmisor, y la verificación en el
+receptor.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:checksum"></span>
+<img src="tablas/checksum.JPG" alt="*Ejemplo de verificación de integridad mediante sumas en complemento a unos.*" width="85%" />
+<p class="caption">
+Figura 3.4: <em>Ejemplo de verificación de integridad mediante sumas en complemento a unos.</em>
+</p>
+</div>
+<p>El método de checksum se utiliza con cierta frecuencia para verificar la
+integridad de datos almacenados y en protocolos en la capa de aplicación
+debido a su simplicidad. Para las capas inferiores no es un método
+recomendable porque sigue siendo poco confiable: combinaciones de
+errores en distintas palabras pueden producir el mismo patrón de
+verificación.</p>
+</div>
+<div id="códigos-cíclicos-redundantes" class="section level4 unnumbered hasAnchor">
+<h4>Códigos cíclicos redundantes<a href="capa-de-enlace-de-datos.html#códigos-cíclicos-redundantes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>En este método, al igual que en el caso anterior, se agregan bits de
+redundancia al final de la secuencia de datos a transmitir. Estos bits
+se generan como el remanente de una división binaria utilizando
+aritmética módulo 2.</p>
+<p>Si se agregó el remanente de una división a la secuencia, ésta es
+exactamente divisible por el divisor. Eso es lo que hace el receptor:
+divide el mensaje que llega, formado por la secuencia más el código de
+verificación (los bits de redundancia) y si el remanente es cero, se
+tiene una muy alta probabilidad de que el mensaje llegó sin error.</p>
+<p>El método funciona de la siguiente manera:</p>
+<ul>
+<li><p>D es el mensaje original, por ejemplo <span class="math inline">\(D=11010100\)</span>. Se va a
+representar como un polinomio <span class="math inline">\(D(x)\)</span> con coeficientes 0 y 1:<br />
+<span class="math inline">\(D(x) = 1\times x^7+1\times x^6 + 0\times x^5+1\times x^4+0\times x^3+1\times x^2+0\times x^1+0\times x^0\)</span></p></li>
+<li><p>G(x) es el divisor, conocido como el polinomio generador. Usemos
+como ejemplo<br />
+<span class="math inline">\(G(x) = 1\times x^3+0\times x^2+1\times x^1+1\times x^0\)</span>, es decir,
+<span class="math inline">\(G=1011\)</span>. El grado de este polinomio es <span class="math inline">\(r=3\)</span>.</p></li>
+<li><p>La secuencia original se multiplica por <span class="math inline">\(2^r\)</span>, lo que equivale a
+agregar r ceros a la derecha:<br />
+<span class="math inline">\(D^\prime = 11010100\color{red}{000}\)</span></p></li>
+<li><p>Se divide <span class="math inline">\(D^\prime\)</span> por <span class="math inline">\(G(x)\)</span> utilizando aritmética módulo 2. En
+la aritmética módulo 2, no hay acarreo ni préstamo; la suma y la
+resta son idénticas y equivalen a la operación binaria XOR. El
+verificador del mensaje es el remanente <span class="math inline">\(E(x)\)</span>.</p></li>
+<li><p>Se transmite el mensaje original junto con el remanente <span class="math inline">\(E(x)\)</span></p></li>
+<li><p>En el receptor, se divide la secuencia recibida entre <span class="math inline">\(G(x)\)</span> y se
+revisa que el remanente sea cero. De no ser así, la trama debe ser
+descartada.</p></li>
+</ul>
+<p>La figura <a href="capa-de-enlace-de-datos.html#fig:crc">3.5</a> muestra conceptualmente la generación del código verificador en el transmisor, del lado izquierdo, y la verificación de la trama en el receptor del lado derecho para los valores de ejemplo que hemos usado en esta sección.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:crc"></span>
+<img src="figuras/c2/crc.jpg" alt="*Ejemplo de generación de bits redundantes con CRC (izquierda) y verificación de integridad (derecha).*" width="70%" />
+<p class="caption">
+Figura 3.5: <em>Ejemplo de generación de bits redundantes con CRC (izquierda) y verificación de integridad (derecha).</em>
+</p>
+</div>
+<p>Los métodos de CRC para detección de errores son, por mucho, los más
+utilizados en redes de computadoras. En primer lugar, tienen excelentes
+propiedades para detección de errores. Un CRC con un polinomio generador
+de grado r detecta:</p>
+<ul>
+<li><p>Todos los errores de un bit</p></li>
+<li><p>Casi todos los errores de dos bits</p></li>
+<li><p>Cualquier número impar de errores</p></li>
+<li><p>Todos los errores que ocurren en ráfagas <span class="math inline">\(\le r\,\text{bits}\)</span></p></li>
+</ul>
+<p>Lo más sorprendente, es que si la transmisión de datos es en serie, como
+ocurre en prácticamente todas las redes, el circuito para generar y
+verificar la trama es muy simple. Dado que la resta en la división es
+una operación XOR y el polinomio generador se va “restando”
+secuencialmente de la trama de datos, el circuito está conformado por un
+registro de corrimientos con <span class="math inline">\(r\)</span> flip-flops D, con compuertas XOR en los
+elementos que corresponden a coeficientes igual a 1 en el generador.
+Para nuestro generador <span class="math inline">\(G= 1011\)</span>, el circuito es el de la
+figura <a href="capa-de-enlace-de-datos.html#fig:crccto">3.6</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:crccto"></span>
+<img src="figuras/c2/crccto.jpg" alt="*Registro de corrimientos para el Generador $G(x) = x^3+x^1+1$.*" width="70%" />
+<p class="caption">
+Figura 3.6: <em>Registro de corrimientos para el Generador <span class="math inline">\(G(x) = x^3+x^1+1\)</span>.</em>
+</p>
+</div>
+<p>En el transmisor los flip-flops se inicializan con cero. La secuencia de
+datos <span class="math inline">\(D\)</span> se introduce al registro de corrimientos y se envía por el
+canal. Al final, el patrón que queda en el registro de corrimientos
+corresponde al remanente y es el que se envía junto con la secuencia.</p>
+<p>En el receptor, el registro también se inicializa con cero; la trama se
+introduce al registro bit a bit, incluyendo los bits de redundancia. Al
+final, si no hubo error en la trama, los flip-flops del registro deben
+contener cero.</p>
+<p>La tabla <a href="capa-de-enlace-de-datos.html#t:polpop">3</a>{reference-type=“ref” @ref(t:polpop”}
+muestra algunos de los polinomios generadores más populares en redes de
+computadoras.</p>
+<div id="t:polpop">
+<table>
+<caption><em>Algunos polinomios generadores bien conocidos</em></caption>
+<thead>
+<tr class="header">
+<th align="center">CRC</th>
+<th align="left">                G(X)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">CRC-8</td>
+<td align="left"><span class="math inline">\(X^8+X^2+X^1+1\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">CRC-10</td>
+<td align="left"><span class="math inline">\(X^{10}+X^9+X^5+X^4+X^1+1\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">CRC-12</td>
+<td align="left"><span class="math inline">\(X^{12}+X^{11}+X^3+X^2+X^1+1\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">CRC-16</td>
+<td align="left"><span class="math inline">\(X^{16}+X^{15}+X^2+1\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">CRC-CCITT</td>
+<td align="left"><span class="math inline">\(X^{16}+X^{12}+X^5+1\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">CRC-32</td>
+<td align="left"><span class="math inline">\(X^{32}+X^{26}+X^{23}+X^{22}+X^{16}+X^{12}+\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="left"><span class="math inline">\(X^{11}+X^{10}+X^8+X^7+X^5+X^4+X^2+X^1+1\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span id="t:polpop" label="t:polpop"></span></p>
+</div>
+</div>
+<div id="auto-corrección-de-errores" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Auto-corrección de errores<a href="capa-de-enlace-de-datos.html#auto-corrección-de-errores" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Como se mostrará más adelante, en ocasiones es sumamente ineficiente (y
+a veces imposible) solicitar la retransmisión de una trama que ha
+llegado con error. Para estos casos, se han propuesto códigos
+auto-correctores basados en teoría de la información que añaden
+redundancia a la información de manera tal que son capaces de corregir
+automáticamente algunos de los patrones de errores que ocurren con mayor
+frecuencia.</p>
+<p>Un ejemplo es la codificación Reed-Solomon, muy utilizada para proteger
+las pistas de música en los discos compactos (CD). Si hay un daño
+(pequeño) en la superficie del disco, la redundancia añadida al grabar
+el disco permite reproducir la canción con bastante fidelidad.</p>
+<p>En redes de comunicaciones a este tipo de esquemas se les conoce como
+FEC, <em>Forward Error Correction</em>. Uno de los primeros, y de los más
+sencillos es la codificación de Hamming, que es la que presentaremos
+brevemente. Mecanismos FEC mucho más poderosos son los códigos Viterbi o
+los utilizados en los llamados turbo-códigos, basados códigos
+convolucionales, que se emplean en las comunicaciones espaciales modernas. Su complejidad rebasa el alcance de estas notas.</p>
+<p>La idea básica es utilizar más bits de los estrictamente necesarios para
+codificar un “símbolo”. Por ejemplo, si deseamos codificar un “alfabeto”
+con cuatro letras, se necesitan únicamente 2 bits, pues <span class="math inline">\(2^2=4\)</span>, pero
+podríamos codificar cada una de esas letras con un patrón de, digamos,
+10 bits.</p>
+<p>Se le llama <strong>distancia de Hamming, <span class="math inline">\(d\)</span>,</strong> al número de bits en que
+difieren dos palabras del mismo código y se obtiene simplemente al aplicar
+el XOR entre las dos palabras y contar el número de unos. Si en nuestro
+ejemplo se eligen códigos adecuados para las cuatro letras, se
+necesitan <span class="math inline">\(d\)</span> errores para que el código de una letra se “transforme” en
+el código de otra, generando un error en el mensaje.</p>
+<p>En términos generales si una palabra tiene <span class="math inline">\(m\)</span> bits, se pueden tener
+<span class="math inline">\(2^m\)</span> combinaciones o mensajes (en el ejemplo del párrafo anterior, con
+<span class="math inline">\(m=2\)</span> se puede tener un patrón distinto para cada una de las cuatro
+letras de nuestro alfabeto). Si queremos ser capaces de detectar y
+<em>corregir</em> errores en el mensaje (en la codificación de una letra),
+debemos agregar <span class="math inline">\(r\)</span> bits de redundancia, de manera que cada mensaje está
+codificado con un patrón de <span class="math inline">\(n = m+r\)</span> bits.</p>
+<p>Para poder corregir <strong>UN error</strong>, cada uno de los <span class="math inline">\(2^m\)</span> debe tener
+asociado <span class="math inline">\(n\)</span> palabras que difieren de él en un solo bit y, por supuesto,
+que no forman otro mensaje de nuestro “alfabeto”. Entonces tenemos (para
+un bit):</p>
+<p><span class="math display">\[\begin{aligned}
+(n+1)\times 2^m &amp;\le 2^n  \#\text{n palabras distintas + 1 correcta}\\
+(m+r+1)\times 2^m &amp;\le 2^{m+r}\\
+2^{m+r} &amp;\ge (m+r+1)\times 2^m\\
+2^r &amp; \ge m+r+1
+\end{aligned}\]</span></p>
+<p>En particular, si se desea proteger caracteres codificados en ASCII sin
+extensiones que tienen un patrón de 7 bits, necesitamos añadir 4 bits de
+redundancia: <span class="math inline">\(2^4=16 \ge (7+4+1) = 12\)</span>.</p>
+<div id="código-de-hamming" class="section level4 unnumbered hasAnchor">
+<h4>Código de Hamming<a href="capa-de-enlace-de-datos.html#código-de-hamming" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>En 1950 Richard Hamming ideó un ingenioso método posicional para
+detectar y corregir errores en las tarjetas perforadas que se utilizaban
+para introducir código y datos en las computadoras de aquella época. El
+método es el siguiente:</p>
+<ol style="list-style-type: decimal">
+<li><p>Se calcula el número de bits de redundancia necesarios para proteger
+los mensajes, de acuerdo a la ecuación anterior. En el ejemplo que
+sigue, utilizaremos mensajes de seis bits, por lo que necesitaremos
+<span class="math inline">\(r=4\)</span> bits de redundancia.</p></li>
+<li><p>En las secuencias codificadas, se reservan las posiciones de las
+potencias de 2 para los bits de verificación. En nuestro ejemplo, se
+reservan las posiciones <span class="math inline">\(2^0=1, 2^1=2, 2^2=4, 2^3=8\)</span> para los bits
+redundantes. Nuestras secuencias tendrán 10 bits: 6 del mensaje más
+4 de los códigos de verificación.</p></li>
+<li><p>El valor de los bits de verificación se determina calculando la
+paridad de los bits de datos en función de su posición, descompuesta
+en valor binario. Por ejemplo, el primer bit del mensaje está en la
+tercera posición (las primeras dos están ocupadas por bits de
+verificación) y por tanto será utilizado para calcular la paridad de
+los bits de verificación en las posiciones 1 y 2, dado que
+<span class="math inline">\(3 = 2^0+2^1=1+2\rightarrow 1, 2\)</span>.</p>
+<p>De forma similar, el quinto bit del mensaje, que se encontrará en la
+posición 9 del código, contribuye a calcular la paridad de los bits
+de verificación en las posiciones 1 y 8:
+<span class="math inline">\(9 = 2^0+2^3=1+8\rightarrow 1,8\)</span>.</p></li>
+<li><p>En el receptor se sigue un procedimiento similar y se aplica la
+operación XOR entre los bits de redundancia recibidos y los
+calculados. Si el resultado es cero, no hubo error. Si es distinto
+de cero, indica qué bit es el incorrecto y se puede corregir
+automáticamente. Una observación: para determinar la posición del
+bit en decimal, se debe invertir el orden de los bits.</p></li>
+</ol>
+<p>La figura <a href="capa-de-enlace-de-datos.html#fig:ejhamming">3.7</a> muestra un ejemplo de cómo se calculan los
+bits de redundancia al transmitir un mensaje con tres palabras de 6 bits
+cada una (pasos 1 a 4). Por ejemplo, el bit de verificación en la
+posición 2 se calcula con la paridad non de los bits de datos en las
+posiciones 3, 6, 7 y 10).</p>
+<p>La tabla 5 ejemplifica un bit erróneo (en color morado) en cada palabra
+y los bits de verificación resultantes. Se resaltan en verde los bits de
+verificación que cambiaron.</p>
+<p>Finalmente, al aplicar el XOR entre los bits de verificación recibidos y
+los calculados, se obtiene la posición del bit erróneo en cada palabra.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ejhamming"></span>
+<img src="figuras/c2/ejhamming.JPG" alt="*Ejemplo para calcular los bits de verificación utilizando códigos de hamming.*" width="99%" />
+<p class="caption">
+Figura 3.7: <em>Ejemplo para calcular los bits de verificación utilizando códigos de hamming.</em>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="protocolos-para-corrección-de-errores" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Protocolos para corrección de errores<a href="capa-de-enlace-de-datos.html#protocolos-para-corrección-de-errores" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Los mecanismos de auto-corrección de errores agregan mucha redundancia y
+están muy limitados en la cantidad de errores que pueden corregir. En la
+práctica, sólo se utilizan cuando la retransmisión de la información
+dañada es imposible o muy poco práctica.</p>
+<p>Lo más común en redes de comunicaciones, es utilizar mecanismos en los
+que el receptor notifica la correcta recepción de la trama a través de
+un acuse de recibo (PAR, <em>Positive Acknowledge Reception</em>). Una trama
+recibida con error o no recibida, activa automáticamente la
+retransmisión de la trama. Por eso, estos mecanismos se conocen
+genéricamente como <strong>Protocolos ARQ, <em>Automatic Repeat reQuest</em></strong>.
+Existen muchas variaciones de estos protocolos. En esta sección
+presentamos los conceptos básicos.</p>
+<div id="protocolo-stop-and-wait" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Protocolo Stop and Wait<a href="capa-de-enlace-de-datos.html#protocolo-stop-and-wait" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El principio de operación del protocolo Stop and Wait (parada y espera),
+también llamado Send and Wait, se muestra en la figura <a href="capa-de-enlace-de-datos.html#fig:stopw1">3.8</a>. A
+la izquierda se encuentra el transmisor. La capa superior (en este caso,
+la capa de red) solicita transmitir un datagrama. La capa de enlace de
+datos calcula la secuencia de verificación de integridad (con un
+CheckSum o CRC), arma la trama (el PDU de datos) y la envía. Al mismo
+tiempo, activa un temporizador.</p>
+<p>Un poco más tarde (el retardo de propagación se representa con la
+pequeña inclinación de la flecha) la trama llega al destinatario. Éste
+verifica que la trama ha llegado correctamente y envía de regreso un
+acuse de recibo positivo (ACK). Al mismo tiempo, notifica a la capa
+superior de que tiene datos para ella.</p>
+<p>Mientras se está en espera del acuse, la capa superior solicita el envío
+de otro datagrama. Esta solicitud se retiene hasta que llegue el acuse
+de la trama anterior. Por eso el protocolo se llama Stop and Wait: envía
+la trama y se detiene en espera del acuse de recibo.</p>
+<p>La siguiente trama se pierde o sufre alguna perturbación y llega al
+destino con información incorrecta. En esta implementación del
+protocolo, la trama es descartada y NO se envía el acuse de recibo. Esa
+es la función del temporizador: Si cuando éste se agota no se ha
+recibido el acuse, la trama se reenvía automáticamente (ARQ).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:stopw1"></span>
+<img src="figuras/c2/stopw1.jpg" alt="*Protocolo Stop and Wait. Una trama dañada.*" width="95%" />
+<p class="caption">
+Figura 3.8: <em>Protocolo Stop and Wait. Una trama dañada.</em>
+</p>
+</div>
+<p>Si la trama llega incorrecta, el receptor podría enviar un acuse
+notificando el error, lo que se conoce como Acuse de Recibo Negativo,
+<strong>NACK</strong>. Varios protocolos implementan este mecanismo y, de hecho,
+mejora la eficiencia de la comunicación al no tener que esperar que se
+active el temporizador. Sin embargo, su uso es poco común pues se
+argumenta que aumenta mucho la complejidad de los protocolos y ésta no
+se justifica si los errores son relativamente raros.</p>
+<p>Es posible que la trama llegó correctamente pero su acuse se dañó o se
+perdió, como se muestra en la figura <a href="capa-de-enlace-de-datos.html#fig:stopw2">3.9</a> (la figura está simplificada para mayor claridad). En ese caso, al agotarse el temporizador, el emisor enviará nuevamente la trama, pero para el receptor esta es una trama duplicada que debe descartarse.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:stopw2"></span>
+<img src="figuras/c2/stopw2.jpg" alt="*Acuse de recibo dañado.*" width="40%" />
+<p class="caption">
+Figura 3.9: <em>Acuse de recibo dañado.</em>
+</p>
+</div>
+</div>
+<div id="protocolo-de-bit-alternado" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Protocolo de bit alternado<a href="capa-de-enlace-de-datos.html#protocolo-de-bit-alternado" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Para resolver el problema de recepción de tramas duplicadas, lo que debe
+hacerse es enumerar las tramas y los acuses de recibo agregando un campo
+llamado <strong>Número de Secuencia</strong>. Como solamente hay una trama en
+tránsito (es decir, en camino del emisor al receptor) y no se libera
+otra hasta no recibir su acuse, el número de secuencia puede ser de un
+solo bit en el envío de las tramas y de sus acuses de recibo.</p>
+<p>En la figura <a href="capa-de-enlace-de-datos.html#fig:bitalternado">3.10</a> se observa la operación del protocolo de
+bit alternado. El cronograma se coloca de forma horizontal para ahorrar
+espacio. Se observa cómo se van alternando los números de secuencia 0
+y 1. Con el fin de hacer más clara la asignación de números de
+secuencia, se han coloreado las tramas con número de secuencia “0” y sus
+acuses de recibo en azul, y aquéllas con números de secuencia “1” y sus
+ACK en naranja.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bitalternado"></span>
+<img src="figuras/c2/bitalternado.jpg" alt="*Protocolo de bit alternado.*" width="95%" />
+<p class="caption">
+Figura 3.10: <em>Protocolo de bit alternado.</em>
+</p>
+</div>
+<p>La figura muestra cómo el protocolo se recupera automáticamente (ARQ)
+cuando una trama llega dañada (la tercer trama en la figura) y el
+receptor la descarta sin enviar el acuse de recibo, así como cuando lo
+que se pierde (o descarta) es un acuse de recibo. En ambos casos, la
+activación del temporizador reenvía una trama. En el último ejemplo,
+gracias al número de secuencia (con valor 0 en la figura), el receptor
+se da cuenta de que es una trama duplicada; la descarta pero envía el
+acuse de recibo.</p>
+<p>Es muy importante que el valor de los temporizadores esté bien ajustado.
+Si el temporizador es muy corto, se reenviarán tramas innecesariamente,
+como se muestra en la imagen izquierda de la
+figura <a href="capa-de-enlace-de-datos.html#fig:timer">3.11</a>, mientras que si es muy largo (imagen derecha), se pierde mucho tiempo en retransmitir la trama. En ambos casos, el desempeño de la red (un término que definiremos formalmente más adelante), se degrada
+severamente.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:timer"></span>
+<img src="figuras/c2/timer.jpg" alt="*Efecto de temporizadores mal ajustados.*" width="98%" />
+<p class="caption">
+Figura 3.11: <em>Efecto de temporizadores mal ajustados.</em>
+</p>
+</div>
+<p>El valor ideal del temporizador es ligeramente superior al retardo de
+ida y vuelta (RTT, <em>round trip time</em>) que experimentan la trama y su
+acuse de recibo. Dado que este retardo no se conoce a priori y además
+puede variar, este tipo de temporizadores suele ajustarse dinámicamente
+a las condiciones de la red. En el capítulo correspondiente a la capa de
+transporte veremos cómo lo hace el protocolo TCP.</p>
+<p>El protocolo de bit alternado es el primer protocolo propiamente de red
+que hemos visto en el curso. De una manera simple e ingeniosa, busca
+ofrecer un servicio de entrega confiable de datagramas. Sin embargo, su
+simplicidad viene a expensas de una pésima eficiencia.</p>
+<div class="example">
+<p><span id="exm:unnamed-chunk-6" class="example"><strong>Ejemplo 3.1  </strong></span>Considere un enlace de fibra óptica entre dos ciudades a 100 kilómetros
+de distancia. Sin tomar en cuenta ninguna otra fuente de retraso, el
+retardo de ida y vuelta en este enlace sería de
+<span class="math inline">\(t_{RTT}=(2\times 100\,\text{km})/200,000\,\text{km/s}=1\,\text{ms}\)</span>.</p>
+<p>Si la trama es de 8192 bits (1 kByte, lo cual es bastante realista) y la
+velocidad del enlace es de 100 Mb/s, el retardo de transmisión (es
+decir, el tiempo que toma "colocar" la trama en la red es
+<span class="math inline">\(t_t=8,192\,\text{b}/100,000,000\,\text{b/s} \approx 0.08\,\text{ms}\)</span>.
+Es decir, el enlace está ocioso esperando un acuse de recibo cuando se
+podrían estar enviando un poco más de 10 tramas.</p>
+</div>
+</div>
+<div id="protocolos-de-ventanas-deslizantes" class="section level3 hasAnchor" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Protocolos de ventanas deslizantes<a href="capa-de-enlace-de-datos.html#protocolos-de-ventanas-deslizantes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><em>Analizaremos el comportamiento de estos protocolos con mucho mayor
+detalle en el capítulo correspondiente a la capa de transporte. En esta
+sección nos limitaremos a presentar los conceptos básicos</em>.</p>
+<p>El objetivo principal de estos protocolos es mejorar la eficiencia al
+permitir que varias tramas sean transmitidas mientras se espera el acuse
+de recibo. El emisor puede transmitir las tramas que se encuentran dentro de un
+rango o “ventana”, como la mostrada en azul en la
+figura <a href="capa-de-enlace-de-datos.html#fig:slidingw">3.12</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:slidingw"></span>
+<img src="figuras/c2/slidingw.jpg" alt="*Ventana deslizante en el transmisor.*" width="98%" />
+<p class="caption">
+Figura 3.12: <em>Ventana deslizante en el transmisor.</em>
+</p>
+</div>
+<p>Con cada trama enviada, la ventana se “cierra” una posición. En nuestra
+figura, la frontera izquierda de la ventana se recorre a la derecha, de
+la posición 6 a la 7, reduciendo su tamaño en uno. Con cada acuse
+recibido, la ventana se “abre” una posición. En nuestra figura, la
+frontera derecha de la ventana se recorre a la derecha, de la posición 5
+a la 6, ampliando su tamaño en uno. Así es como la ventana se va
+“deslizando” por el conjunto (conceptual) de tramas a ser emitidas.</p>
+<p>El tamaño de la ventana depende de muchos factores que, lamentablemente,
+no podremos analizar por ahora. El tamaño de la ventana determina los
+números de secuencia que, como en el protocolo del bit alternado, pueden
+ser reutilizados. En la figura <a href="capa-de-enlace-de-datos.html#fig:slidingw">3.12</a>, el tamaño de la ventana es de 8 tramas (y por consiguiente, el campo que identifica al número de trama, es de 3 bits).</p>
+<p>En estricto sentido, las variantes más sencillas de esta familia de
+protocolos no requiere de una ventana del lado del receptor. Sin
+embargo, es muy común que ésta se implemente como un buffer en el que se
+almacenan temporalmente las tramas hasta que puedan ser entregadas a la
+capa superior<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a>. Por ello, en las figuras de esta sección estaremos
+mostrando ventanas tanto en el transmisor como en el receptor.</p>
+<p>En la figura <a href="capa-de-enlace-de-datos.html#fig:opsw1">3.13</a> se ejemplifica la operación de este protocolo con un tamaño de ventana de cuatro tramas.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:opsw1"></span>
+<img src="figuras/c2/opsw1.jpg" alt="*Dinámica del protocolo de ventanas deslizantes.*" width="95%" />
+<p class="caption">
+Figura 3.13: <em>Dinámica del protocolo de ventanas deslizantes.</em>
+</p>
+</div>
+<ul>
+<li><p>Inicialmente las ventanas están completamente abiertas, es decir, el
+transmisor puede enviar cuatro tramas y el receptor tiene capacidad
+par aceptarlas todas.</p></li>
+<li><p>Se envían las tramas 0, 1, 2. La ventana del emisor se reduce a 1,
+al igual que la ventana del receptor cuando éstas llegan a su
+destino.</p></li>
+<li><p>Cuando el receptor verifica la integridad de las tramas y puede
+entregarlas a la capa superior, envía el acuse de recibo, con el
+cual la ventana del transmisor (y la suya) se expanden nuevamente.</p>
+<p>Hay dos cosas a resaltar en el acuse de recibo mostrado en la
+figura:</p>
+<ol style="list-style-type: decimal">
+<li><p>Los acuses de recibo positivos suelen indicar siguiente trama
+que se espera recibir, no la trama recibida correctamente. El
+indicador ACK 3 se interpreta como que el receptor espera que la
+siguiente trama a recibir tendrá un número de secuencia 3,
+señalando implícitamente que la última trama recibida
+correctamente, fue la 2.</p></li>
+<li><p>No es necesario, y en realidad es indeseable, enviar un acuse
+por cada trama recibida correctamente. Con el acuse de recibo
+<span class="math inline">\(N\)</span>, se da por sentado que llegaron correctamente hasta la trama
+<span class="math inline">\(N-1\)</span>.</p></li>
+</ol></li>
+</ul>
+<div id="rechazos" class="section level4 unnumbered hasAnchor">
+<h4>Rechazos<a href="capa-de-enlace-de-datos.html#rechazos" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Existen básicamente dos maneras de tratar el caso en que alguna de las
+tramas emitidas en una ventana sufre alguna alteración y llega con
+error: Regreso a N (<em>Go Back to N</em>) y acuses selectivos (<em>Selective
+Acknowledgment</em>).</p>
+<p>Supongamos que se envía una ráfaga de siete tramas con los números de
+secuencia 0 a 6 y la trama 4 llega con error. En Go Back to N se
+retransmiten las tramas 4 en adelante, independientemente de que las
+tramas 5 y 6 hayan llegado correctamente al destino. En rechazos
+selectivos, sólo se pide la retransmisión de la trama 4; la 5 y 6 quedan
+almacenadas en el buffer del receptor que no las entregará a la capa
+superior hasta que la trama 4 haya sido reenviada y recibida
+correctamente.</p>
+<p>Por supuesto, el mecanismo de acuses selectivos permite comunicaciones
+más eficientes pero es mucho más complejo y en la práctica se utiliza
+relativamente poco. Es mucho más frecuente encontrar protocolos Go Back
+to N en las redes contemporáneas.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="17">
+<li id="fn17"><p>IEEE también define un espacio de direcciones de ocho bytes bajo
+el formato EUI-64, pero éstas todavía son muy poco utilizadas.<a href="capa-de-enlace-de-datos.html#fnref17" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="capa-física.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="redes-locales.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-CapaEnlaceDeDatos.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown_RedesComputadoras.pdf", "bookdown_RedesComputadoras.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
